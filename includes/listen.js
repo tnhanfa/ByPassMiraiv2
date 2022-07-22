@@ -23,7 +23,7 @@ module.exports = function ({
         }, _0x26e6(_0x2428d0, _0x17479f);
     }
     function _0x1d17() {
-        const _0x588a03 = ['set', 'getText', '30blgkRI', '2969628CmsViG', 'name', 'allThreadID', 'threadID', 'ADMINBOT', 'allCurrenciesID', '83150EMGxJg', 'loadedEnvironmentThread', '44JeTSqe', '1IZPZiM', 'data', '7419027NdGbTr', 'loader', 'failLoadEnvironment', '372HVpTmT', 'userName', 'userID', 'error', 'threadBanned', 'startLoadEnvironment', 'banned', 'length', 'allUserID', '8wPbHPr', 'listen', 'userBanned', '423572knglHc', 'JRT', 'commandBanned', '21114171cvgVXS', '308435AcJdyC', 'threadData', 'threadInfo', 'getAll', 'reason', 'DATA', '41001iXBmLG', '1206ETzdKD', 'push'];
+        const _0x588a03 = ['set', 'getText', '30blgkRI', '2969628CmsViG', 'name', 'allThreadID', 'threadID', 'ADMINBOT', 'allCurrenciesID', '83150EMGxJg', 'loadedEnvironmentThread', '44JeTSqe', '1IZPZiM', 'data', '7419027NdGbTr', 'loader', 'failLoadEnvironment', '372HVpTmT', 'userName', 'userID', 'error', 'threadBanned', 'startLoadEnvironment', 'banned', 'length', 'allUserID', '8wPbHPr', 'listen', 'userBanned', '423572knglHc', 'TNHAN', 'commandBanned', '21114171cvgVXS', '308435AcJdyC', 'threadData', 'threadInfo', 'getAll', 'reason', 'DATA', '41001iXBmLG', '1206ETzdKD', 'push'];
         _0x1d17 = function () {
             return _0x588a03;
         };
