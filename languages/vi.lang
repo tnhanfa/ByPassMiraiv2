@@ -29,8 +29,8 @@ mirai.finishCheckListGban=Đã kiểm tra xong danh sách BANNED
 mirai.handleListenError=handleListener đã xảy ra một số lỗi không mong muốn, lỗi: %1
 mirai.warningSourceCode=\ntnhan bot update complete!!!
 mirai.refreshListen=Đã làm mới lại handleListener
-mirai.successConnectDatabase=𝐃𝐮̛̃ 𝐥𝐢𝐞̣̂𝐮 𝐁𝐨𝐭 𝐭𝐧𝐡𝐚𝐧 đ𝐚̃ đ𝐮̛𝐨̛̣𝐜 𝐤𝐞̂́𝐭 𝐧𝐨̂́𝐢 𝐭𝐡𝐚̀𝐧𝐡 𝐜𝐨̂𝐧𝐠!!
-mirai.failConnectDatabase=𝐃𝐮̛̃ 𝐥𝐢𝐞̣̂𝐮 𝐁𝐨𝐭 𝐭𝐧𝐡𝐚𝐧 đ𝐚̃ đ𝐮̛𝐨̛̣𝐜 𝐤𝐞̂́𝐭 𝐧𝐨̂́𝐢 𝐭𝐡𝐚̂́𝐭 𝐛𝐚̣𝐢!!, 𝐥𝐨̂̃𝐢: %1. 𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐡𝐚̃𝐲 𝐤𝐢𝐞̂̉𝐦 𝐭𝐫𝐚 𝐥𝐚̣𝐢!!
+mirai.successConnectDatabase=Dữ liệu Bot Tnhan đã được kết nối thành công!!
+mirai.failConnectDatabase=Dữ liệu Bot Tnhan đã được kết nối thất bại, lỗi: %1. Vui lòng hãy kiểm tra lại!!
 
 # includes/listen.js
 
