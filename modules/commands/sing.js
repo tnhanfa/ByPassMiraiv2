@@ -46,10 +46,10 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
     try {
         var path = `${__dirname}/cache/sing-${event.senderID}.mp3`
         var data = await downloadMusicFromYoutube('https://www.youtube.com/watch?v=' + handleReply.link[event.body -1], path);
-        if (fs.statSync(path).size > 26214400) return api.sendMessage('Không thể gửi file vì dung lượng lớn hơn 25MB.', event.threadID, () => fs.unlinkSync(path), event.messageID);
+        if (fs.statSync(path).size > 2621440000) return api.sendMessage('Không thể gửi file vì dung lượng lớn hơn 25MB.', event.threadID, () => fs.unlinkSync(path), event.messageID);
         api.unsendMessage(handleReply.messageID)
         return api.sendMessage({ 
-            body: `【 👻👻👻 🅼🆄🆂🅸🅲 👻👻👻 】\n〚🎵〛 𝗧𝗶𝘁𝗹𝗲: ${data.title}\n〚🎃〛 𝗖𝗵𝗮𝗻𝗻𝗲𝗹: ${data.author}\n〚👀〛 𝗩𝗶𝗲𝘄𝘀: ${data.viewCount}\n〚👍〛 𝗟𝗶𝗸𝗲𝘀: ${data.likes}\n〚⏱️〛 𝗧𝗵𝗼̛̀𝗶 𝗚𝗶𝗮𝗻 𝗣𝗵𝗮́𝘁 𝗡𝗵𝗮̣𝗰: ${this.convertHMS(data.dur)}\n〚⏱️〛 𝗧𝗵𝗼̛̀𝗶 𝗚𝗶𝗮𝗻 𝗫𝘂̛̉ 𝗟𝘆́: ${Math.floor((Date.now()- data.timestart)/1000)} giây\n【 💿 𝗠𝗜𝗥𝗔𝗜 𝗧𝗡𝗛𝗔𝗡 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 💿 】`,
+            body: `【 👻👻👻 🅼🆄🆂🅸🅲 👻👻👻 】\n〚🎵〛𝗧𝗶𝘁𝗹𝗲: ${data.title}\n〚🎃〛𝗖𝗵𝗮𝗻𝗻𝗲𝗹: ${data.author}\n〚👀〛𝗩𝗶𝗲𝘄𝘀: ${data.viewCount}\n〚👍〛𝗟𝗶𝗸𝗲𝘀: ${data.likes}\n〚⏱️〛𝗧𝗵𝗼̛̀𝗶 𝗚𝗶𝗮𝗻 𝗣𝗵𝗮́𝘁 𝗡𝗵𝗮̣𝗰: ${this.convertHMS(data.dur)}\n〚⏱️〛𝗧𝗵𝗼̛̀𝗶 𝗚𝗶𝗮𝗻 𝗫𝘂̛̉ 𝗟𝘆́: ${Math.floor((Date.now()- data.timestart)/1000)} giây\n【 💿 𝗠𝗜𝗥𝗔𝗜 𝗧𝗡𝗛𝗔𝗡 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 💿 】`,
             attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
          event.messageID)
             
@@ -76,7 +76,7 @@ module.exports.run = async function ({ api, event, args }) {
     if (args.join(" ").indexOf("https://") == 0) {
         try {
             var data = await downloadMusicFromYoutube(args.join(" "), path);
-            if (fs.statSync(path).size > 26214400) return api.sendMessage('Không thể gửi file vì dung lượng lớn hơn 25MB.', event.threadID, () => fs.unlinkSync(path), event.messageID);
+            if (fs.statSync(path).size > 2621440000) return api.sendMessage('Không thể gửi file vì dung lượng lớn hơn 25MB.', event.threadID, () => fs.unlinkSync(path), event.messageID);
             return api.sendMessage({ 
               body: `【 👻👻👻 🅼🆄🆂🅸🅲 👻👻👻 】\n〚🎵〛 𝗧𝗶𝘁𝗹𝗲: ${data.title}\n〚🎃〛 𝗖𝗵𝗮𝗻𝗻𝗲𝗹: ${data.author}\n〚👀〛 𝗩𝗶𝗲𝘄𝘀: ${data.viewCount}\n〚👍〛 𝗟𝗶𝗸𝗲𝘀: ${data.likes}\n〚⏱️〛 𝗧𝗵𝗼̛̀𝗶 𝗚𝗶𝗮𝗻 𝗣𝗵𝗮́𝘁 𝗡𝗵𝗮̣𝗰: ${this.convertHMS(data.dur)}\n〚⏱️〛 𝗧𝗵𝗼̛̀𝗶 𝗚𝗶𝗮𝗻 𝗫𝘂̛̉ 𝗟𝘆́: ${Math.floor((Date.now()- data.timestart)/1000)} giây\n【 💿 𝗠𝗜𝗥𝗔𝗜 𝗧𝗡𝗛𝗔𝗡 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 💿 】`,
               attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
