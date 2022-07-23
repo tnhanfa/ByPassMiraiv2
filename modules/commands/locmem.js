@@ -1,7 +1,7 @@
 module.exports.config = {
     name: "locmem",
     version: "1.0.0",
-    hasPermssion: 0,
+    hasPermssion: 1,
     credits: "ManhG",
     description: "",
     commandCategory: "Nhóm",
