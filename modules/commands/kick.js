@@ -4,7 +4,7 @@ module.exports.config = {
 	hasPermssion: 1,
 	credits: "uwu",
 	description: "Kick người dùng",
-	commandCategory: "Nhóm",
+	commandCategory: "Dành cho Quản Trị Viên nhóm",
 	usages: "[tag]",
 	cooldowns: 0,
   };

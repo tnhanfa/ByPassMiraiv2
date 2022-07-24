@@ -4,7 +4,7 @@ module.exports.config = {
     hasPermssion: 1,
     credits: "ManhG",
     description: "",
-    commandCategory: "Nhóm",
+    commandCategory: "Dành cho Quản Trị Viên nhóm",
     depndencies: {},
     usages: "",
     cooldowns: 5
