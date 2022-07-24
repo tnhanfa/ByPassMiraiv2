@@ -4,7 +4,7 @@ module.exports.config = {
     hasPermssion: 1,
     credits: "D-Jukie",
     description: "Thêm người dùng vào nhóm bằng link hoặc uid",
-    commandCategory: "Nhóm",
+    commandCategory: "Dành cho Quản Trị Viên nhóm",
     usages: "adduser [url]",
     cooldowns: 5
 };

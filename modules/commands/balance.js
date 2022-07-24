@@ -3,8 +3,8 @@ module.exports.config = {
 	version: "0.0.1",
 	hasPermssion: 0,
 	credits: "Mirai Team",//mod by ARAXY XD
-	description: "Tài chính",
-	commandCategory: "Coins",
+	description: "",
+	commandCategory: "Tài chính",
 	usages: "[Tag]",
 	cooldowns: 5
 };

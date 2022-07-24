@@ -1,11 +1,11 @@
 module.exports.config = {
-    name: "clmm",
+    name: "chanle",
     version: "1.0.1",
     hasPermssion: 0,
     credits: "D-Jukie",
     description: "Chẵn lẻ momoooo",
     commandCategory: "Game",
-    usages: "clmm [C/L/C2/L2]",
+    usages: "[C/L/C2/L2]",
     cooldowns: 0
 };
 
