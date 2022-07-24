@@ -4,7 +4,7 @@ module.exports.config = {
     hasPermssion: 2,
     credits: "tnhan", //D biet nen de tam:3
     description: "Console bớt nhàm chán hơn",
-    commandCategory: "Hệ thống admin-bot",
+    commandCategory: "Hệ thống",
     cooldowns: 5
 };
 

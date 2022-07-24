@@ -4,7 +4,7 @@ module.exports.config = {
 	hasPermssion: 2,
 	credits: "Thiệu Trung Kiên",
 	description: "Command Prompt",
-	commandCategory: "Hệ thống admin-bot",
+	commandCategory: "Hệ thống",
 	cooldowns: 5,
 	dependencies: {
 		axios: ""
