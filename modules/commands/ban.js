@@ -4,7 +4,7 @@ module.exports.config = {
     hasPermssion: 3,
     credits: "ManhG",
     description: "Xem danh sách ban của nhóm hoặc của người dùng",
-    commandCategory: "Hệ thống admin-bot",
+    commandCategory: "Hệ thống",
     usages: "[thread/user]",
     cooldowns: 5
 }, module.exports.handleReply = async function ({

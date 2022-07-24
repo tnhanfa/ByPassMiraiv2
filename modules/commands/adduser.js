@@ -5,7 +5,7 @@ module.exports.config = {
     credits: "D-Jukie",
     description: "Thêm người dùng vào nhóm bằng link hoặc uid",
     commandCategory: "Dành cho Quản Trị Viên nhóm",
-    usages: "adduser [url]",
+    usages: "[url]",
     cooldowns: 5
 };
 module.exports.run = async function ({ api, event, args, Threads, Users }) {

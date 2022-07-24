@@ -5,7 +5,6 @@ module.exports.config = {
 	credits: "HungCatMoi",
 	description: "Gỡ tin nhắn của Bot",
 	commandCategory: "Nhóm", 
-	usages: "gỡ", 
 	cooldowns: 0,
 	dependencies: [] 
 };

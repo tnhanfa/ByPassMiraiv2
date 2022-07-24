@@ -4,7 +4,7 @@ module.exports.config = {
 	hasPermssion: 2,
 	credits: "Mirai Team",
 	description: "Cấm hoặc gỡ cấm nhóm",
-	commandCategory: "Hệ thống admin-bot",
+	commandCategory: "Hệ thống",
 	usages: "[unban/ban/search] [ID or text] | [-b/-ub/-bc/-ubc/-s/-l/-i]",
 	cooldowns: 5,
 	dependencies: {

@@ -4,7 +4,7 @@ module.exports.config = {
 	hasPermssion: 2,
 	credits: "manhIT",
 	description: "Khởi động lại Bot",
-	commandCategory: "Hệ thống admin-bot",
+	commandCategory: "Hệ thống",
 	usages: "",
 	cooldowns: 5
 };

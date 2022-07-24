@@ -1,12 +1,12 @@
 var request = require("request");const { readdirSync, readFileSync, writeFileSync, existsSync, copySync, createWriteStream, createReadStream } = require("fs-extra");
     module.exports.config = {
-        name: "baucuagif",
+        name: "baucua",
         version: "1.0.0",
         hasPermssion: 0,
         credits: "Horizon Lucius Synthesis I",
         description: "Cược bầu cua",
         commandCategory: "Game",
-        usages: "baucua + tên + tiền :v",
+        usages: " + tên + tiền :v",
         cooldowns: 10
     };
 

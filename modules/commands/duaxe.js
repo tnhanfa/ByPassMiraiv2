@@ -202,7 +202,7 @@ module.exports.run = async function ({ api, event, args, client,Threads,__GLOBAL
             return api.sendMessage(msg, threadID, messageID);
         }
         default: {
-            return api.sendMessage({body: `===[ ĐUA XE S1 ]===\n» R: Đăng kí\n» SPIN: Vòng quay game\n» BUILD: Nâng cấp động cơ\n» SHOP: Shop mua súng\n» INFO: Xem thông tin về bạn\n» TOP: Xem top level trên server\n» CHANGE: Quy đổi tiền của bot sang tiền game và ngược lại`, attachment: await this.image('https://i.imgur.com/RkCdr8r.jpg')}, threadID, messageID);
+            return api.sendMessage({body: `===[ ĐUA XE S1 ]===\n» REGISTER: Đăng kí\n» SPIN: Vòng quay game\n» BUILD: Nâng cấp động cơ\n» SHOP: Shop mua súng\n» INFO: Xem thông tin về bạn\n» TOP: Xem top level trên server\n» CHANGE: Quy đổi tiền của bot sang tiền game và ngược lại`, attachment: await this.image('https://i.imgur.com/RkCdr8r.jpg')}, threadID, messageID);
         }
     }
 }

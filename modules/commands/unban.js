@@ -4,7 +4,7 @@ module.exports.config = {
   hasPermssion: 2,
   credits: "ManhG",
   description: "Gỡ ban nhóm và người dùng trong 1 nốt nhạc",
-  commandCategory: "Hệ thống admin-bot",
+  commandCategory: "Hệ thống",
   usages: "",
   cooldowns: 2,
   denpendencies: {}

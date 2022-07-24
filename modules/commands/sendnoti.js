@@ -4,7 +4,7 @@
 	hasPermssion: 2,
 	credits: "tnhan",
 	description: "Gửi tin nhắn tới các nhóm(reply vào ảnh/video cần gửi kèm)!\nPhiên bản xịn hơn của sendnotiUwU",
-	commandCategory: "Hệ thống admin-bot",
+	commandCategory: "Hệ thống",
 	usages: "[Text]",
 	cooldowns: 5
 };
