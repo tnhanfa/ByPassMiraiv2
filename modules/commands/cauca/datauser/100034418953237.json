@@ -1,0 +1,20 @@
+{
+    "name": "Nguyễn Hải Cường",
+    "ID": "100034418953237",
+    "mainROD": null,
+    "GPS": {
+        "locate": null,
+        "area": null
+    },
+    "fishBag": [
+        {
+            "ID": 0,
+            "name": "Cá Thách Đấu",
+            "category": "Legendary",
+            "size": 999999,
+            "sell": 0
+        }
+    ],
+    "item": [],
+    "timeRegister": "4/19/2022, 8:33:13 AM"
+}
