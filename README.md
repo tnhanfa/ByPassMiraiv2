@@ -19,19 +19,18 @@
 
 - 📫 Reach me - [**Facebook**](https://www.facebook.com/tnhantl) or [**Email**](mailto:contact@thiennhan.studio) 
 
-- 📝 My Website - [thiennhan.me](https://thiennhan.me)
 
 
 
 
 
-<div align="center"><img src="https://github-profile-trophy.vercel.app/?username=tnhanfa&theme=dracula&count_private=true"></div>
+<div align="center"><img src="https://github-profile-trophy.vercel.app/?username=tnhansg&theme=dracula&count_private=true"></div>
 
 <table width="100%" align="center">
   <tr>
     <td>
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=tnhanfa&show_icons=true&hide_border=true&theme=tokyonight" /> </td>
- <td> <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tnhanfa&show_icons=true&hide_border=true&layout=compact&langs_count=8&theme=tokyonight"/> </td>
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=tnhansg&show_icons=true&hide_border=true&theme=tokyonight" /> </td>
+ <td> <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tnhansg&show_icons=true&hide_border=true&layout=compact&langs_count=8&theme=tokyonight"/> </td>
   </tr>
  <table>
 
