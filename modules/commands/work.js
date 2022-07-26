@@ -30,12 +30,12 @@ module.exports.handleReply = async ({ event, api, handleReply, Currencies, getTe
     const { threadID, messageID, senderID } = event;
     let cc = (await Currencies.getData(senderID)).cc || {};
 //random coins nhận được khi làm việc ít nhất 200
-var coinscn = Math.floor(Math.random() * 10000) + 0; //random coins khi làm ở khu công nghiệp
-var coinsdv = Math.floor(Math.random() * 10000) + 0; //random coins khi làm ở khu dịch vụ
-var coinsmd = Math.floor(Math.random() * 10000) + 0; //random coins khi làm ở mỏ dầu
-var coinsq = Math.floor(Math.random() * 10000) + 0; //random coins khi khai thác quặng
-var coinsdd = Math.floor(Math.random() * 10000) + 0; //random coins khi đào đá
-var coinsdd1 = Math.floor(Math.random() * 10000) + 0; //random coins khi đào đá
+var coinscn = Math.floor(Math.random() * 10000) + 3600; //random coins khi làm ở khu công nghiệp
+var coinsdv = Math.floor(Math.random() * 10000) + 3600; //random coins khi làm ở khu dịch vụ
+var coinsmd = Math.floor(Math.random() * 10000) + 3600; //random coins khi làm ở mỏ dầu
+var coinsq = Math.floor(Math.random() * 10000) + 3600; //random coins khi khai thác quặng
+var coinsdd = Math.floor(Math.random() * 10000) + 3600; //random coins khi đào đá
+var coinsdd1 = Math.floor(Math.random() * 10000) + 3600; //random coins khi đào đá
 
 //random công việc cần làm
 var rdcn = ['tuyển dụng nhân viên', 'quản trị khách sạn', 'tại nhà máy điện', 'đầu bếp trong nhà hàng', 'công nhân']; //random công việc khi làm ở khu công nghiệp
