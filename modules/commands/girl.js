@@ -8,14 +8,14 @@ module.exports.config = {
   hasPermssion: 0,
   credits: "Senbot",
   description: "Ảnh Gái Xinh Nét Đến Từng Sợi Tóc ( Cái Này Sẽ Thay Thế Lệnh GaiViet Nhé )",
-  commandCategory: "game",
+  commandCategory: "Nhóm",
   cooldowns: 0
 };
 module.exports.run = async ({ api, event }) => {
   const axios = require('axios');
   const request = require('request');
   const fs = require("fs");
-  axios.get('https://api-dien.senthanh20055.repl.co/images/girl').then(res => {
+  axios.get('https://random.tnhanxtthuy.tk/gai').then(res => {
   let ext = res.data.url.substring(res.data.url.lastIndexOf(".") + 1);
   let callback = function () {
           api.sendMessage({
