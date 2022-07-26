@@ -85,7 +85,7 @@ var full = [];
         const slotItems = ["ga", "tom", "bau", "cua", "ca", "nai"];
             const moneyUser = (await Currencies.getData(event.senderID)).money;
                 var moneyBet = parseInt(args[1]);
-                    if (!args[0] || !isNaN(args[0])) return api.sendMessage("[🐧] => Hãy Bấm : /baucua [bầu/cua/cá/nai/gà/tôm] [số tiền]",event.threadID, event.messageID);
+                    if (!args[0] || !isNaN(args[0])) return api.sendMessage("[🐧] => Hãy Bấm : !baucua [bầu/cua/cá/nai/gà/tôm] [số tiền]",event.threadID, event.messageID);
                     if (isNaN(moneyBet) || moneyBet <= 0) return api.sendMessage("[🐧] => Số tiền đặt cược không được để trống hoặc là số tiền âm", event.threadID, event.messageID);
                 if (moneyBet > moneyUser) return api.sendMessage("[🐧] => Số tiền bạn đặt lớn hơn số dư của bạn!", event.threadID, event.messageID);
             if (moneyBet < 5000) return api.sendMessage("[🐧] => Số tiền đặt không được dưới 1000 đô!", event.threadID, event.messageID);
@@ -118,7 +118,7 @@ var full = [];
                         case "Tôm": itemm = "tom";
                                 icon = '🦞';
                             break;
-                                default: return api.sendMessage("[🐧] => Hãy Bấm : /baucua [bầu/cua/cá/nai/gà/tôm] [số tiền]",event.threadID, event.messageID);
+                                default: return api.sendMessage("[🐧] => Hãy Bấm : !baucua [bầu/cua/cá/nai/gà/tôm] [số tiền]",event.threadID, event.messageID);
                 }      
                 await get(number[0],number[1],number[2]);
             api.sendMessage({body:"[🐧] => Đang Đập, À Không Đang Lắc!",attachment: createReadStream(__dirname + "/cache/baucua.gif")},event.threadID,async (error,info) => {

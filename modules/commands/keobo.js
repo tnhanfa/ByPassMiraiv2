@@ -10,13 +10,12 @@ module.exports.config = {
     cooldowns: 0
 };
 module.exports.run = async ({ api, event, Threads, args, Currencies }) => {
-  const prefix = (threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX : global.config.PREFIX;
 const { threadID, messageID, senderID } = event;
-  if(args[0] == "help"){
-  let imag = (await axios.get("https://i.imgur.com/OkyUXDf.png", {
+if(args[0] == "help"){
+  let imag = (await axios.get("https://i.ibb.co/LdhS9J9/keobo-Banner.jpg", {
         responseType: "stream"
       })).data;
-  var msg = { body: '🐮==== [ 𝐊𝐄́𝐎 𝐁𝐎̀ ] ====🐮\n\n𝗡𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝗰𝗵𝗼̛𝗶 𝗯𝗮̣𝗻 𝗵𝗮̃𝘆 𝗻𝗵𝗮̣̂𝗽 𝗹𝗲̣̂𝗻𝗵 𝗻𝗵𝘂̛ 𝘀𝗮𝘂:\n${prefix}𝗸𝗲𝗼𝗯𝗼 [𝘀𝗼̂́ 𝘁𝗶𝗲̂̀𝗻] (𝘁𝗼̂́𝗶 𝘁𝗵𝗶𝗲̂̉𝘂 𝗹𝗮̀ 𝟱𝟬$)\n𝗟𝘂̛𝘂 𝘆́: 𝘁𝗶̉ 𝗹𝗲̣̂ 𝗰𝗮̀𝗻𝗴 𝗰𝗮𝗼 𝘁𝗵𝗶̀ 𝗰𝗮̀𝗻𝗴 𝗱𝗲̂̃ 𝘁𝗿𝘂́𝗻𝗴 𝘁𝗵𝘂̛𝗼̛̉𝗻𝗴 ❤️',
+  var msg = { body: '🐮==== [ 𝐊𝐄́𝐎 𝐁𝐎̀ ] ====🐮\n\n𝗡𝗲̂́𝘂 𝗺𝘂𝗼̂́𝗻 𝗰𝗵𝗼̛𝗶 𝗯𝗮̣𝗻 𝗵𝗮̃𝘆 𝗻𝗵𝗮̣̂𝗽 𝗹𝗲̣̂𝗻𝗵 𝗻𝗵𝘂̛ 𝘀𝗮𝘂:\n!𝗸𝗲𝗼𝗯𝗼 [𝘀𝗼̂́ 𝘁𝗶𝗲̂̀𝗻] (𝘁𝗼̂́𝗶 𝘁𝗵𝗶𝗲̂̉𝘂 𝗹𝗮̀ 𝟱𝟬$)\n𝗟𝘂̛𝘂 𝘆́: 𝘁𝗶̉ 𝗹𝗲̣̂ 𝗰𝗮̀𝗻𝗴 𝗰𝗮𝗼 𝘁𝗵𝗶̀ 𝗰𝗮̀𝗻𝗴 𝗱𝗲̂̃ 𝘁𝗿𝘂́𝗻𝗴 𝘁𝗵𝘂̛𝗼̛̉𝗻𝗴 ❤️',
 attachment: imag 
 }
     return api.sendMessage(msg, threadID, messageID)
@@ -37,7 +36,7 @@ var tile_1 = Math.floor(Math.random() * 100)
   var sotien_3 = args[0] * 12
   var sotien_4 = args[0] * 144
   var sotien_5 = args[0] * 2880
-let gif = (await axios.get("https://i.imgur.com/XSqIAPD.gif", {
+let gif = (await axios.get("https://i.ibb.co/2dgF3vf/keobogif.gif", {
         responseType: "stream"
       })).data;
   const cuoc = parseInt(args[0])
@@ -72,28 +71,28 @@ if (author !== senderID) { return api.sendMessage('𝐁𝐚̣𝐧 𝐤𝐡𝐨̂
 if(1 > body || body > 5) return api.sendMessage("𝐁𝐚̣𝐧 𝐜𝐡𝐢̉ 𝐜𝐨́ 𝐭𝐡𝐞̂̉ 𝐜𝐡𝐨̣𝐧 𝐭𝐮̛̀ 𝟏 𝐭𝐨̛́𝐢 𝟓 🐮", threadID, messageID);
   if(body == "1"){
     var tienan = cuoc,
-    win = "https://i.imgur.com/TCVTXtk.jpg",
-      losse = "https://i.imgur.com/SSlJHrk.jpg"
+    win = "https://i.imgur.com/gCVBt2m.jpg",
+      losse = "https://i.imgur.com/2aLDp2l.jpg"
   }
   else if(body == "2"){
     var tienan = cuoc * 2,
-    win = "https://i.imgur.com/DcXn5a7.jpg",
-      losse = "https://i.imgur.com/ALZ6WS8.jpg"
+    win = "https://i.imgur.com/JZlPizj.jpg",
+      losse = "https://i.imgur.com/DGtAxqn.jpg"
   }
   else if(body == "3"){
     var tienan = cuoc * 12,
-    win = "https://i.imgur.com/XI7Hu3I.jpg",
-      losse = "https://i.imgur.com/U3PPK6t.jpg"
+    win = "https://i.imgur.com/jOsSqV0.jpg",
+      losse = "https://i.imgur.com/ESxi5p1.jpg"
   }
   else if(body == "4"){
     var tienan = cuoc * 144,
-    win = "https://i.imgur.com/egKCSKK.jpg",
-      losse = "https://i.imgur.com/lCwXTEG.jpg"
+    win = "https://i.imgur.com/aodV8o8.jpg",
+      losse = "https://i.imgur.com/Trt51zw.jpg"
   }
   else if(body == "5"){
     var tienan = cuoc * 2880,
-    win = "https://i.imgur.com/eHmb2eU.jpg",
-      losse = "https://i.imgur.com/3P46yMd.jpg"
+    win = "https://i.imgur.com/kCcmQP3.jpg",
+      losse = "https://i.imgur.com/zwGMSpH.jpg"
   }
   if( moneyUser < tienan){
     return api.sendMessage(`Bạn Không Đủ Tiền Để Chọn Con Bò Số ${body} với số tiền là ${tienan} và bạn còn thiếu ${tienan - moneyUser}`, threadID)
@@ -238,4 +237,4 @@ let imag = (await axios.get(type_bo_lose, {
             })
         }}}, 10000);
     }
-}
+     }
