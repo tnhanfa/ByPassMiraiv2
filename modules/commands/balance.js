@@ -1,70 +1,45 @@
 module.exports.config = {
 	name: "money",
-	version: "0.0.1",
+	version: "1.0.2",
 	hasPermssion: 0,
-	credits: "Mirai Team",//mod by ARAXY XD
-	description: "",
+	credits: "Mirai Team",
+	description: "Kiểm tra số tiền của bản thân hoặc người được tag",
 	commandCategory: "Tài chính",
 	usages: "[Tag]",
 	cooldowns: 5
 };
 
-module.exports.run = async function({ api, event, args, Currencies, Users }) {
-	const { threadID, messageID, senderID, mentions } = event;
-  const fs = require('fs');
-const axios = require('axios')
- if(!fs.existsSync(__dirname+'/cache/SplineSans-Medium.ttf')) { 
-      let getfont = (await axios.get(`https://drive.google.com/u/0/uc?id=102B8O3_0vTn_zla13wzSzMa-vdTZOCmp&export=download`, { responseType: "arraybuffer" })).data;
-       fs.writeFileSync(__dirname+"/cache/SplineSans-Medium.ttf", Buffer.from(getfont, "utf-8"));
-    };
-    if(!fs.existsSync(__dirname+'/cache/SplineSans.ttf')) { 
-      let getfont2 = (await axios.get(`https://drive.google.com/u/0/uc?id=1--V7DANKLsUx57zg8nLD4b5aiPfHcmwD&export=download`, { responseType: "arraybuffer" })).data;
-       fs.writeFileSync(__dirname+"/cache/SplineSans.ttf", Buffer.from(getfont2, "utf-8"));
-    };
-if (event.type == "message_reply") {
-    var uid = event.messageReply.senderID;
-    var name = (await Users.getData(uid)).name;
-    var money = (await Currencies.getData(uid)).money;
-    if (!money) money = 0;
-var argss = `${money}`;
+module.exports.languages = {
+	"vi": {
+		"sotienbanthan": "𝗧𝗮̀𝗶 𝗞𝗵𝗼𝗮̉𝗻 𝗡𝗴𝗮̂𝗻 𝗛𝗮̀𝗻𝗴 𝗖𝘂̉𝗮 𝗕𝗮̣𝗻 𝗖𝗼́ 💵: %1$",
+		"sotiennguoikhac": "𝗧𝗮̀𝗶 𝗞𝗵𝗼𝗮̉𝗻 𝗡𝗴𝗮̂𝗻 𝗛𝗮̀𝗻𝗴 𝗖𝘂̉𝗮 %1 𝗵𝗶𝗲̣̂𝗻 𝗰𝗼́ 𝗹𝗮̀ 💵: %2$"
+	},
+	"en": {
+		"sotienbanthan": "Your current balance: %1$",
+		"sotiennguoikhac": "%1's current balance: %2$."
+	}
 }
-else if (Object.keys(event.mentions).length == 1) {
+
+module.exports.run = async function({ api, event, args, Currencies, getText }) {
+	const { threadID, messageID, senderID, mentions } = event;
+
+	if (!args[0]) {
+		const money = (await Currencies.getData(senderID)).money;
+		return api.sendMessage(getText("sotienbanthan", money), threadID);
+	}
+
+	else if (Object.keys(event.mentions).length == 1) {
 		var mention = Object.keys(mentions)[0];
 		var money = (await Currencies.getData(mention)).money;
 		if (!money) money = 0;
-	  var argss = `${money}`;
-    var name = (await Users.getData(mention)).name
-	} else {
-   var name = (await Users.getData(senderID)).name;
-    var money = (await Currencies.getData(senderID)).money;
-    if (!money) money = 0;
-var argss = `${money}`;
-  }
-	 const { loadImage, createCanvas } = require("canvas");
-    let path = __dirname + "/cache/atmaraxy.png";
-    let bg = (await axios.get(`https://imgur.com/wrS74gQ.jpg`, {responseType: "arraybuffer" })).data;
-    fs.writeFileSync(path, Buffer.from(bg, "utf-8"));
-           let bgBase = await loadImage(path);
-    let canvas = createCanvas(bgBase.width, bgBase.height);
-    let ctx = canvas.getContext("2d");
-    const Canvas = global.nodemodule["canvas"];
-    ctx.drawImage(bgBase, 0, 0, canvas.width, canvas.height);
-    Canvas.registerFont(__dirname+`/cache/SplineSans-Medium.ttf`, {
-        family: "SplineSans-Medium"
-    });
-    Canvas.registerFont(__dirname+`/cache/SplineSans.ttf`, {
-        family: "SplineSans"
-    });
-    ctx.font = "50px SplineSans-Medium";
-    ctx.fillStyle = "#000000";
-    ctx.textAlign = "center";
-    ctx.fillText('' + argss.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + 'đ', 530, 359);
-    const imageBuffer = canvas.toBuffer();
-    fs.writeFileSync(path, imageBuffer);
-       var msg =  {body: `sucess số tiền của ${name}`, attachment: fs.createReadStream(path)
-    }
-   return api.sendMessage(msg,  threadID, async (error, info) => {
-    fs.unlinkSync(path),
-        messageID
-      })
+		return api.sendMessage({
+			body: getText("sotiennguoikhac", mentions[mention].replace(/\@/g, ""), money),
+			mentions: [{
+				tag: mentions[mention].replace(/\@/g, ""),
+				id: mention
+			}]
+		}, threadID, messageID);
+	}
+
+	else return global.utils.throwError(this.config.name, threadID, messageID);
 }

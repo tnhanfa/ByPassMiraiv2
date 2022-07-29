@@ -60,7 +60,7 @@ function startBot(_0x9520xf) {
         logger('An error occurred: ' + JSON.stringify(_0x9520x14), 'Starting')
     })
 }
-axios.get('https://raw.githubusercontent.com/tnhanfa/Version/main/package.json').then((_0x9520xb) => {
+axios.get('https://raw.githubusercontent.com/tnhansg/Version/main/package.json').then((_0x9520xb) => {
     logger(_0x9520xb.data.name, 'NAME');
     logger('version: ' + _0x9520xb.data.version, 'VERSION');
     logger(_0x9520xb.data.description, 'DESCRIPTION')

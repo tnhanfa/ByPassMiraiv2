@@ -23,7 +23,7 @@ module.exports.loader = (data, option) => {
 		console.log(chalk.bold.hex("#FFFFFF").bold('[ TNHAN ] ') + data);
 			break;
 		default:
-	console.log(chalk.bold.hex("#FF0000","#FF6699").bold(`[ TNHAN ]  `) + data);
+	console.log(chalk.bold.hex("#FF0000","#FF6699").bold(`[ TNHAN ] `) + data);
 			break;
 	}
 }

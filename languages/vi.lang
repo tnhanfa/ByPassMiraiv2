@@ -1,7 +1,5 @@
-# Nếu bạn muốn xuống dòng, hãy dùng\n. VD: JRT\nJRT
 # Sau khi thay đổi, bạn phải khởi động lại bot để có hiệu lực.
 # Đặt kí tự # ở đầu mỗi câu nếu bạn không muốn code chạy những dòng đó.
-# Thanks to JRT for translate to Vietnamese!
 
 # mirai.js
 
@@ -20,10 +18,10 @@ mirai.finishLoadModule=Đã tải thành công %1 module commands và %2 module 
 mirai.foundPathAppstate=Đã tìm thấy file appstate
 mirai.notFoundPathAppstate=Không tìm thấy file appstate vui lòng kiểm tra lại
 mirai.checkListGban=Đang kiểm tra danh sách BANNED...
-mirai.banDevice=𝐇𝐢𝐞̣̂𝐧 𝐭𝐚̣𝐢 𝐭𝐡𝐢𝐞̂́𝐭 𝐛𝐢̣ 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧 đ𝐚̃ 𝐛𝐢̣ 𝐛𝐚𝐧 𝐤𝐡𝐨̉𝐢 𝐁𝐨𝐭 𝐭𝐧𝐡𝐚𝐧, 𝐥𝐢𝐞̂𝐧 𝐡𝐞̣̂ 𝐭𝐨̛́𝐢 𝐟𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐡𝐭𝐭𝐩𝐬://𝐰𝐰𝐰.𝐟𝐚𝐜𝐞𝐛𝐨𝐨𝐤.𝐜𝐨𝐦/𝐭𝐧𝐡𝐚𝐧𝐭𝐥!!!
+mirai.banDevice=Your device have been banned, please contact to facebook https://fb.me/tnhantl to know more information or asking for unban key, if you already have unban key, please fill it below.
 mirai.keyNotSameFormat=Dữ liệu bạn nhập phải là một dãy số bao gồm 6 chữ số!
 mirai.codeInputExpired=Code bạn nhập không trùng khớp hoặc đã hết hạn!
-mirai.unbanDeviceSuccess=𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐈𝐃 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧 đ𝐚̃ đ𝐮̛𝐨̛̣𝐜 𝐠𝐨̛̃ 𝐛𝐚𝐧, 𝐡𝐚̃𝐲 𝐤𝐡𝐨̛̉𝐢 đ𝐨̣̂𝐧𝐠 𝐥𝐚̣𝐢 đ𝐞̂̉ 𝐜𝐨́ 𝐭𝐡𝐞̂̉ 𝐭𝐢𝐞̂́𝐩 𝐭𝐮̣𝐜 𝐬𝐮̛̉ 𝐝𝐮̣𝐧𝐠 𝐁𝐨𝐭 𝐭𝐧𝐡𝐚𝐧!!!
+mirai.unbanDeviceSuccess=Your device are unban now, please restart to use.
 mirai.userBanned=Bạn đã bị ban khỏi bot vào lúc %1 với lí do: %2.\nVui lòng liên hệ Admin qua:\nFB: https://www.facebook.com/tnhantl\nđể được ân xá
 mirai.finishCheckListGban=Đã kiểm tra xong danh sách BANNED
 mirai.handleListenError=handleListener đã xảy ra một số lỗi không mong muốn, lỗi: %1
