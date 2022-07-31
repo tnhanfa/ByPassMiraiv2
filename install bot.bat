@@ -1,0 +1,3 @@
+@echo .
+DANG TU DONG CAI DAT, VUI LONG CHO TRONG GIAY LAT...
+npm install
