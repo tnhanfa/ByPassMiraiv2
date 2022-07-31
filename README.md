@@ -1,4 +1,4 @@
-<h1 align="center">I'm Nhân</h1>
+<h1 align="center">I'm Nhan</h1>
 
 
 <h3 align="center">Some Of My Personal Information
@@ -8,7 +8,7 @@
 
 
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=tnhansg&style=for-the-badge" alt="tnhansg" /> </p> </p>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=tnhansg&color=red&style=plastic" alt="tnhansg" /> </p> </p>
 
 
 - ✨ My name is - **Nguyen Thien Nhan**
@@ -44,6 +44,7 @@
 
 
 </p>
+
 
 
 
