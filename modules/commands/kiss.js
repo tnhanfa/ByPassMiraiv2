@@ -21,7 +21,7 @@ let tag = event.mentions[mention].replace("@", "");
         var link = [
           "https://i.pinimg.com/originals/78/09/5c/78095c007974aceb72b91aeb7ee54a71.gif",
              ];
-   var callback = () => api.sendMessage({body: `${tag} à 💕, tớ muốn hôn cậu 💗` , mentions: [{
+   var callback = () => api.sendMessage({body: `${tag} à 💕\nTớ muốn hôn cậu 💗` , mentions: [{
           tag: tag,
           id: Object.keys(event.mentions)[0]
         }],
