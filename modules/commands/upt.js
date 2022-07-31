@@ -132,7 +132,7 @@ registerFont(__dirname + `/tad/CaviarDreams.ttf`, {
     const imageBuffer = canvas.toBuffer();
    fs.writeFileSync(pathImg, imageBuffer);
   return api.sendMessage({
-    body: `==== 「 𝗨𝗣𝗧𝗜𝗠𝗘 𝗥𝗢𝗕𝗢𝗧 」 ====\n→ Bot đã hoạt động được: ${hours} giờ ${minutes} phút ${seconds} giây.\n━━━━━━━━━━━━━━━━━━\n『 Tổng Người Dùng 』: ${global.data.allUserID.length}\n『 Tổng Nhóm 』: ${global.data.allThreadID.length}\n『 Cpu Đang Sử Dụng 』: ${pidusage.cpu.toFixed(1)}%\n『 Ram Đang Sử Dụng 』: ${byte2mb(pidusage.memory)}\n『 Prefix Nhóm 』: ${prefix}\n『 Ping 』: ${Date.now() - timeStart}ms\n『 ID Nhân Vật 』: ${id}`,
+    body: `==== 「 𝗨𝗣𝗧𝗜𝗠𝗘 𝗥𝗢𝗕𝗢𝗧 」 ====\n→ Bot đã hoạt động được: ${hours} giờ ${minutes} phút ${seconds} giây.\n━━━━━━━━━━━━━━━━━━\n『 Tổng Người Dùng 』: ${global.data.allUserID.length}\n『 Tổng Nhóm 』: ${global.data.allThreadID.length}\n『 Cpu Đang Sử Dụng 』: ${pidusage.cpu.toFixed(1)}%\n『 Ram Đang Sử Dụng 』: ${byte2mb(pidusage.memory)}\n『 Prefix Bot 』: ${global.config.PREFIX}\n『 Prefix Nhóm 』: ${prefix}\n『 Ping 』: ${Date.now() - timeStart}ms\n『 ID Nhân Vật 』: ${id}`,
     attachment: fs.createReadStream(pathImg)
   },
     event.threadID,

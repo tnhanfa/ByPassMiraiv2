@@ -29,7 +29,7 @@ module.exports.handleReply = async function({ api, event, handleReply, getText }
             console.log(singleIndex);
             if (isNaN(singleIndex) || singleIndex <= 0 || singleIndex > handleReply.pending.length) return api.sendMessage(`${singleIndex} Không phải là một con số hợp lệ`, threadID, messageID);
         }
-        return api.sendMessage(`𝙏𝙪̛̀ 𝘾𝙝𝙤̂́𝙞 ✅`, threadID, messageID);
+        return api.sendMessage(`Từ Chối ✅`, threadID, messageID);
     }
     else {
 
@@ -43,7 +43,7 @@ module.exports.handleReply = async function({ api, event, handleReply, getText }
             count+=1;
             
         }
-        return api.sendMessage(`𝙋𝙝𝙚̂ 𝘿𝙪𝙮𝙚̣̂𝙩 ✅`, threadID, messageID);
+        return api.sendMessage(`Phê Duyệt ✅`, threadID, messageID);
     }
 }
 
@@ -65,13 +65,13 @@ module.exports.run = async function({ api, event, args, permission, handleReply 
     try {
         var spam = await api.getThreadList(100, null, ["OTHER"]) || [];
         var pending = await api.getThreadList(100, null, ["PENDING"]) || [];
-    } catch (e) { return api.sendMessage("𝙇𝙤̂̃𝙞 🚫", threadID, messageID) }
+    } catch (e) { return api.sendMessage("Lỗi 🚫", threadID, messageID) }
 
       const list = [...spam, ...pending].filter(group => group.isGroup == false);
 
     for (const single of list) msg += `${index++}/ ${single.name}(${single.threadID})\n`;
 
-    if (list.length != 0) return api.sendMessage(`𝘿𝙖𝙣𝙝 𝙎𝙖́𝙘𝙝 𝘾𝙖̂̀𝙣 𝘿𝙪𝙮𝙚̣̂𝙩 : ${list.length} 𝙉𝙜𝙪̛𝙤̛̀𝙞 𝘿𝙪̀𝙣𝙜\n\n${msg}`, threadID, (error, info) => {
+    if (list.length != 0) return api.sendMessage(`Danh Sách Cần Duyệt: ${list.length} Người Dùng\n\n${msg}`, threadID, (error, info) => {
         global.client.handleReply.push({
             name: commandName,
             messageID: info.messageID,
@@ -79,7 +79,7 @@ module.exports.run = async function({ api, event, args, permission, handleReply 
             pending: list
         })
     }, messageID);
-    else return api.sendMessage("𝙏𝙧𝙤̂́𝙣𝙜 🛡️", threadID, messageID);
+    else return api.sendMessage("Trống 🛡️", threadID, messageID);
 }
     case "thread":
     case "-t":
@@ -94,13 +94,13 @@ module.exports.run = async function({ api, event, args, permission, handleReply 
     try {
         var spam = await api.getThreadList(100, null, ["OTHER"]) || [];
         var pending = await api.getThreadList(100, null, ["PENDING"]) || [];
-    } catch (e) { return api.sendMessage("𝙇𝙤̂̃𝙞 🚫", threadID, messageID) }
+    } catch (e) { return api.sendMessage("Lỗi 🚫", threadID, messageID) }
 
     const list = [...spam, ...pending].filter(group => group.isSubscribed && group.isGroup);
 
     for (const single of list) msg += `${index++}/ ${single.name}(${single.threadID})\n`;
 
-    if (list.length != 0) return api.sendMessage(`𝘿𝙖𝙣𝙝 𝙎𝙖́𝙘𝙝 𝘾𝙖̂̀𝙣 𝘿𝙪𝙮𝙚̣̂𝙩 : ${list.length} 𝙉𝙝𝙤́𝙢\n\n${msg}`, threadID, (error, info) => {
+    if (list.length != 0) return api.sendMessage(`Danh Sách Cần Duyệt: ${list.length} Nhóm\n\n${msg}`, threadID, (error, info) => {
         global.client.handleReply.push({
             name: commandName,
             messageID: info.messageID,
@@ -108,7 +108,7 @@ module.exports.run = async function({ api, event, args, permission, handleReply 
             pending: list
         })
     }, messageID);
-    else return api.sendMessage("𝙏𝙧𝙤̂́𝙣𝙜 🛡️", threadID, messageID);
+    else return api.sendMessage("Trống 🛡️", threadID, messageID);
         }
     case "all":
     case "a":
@@ -123,7 +123,7 @@ module.exports.run = async function({ api, event, args, permission, handleReply 
     try {
         var spam = await api.getThreadList(100, null, ["OTHER"]) || [];
         var pending = await api.getThreadList(100, null, ["PENDING"]) || [];
-    } catch (e) { return api.sendMessage(" 𝙇𝙤̂̃𝙞 🚫", threadID, messageID) }
+    } catch (e) { return api.sendMessage("Lỗi 🚫", threadID, messageID) }
 
             const listThread = [...spam, ...pending].filter(group => group.isSubscribed && group.isGroup);
         const listUser = [...spam, ...pending].filter(group => group.isGroup == false)
@@ -131,7 +131,7 @@ module.exports.run = async function({ api, event, args, permission, handleReply 
 
     for (const single of list) msg += `${index++}/ ${single.name}(${single.threadID})\n`;
 
-    if (list.length != 0) return api.sendMessage(`𝘿𝙖𝙣𝙝 𝙎𝙖́𝙘𝙝 𝘾𝙖̂̀𝙣 𝘿𝙪𝙮𝙚̣̂𝙩 : ${list.length} 𝙐𝙨𝙚𝙧 & 𝙏𝙝𝙧𝙚𝙖𝙙\n\n${msg}`, threadID, (error, info) => {
+    if (list.length != 0) return api.sendMessage(`Danh Sách Cần Duyệt: ${list.length} User & Thread\n\n${msg}`, threadID, (error, info) => {
         global.client.handleReply.push({
             name: commandName,
             messageID: info.messageID,
@@ -139,7 +139,7 @@ module.exports.run = async function({ api, event, args, permission, handleReply 
             pending: list
         })
     }, messageID);
-    else return api.sendMessage("𝙏𝙧𝙤̂́𝙣𝙜 🛡️", threadID, messageID);
+    else return api.sendMessage("Trống 🛡️", threadID, messageID);
         }
     }       
 }
