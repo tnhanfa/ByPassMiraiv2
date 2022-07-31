@@ -1,3 +1,2 @@
-@echo .
-FILE BOT DANG DUOC KHOI DONG
+@echo FILE BOT DANG DUOC KHOI DONG
 npm start
