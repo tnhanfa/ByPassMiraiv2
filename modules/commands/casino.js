@@ -74,10 +74,10 @@ if (choose == random) {
     if (moneyUser < kqua) return api.sendMessage(`Số dư bạn không đủ ${kqua}$ để có thể chơi`, threadID, messageID);
    if (choose == random2) {
       await Currencies.increaseMoney(senderID, parseInt(kqua * 2 ));
-  return api.sendMessage(`bạn thắng bot lắc ra ${random2} ${defl_number2} và nhận được ${kqua * 2}`,event.threadID, event.messageID)
+  return api.sendMessage(`bạn thắng bot lắc ra ${random2} ${defl_number2} và nhận được ${kqua * 2}$`,event.threadID, event.messageID)
 } else {
    await Currencies.decreaseMoney(senderID, parseInt(kqua ));
-  return api.sendMessage(`bạn thua bot lắc ra ${random2} ${defl_number2} và mất trắng số tiền ${kqua}`,event.threadID, event.messageID)}
+  return api.sendMessage(`bạn thua bot lắc ra ${random2} ${defl_number2} và mất trắng số tiền ${kqua}$`,event.threadID, event.messageID)}
   }
   if (choose == 'lode' || choose == 'lô' || choose == 'đề') { 
     if (kqua < 50 || isNaN(kqua)) return api.sendMessage("Mức đặt cược của bạn không phù hợp hoặc dưới 50$!!!", threadID, messageID);
@@ -87,10 +87,10 @@ if (choose == random) {
       api.unsendMessage(info.messageID)
  if(kqua == x){
     await Currencies.inreaseMoney(senderID, parseInt(kqua * 2));
-   return api.sendMessage(`bạn đã thắng vì chọn ${args[1]} và kết quả lô hôm nay trên đài của bot là ${x} thần may mắn đã độ bạn và nhận được số tiền là ${kqua * 2} ehehe`, threadID, messageID)
+   return api.sendMessage(`bạn đã thắng vì chọn ${args[1]} và kết quả lô hôm nay trên đài của bot là ${x} thần may mắn đã độ bạn và nhận được số tiền là ${kqua * 2}$ ehehe`, threadID, messageID)
  } else {
     await Currencies.decreaseMoney(senderID, parseInt(kqua ));
-return api.sendMessage(`bạn đã thua vì chọn ${args[1]} và kết quả lô hôm nay trên đài của bot là ${x} hjx thần may mắn quên bạn rồi và mất số tiền là ${kqua}`, threadID, messageID)
+return api.sendMessage(`bạn đã thua vì chọn ${args[1]} và kết quả lô hôm nay trên đài của bot là ${x} hjx thần may mắn quên bạn rồi và mất số tiền là ${kqua}$`, threadID, messageID)
  }
     }
     )}
@@ -98,9 +98,9 @@ return api.sendMessage(`bạn đã thua vì chọn ${args[1]} và kết quả l�
       if(isNaN(kqua)){return api.sendMessage('nqu', threadID, messageID)}
    if(kqua == dap_an){  
       await Currencies.increaseMoney(senderID, parseInt(tiencuoc * 2));
-  return api.sendMessage(`bạn thắng bạn chọn là: ${kqua}\nsố thứ nhất bot chọn là: ${z}\nsố thứ nhất bot chọn là: ${y}\nhiệu số là ${dap_an} và bạn nhận được số tiền là ${tiencuoc * 2}`,threadID, messageID)} else {
+  return api.sendMessage(`bạn thắng bạn chọn là: ${kqua}\nsố thứ nhất bot chọn là: ${z}\nsố thứ nhất bot chọn là: ${y}\nhiệu số là ${dap_an} và bạn nhận được số tiền là ${tiencuoc * 2}$`,threadID, messageID)} else {
      await Currencies.decreaseMoney(senderID, parseInt(tiencuoc  ));
-  return api.sendMessage(`bạn thua bạn chọn là: ${kqua}\nsố thứ nhất bot chọn là: ${z}\nsố thứ nhất bot chọn là: ${y}\nhiệu số là ${dap_an} và mất số tiền là ${tiencuoc}`,threadID, messageID)
+  return api.sendMessage(`bạn thua bạn chọn là: ${kqua}\nsố thứ nhất bot chọn là: ${z}\nsố thứ nhất bot chọn là: ${y}\nhiệu số là ${dap_an} và mất số tiền là ${tiencuoc}$`,threadID, messageID)
   }
     }
 if (args[0] == "rps" || args[0] == "kbb") { 

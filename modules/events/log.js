@@ -54,7 +54,7 @@ module.exports.run = async function ({ api, event, Users, Threads }) {
         if(event.senderID == botID) return;
         const data = (await Threads.getData(event.threadID)).data || {};
         data.banned = true;
-        var reason = "[🐧] Kích bot tự do, không xin phép🚫";
+        var reason = "Kích bot tự do, không xin phép🚫";
         data.reason = reason || null;
         data.dateAdded = time;
         await Threads.setData(event.threadID, { data });
