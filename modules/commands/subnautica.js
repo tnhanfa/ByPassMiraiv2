@@ -307,7 +307,7 @@ module.exports.handleReply = async function ({
         if (body == 2) {
             api.unsendMessage(handleReply.messageID)
             var data = this.checkPath(4, senderID).fishBag;
-            if (data.length == 0) return api.sendMessage('𝐓𝐮́𝐢 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐜𝐨́ 𝐠𝐢̀ 𝐜𝐚̉!', threadID, messageID);
+            if (data.length == 0) return api.sendMessage('Túi của bạn không có gì cả!!', threadID, messageID);
             var Common = data.filter(i => i.category == 'Common')
             var Uncommon = data.filter(i => i.category == 'Uncommon')
             var Rare = data.filter(i => i.category == 'Rare')
@@ -331,9 +331,9 @@ module.exports.handleReply = async function ({
             var msg = `===== 𝗙𝗜𝗫 𝗜𝗧𝗘𝗠𝗦 =====\n\n`,
                 number = 1;
             for (let i of data) {
-                msg += `${number++}. ${i.name} - Tỉ lệ bền 𝗰𝘂̉𝗮 𝗰𝗮̂̀𝗻 𝗰𝗮̂𝘂: ${await checkDur(i.name, i.durability, 0)}\n`
+                msg += `${number++}. ${i.name} - Tỉ lệ bền của cần câu: ${await checkDur(i.name, i.durability, 0)}\n`
             }
-            return api.sendMessage(msg + '👉 𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐫𝐞𝐩𝐥𝐲 𝐯𝐚̣̂𝐭 𝐩𝐡𝐚̂̉𝐦 𝐦𝐮𝐨̂́𝐧 𝐬𝐮̛̉𝐚, 𝐠𝐢𝐚́ 𝐬𝐮̛̉𝐚 𝐛𝐚̆̀𝐧𝐠 𝟏/𝟑 𝐠𝐢𝐚́ 𝐯𝐚̣̂𝐭 𝐩𝐡𝐚̂̉𝐦', threadID, (error, info) => {
+            return api.sendMessage(msg + '👉 Vui lòng reply vật phẩm muốn sửa, giá sửa bằng 1/3 giá vật phẩm', threadID, (error, info) => {
                 global.client.handleReply.push({
                     name: this.config.name,
                     messageID: info.messageID,
@@ -342,13 +342,13 @@ module.exports.handleReply = async function ({
                     list: data
                 })
             }, messageID);
-        } else return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
+        } else return api.sendMessage('Lựa chọn không hợp lệ 🚫', threadID, messageID);
     }
     case 'choosebag': {
         api.unsendMessage(handleReply.messageID)
         var data = this.checkPath(4, senderID)
         if (body == 1) {
-            if (data.fishBag.length == 0) return api.sendMessage('𝐓𝐫𝐨𝐧𝐠 𝐭𝐮́𝐢 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐜𝐨́ 𝐜𝐨𝐧 𝐜𝐚́ 𝐧𝐚̀𝐨', threadID, messageID);
+            if (data.fishBag.length == 0) return api.sendMessage('Trong túi của bạn không có con cá nào', threadID, messageID);
             var listFish = `🎒=== 𝗜𝗡𝗩𝗘𝗥𝗧𝗢𝗥𝗬 ===🎒\n\n`,
                 number = 1;
             for (let i of data.fishBag) {
@@ -358,19 +358,19 @@ module.exports.handleReply = async function ({
         }
         if (body == 2) {
             api.unsendMessage(handleReply.messageID)
-            if (data.item.length == 0) return api.sendMessage('𝗧𝗿𝗼𝗻𝗴 𝘁𝘂́𝗶 𝗰𝘂̉𝗮 𝗯𝗮̣𝗻 𝗸𝗵𝗼̂𝗻𝗴 𝗰𝗼́ 𝘃𝗮̣̂𝘁 𝗽𝗵𝗮̂̉𝗺 𝗻𝗮̀𝗼!', threadID, messageID);
+            if (data.item.length == 0) return api.sendMessage('Trong túi của bạn không có vật phẩm nào!', threadID, messageID);
             var listItemm = `🎒=== 𝗜𝗡𝗩𝗘𝗥𝗧𝗢𝗥𝗬 ===🎒\n\n`,
                 number = 1;
             for (let i of data.item) {
-                listItemm += `${number++}. ${i.name} (${i.price}$) - Đ𝗼̣̂ 𝗯𝗲̂̀𝗻: ${i.durability} (${i.countdown}s)\n`
+                listItemm += `${number++}. ${i.name} (${i.price}$) - Tỉ lệ bền: ${i.durability} (${i.countdown}s)\n`
             }
             return api.sendMessage(listItemm, threadID, messageID);
-        } else return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
+        } else return api.sendMessage('Lựa chọn không hợp lệ 🚫', threadID, messageID);
     }
     case 'rodMain': {
         var data = handleReply.data;
         var item = handleReply.item;
-        if (parseInt(body) > item.length || parseInt(body) <= 0) return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
+        if (parseInt(body) > item.length || parseInt(body) <= 0) return api.sendMessage('Lựa chọn không hợp lệ 🚫', threadID, messageID);
         api.unsendMessage(handleReply.messageID)
         data.mainROD = item[parseInt(body) - 1].name
         writeFileSync(this.checkPath(3, senderID), JSON.stringify(data, null, 2));
@@ -378,7 +378,7 @@ module.exports.handleReply = async function ({
     }
     case 'location': {
         const data = require("./cauca/data.json");
-        if (body != 1 && body != 2) return api.sendMessage("𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫", threadID, messageID);
+        if (body != 1 && body != 2) return api.sendMessage("Lựa chọn không hợp lệ 🚫", threadID, messageID);
         api.unsendMessage(handleReply.messageID)
         var listLoca = '🦈== 𝐋𝐎𝐂𝐀𝐓𝐄 𝐅𝐈𝐒𝐇 ==🦈\n\n',
             number = 1;
@@ -389,7 +389,7 @@ module.exports.handleReply = async function ({
         writeFileSync(this.checkPath(3, senderID), JSON.stringify(this.checkPath(4, senderID), null, 2));
         if(body == 1) var images = 'https://i.imgur.com/SJewp15.png'
         if(body == 2) var images = 'https://i.imgur.com/FtB2vWi.png'
-        return api.sendMessage({body: listLoca + '𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐜𝐡𝐨̣𝐧 𝐯𝐮̀𝐧𝐠 𝐛𝐚̣𝐧 𝐦𝐮𝐨̂́𝐧 𝐜𝐚̂𝐮 🐬', attachment: await this.image(images)}, threadID, (error, info) => {
+        return api.sendMessage({body: listLoca + 'Vui lòng chọn vùng bạn muốn câu 🐬', attachment: await this.image(images)}, threadID, (error, info) => {
             global.client.handleReply.push({
                 name: this.config.name,
                 messageID: info.messageID,
@@ -403,28 +403,28 @@ module.exports.handleReply = async function ({
         var area = handleReply.area;
         var pathh = this.checkPath(4, senderID)
         var pathhh = this.checkPath(3, senderID)
-        if (parseInt(body) > area.area.length || parseInt(body) <= 0) return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
+        if (parseInt(body) > area.area.length || parseInt(body) <= 0) return api.sendMessage('Lựa chọn không hợp lệ 🚫', threadID, messageID);
         api.unsendMessage(handleReply.messageID)
         pathh.GPS.area = area.area[parseInt(body) - 1].name
         writeFileSync(pathhh, JSON.stringify(pathh, null, 2));
         return api.sendMessage(`🦈== 𝐋𝐎𝐂𝐀𝐓𝐄 𝐅𝐈𝐒𝐇 ==🦈\n\nChuyển tới vùng '${area.location} - ${area.area[parseInt(body) - 1].name}' thành công`, threadID, messageID);
     }
     case 'fixfishingrod': {
-        if (parseInt(body) > handleReply.list.length || parseInt(body) <= 0) return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
+        if (parseInt(body) > handleReply.list.length || parseInt(body) <= 0) return api.sendMessage('Lựa chọn không hợp lệ 🚫', threadID, messageID);
         var rod = handleReply.list[parseInt(body) - 1]
-        if (await checkDur(rod.name, rod.durability, 'rate') > 75) return api.sendMessage('𝐂𝐡𝐢̉ 𝐜𝐨́ 𝐭𝐡𝐞̂̉ 𝐬𝐮̛̉𝐚 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐜𝐨́ 𝐭𝐢̉ 𝐥𝐞̣̂ 𝐛𝐞̂̀𝐧 𝐝𝐮̛𝐨̛́𝐢 𝟕𝟓%', threadID, messageID);
+        if (await checkDur(rod.name, rod.durability, 'rate') > 75) return api.sendMessage('Chỉ có thể sửa cần câu có tỉ lệ bền dưới 75%', threadID, messageID);
         api.unsendMessage(handleReply.messageID)
         await checkMoney(senderID, parseInt((rod.price * (1 / 3)).toFixed(0)))
         await Currencies.decreaseMoney(senderID, parseInt((rod.price * (1 / 3)).toFixed(0)));
         rod.durability = await checkDur(rod.name, rod.durability, 'reset')
         writeFileSync(this.checkPath(3, senderID), JSON.stringify(this.checkPath(4, senderID), null, 2));
-        return api.sendMessage(`===== 𝗙𝗜𝗫 𝗜𝗧𝗘𝗠𝗦 =====\n- Sửa thành công ${rod.name} (${parseInt((rod.price*(1/3)).toFixed(0))}$)`, threadID, messageID);
+        return api.sendMessage(`===== 𝗙𝗜𝗫 𝗜𝗧𝗘𝗠𝗦 =====\n\n- Sửa thành công ${rod.name} (${parseInt((rod.price*(1/3)).toFixed(0))}$)`, threadID, messageID);
     }
     case 'buyfishingrod': {
-        if (parseInt(body) > pathItem.length || parseInt(body) <= 0) return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
+        if (parseInt(body) > pathItem.length || parseInt(body) <= 0) return api.sendMessage('Lựa chọn không hợp lệ 🚫', threadID, messageID);
         var data = pathItem[parseInt(body) - 1]
         var checkM = await checkMoney(senderID, data.price);
-        if ((this.checkPath(4, senderID)).item.some(i => i.name == data.name)) return api.sendMessage('𝐁𝐚̣𝐧 𝐡𝐢𝐞̣̂𝐧 𝐬𝐨̛̉ 𝐡𝐮̛̃𝐮 𝐯𝐚̣̂𝐭 𝐩𝐡𝐚̂̉𝐦 𝐧𝐚̀𝐲 𝐫𝐨̂̀𝐢', threadID, messageID);
+        if ((this.checkPath(4, senderID)).item.some(i => i.name == data.name)) return api.sendMessage('Bạn hiện sở hữu vật phẩm này rồi', threadID, messageID);
         (this.checkPath(4, senderID)).item.push({
             name: data.name,
             price: data.price,
@@ -435,19 +435,19 @@ module.exports.handleReply = async function ({
         })
         writeFileSync(this.checkPath(3, senderID), JSON.stringify(this.checkPath(4, senderID), null, 2));
         api.unsendMessage(handleReply.messageID)
-        var msg = { body: `𝗠𝘂𝗮 𝘁𝗵𝗮̀𝗻𝗵 𝗰𝗼̂𝗻𝗴 ${data.name}\n𝗚𝗶𝗮́ 𝗺𝘂𝗮: ${data.price}$\nTỉ lệ bền: ${data.durability}\n𝗧𝗵𝗼̛̀𝗶 𝗴𝗶𝗮𝗻 𝗰𝗵𝗼̛̀: ${data.countdown}s`, attachment: await this.image(data.image)}
+        var msg = { body: `Mua thành công ${data.name}\nGiá mua: ${data.price}$\nTỉ lệ bền: ${data.durability}\nThời gian chờ: ${data.countdown}s`, attachment: await this.image(data.image)}
         return api.sendMessage(msg, threadID, messageID);
     }
     case 'chooseFish': {
-        if (parseInt(body) > handleReply.listCategory.length || parseInt(body) <= 0) return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
+        if (parseInt(body) > handleReply.listCategory.length || parseInt(body) <= 0) return api.sendMessage('Lựa chọn không hợp lệ 🚫', threadID, messageID);
         api.unsendMessage(handleReply.messageID);
-        if (handleReply.listCategory[parseInt(body) - 1].length == 0) return api.sendMessage('𝐊𝐡𝐨̂𝐧𝐠 𝐜𝐨́ 𝐜𝐨𝐧 𝐜𝐚́ 𝐧𝐚̀𝐨 𝐡𝐞̂́𝐭 𝐚́, 𝐡𝐦𝐦𝐦!', threadID, messageID);
-        var fish = "🐋===== 𝑭𝑰𝑺𝑯 =====🐋\n\n",
+        if (handleReply.listCategory[parseInt(body) - 1].length == 0) return api.sendMessage('Không có con cá nào hết á, hmmmm!', threadID, messageID);
+        var fish = "🐋===== 𝗙𝗜𝗦𝗛 =====🐋\n\n",
             number = 1;
         for (let i of handleReply.listCategory[parseInt(body) - 1]) {
             fish += `${number++}. ${i.name} (${i.size}cm) - Loại: ${i.category} - ${i.sell}$\n`
         }
-        return api.sendMessage(fish + "👉 𝐑𝐞𝐩𝐥𝐲 𝐬𝐨̂́ 𝐭𝐡𝐮̛́ 𝐭𝐮̛̣ 𝐯𝐚̀ 𝐛𝐚́𝐧 (𝐜𝐨́ 𝐭𝐡𝐞̂̉ 𝐫𝐞𝐩 𝐧𝐡𝐢𝐞̂̀𝐮 𝐬𝐨̂́) 𝐡𝐨𝐚̣̆𝐜 𝐫𝐞𝐩𝐥𝐲 '𝐚𝐥𝐥' 𝐧𝐞̂́𝐮 𝐦𝐮𝐨̂́𝐧 𝐛𝐚́𝐧 𝐭𝐚̂́𝐭 𝐜𝐚̉ 𝐜𝐚́", threadID, (error, info) => {
+        return api.sendMessage(fish + "👉 Reply số thứ tự và bán (có thể reply nhiều số) hoặc reply `all` nếu muốn bán tất cả", threadID, (error, info) => {
             global.client.handleReply.push({
                 name: this.config.name,
                 messageID: info.messageID,
@@ -458,7 +458,7 @@ module.exports.handleReply = async function ({
         }, messageID);
     }
     case 'sell': {
-        if ((parseInt(body) > handleReply.list.length || parseInt(body) <= 0) && body.toLowerCase() != 'all') return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
+        if ((parseInt(body) > handleReply.list.length || parseInt(body) <= 0) && body.toLowerCase() != 'all') return api.sendMessage('Lựa chọn không hợp lệ 🚫', threadID, messageID);
         api.unsendMessage(handleReply.messageID)
         var bag = (this.checkPath(4, senderID)).fishBag
         var coins = 0;
@@ -487,18 +487,18 @@ module.exports.handleReply = async function ({
                 bag.splice(index, 1);
                 writeFileSync(this.checkPath(3, senderID), JSON.stringify((this.checkPath(4, senderID)), null, 2));
             }
-            return api.sendMessage(text + `\n𝗧𝗵𝘂 𝘃𝗲̂̀ đ𝘂̛𝗼̛̣𝗰 ${coins}$`, threadID, messageID);
+            return api.sendMessage(text + `\nThu về được ${coins}$`, threadID, messageID);
         }
     }
     default: {
         api.unsendMessage(handleReply.messageID)
-        return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
+        return api.sendMessage('Lựa chọn không hợp lệ 🚫', threadID, messageID);
     }
     }
     async function checkMoney(senderID, maxMoney) {
         var i, w;
         i = (await Currencies.getData(senderID)) || {};
         w = i.money || 0
-        if (w < parseInt(maxMoney)) return api.sendMessage('𝗕𝗮̣𝗻 𝗸𝗵𝗼̂𝗻𝗴 đ𝘂̉ 𝘁𝗶𝗲̂̀𝗻 đ𝗲̂̉ 𝘁𝗵𝘂̛̣𝗰 𝗵𝗶𝗲̣̂𝗻 𝗴𝗶𝗮𝗼 𝗱𝗶̣𝗰𝗵 𝗻𝗮̀𝘆!', threadID, messageID);
+        if (w < parseInt(maxMoney)) return api.sendMessage('Bạn không đủ tiền để thực hiện giao dịch này!', threadID, messageID);
     }
 }
