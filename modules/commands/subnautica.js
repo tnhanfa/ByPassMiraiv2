@@ -1,13 +1,12 @@
 const path = require("path");
-const axios = require("axios");
 module.exports.config = {
     name: "subnautica",
-    version: "2.0.0",
+    version: "2.2.0",
     hasPermssion: 0,
     credits: "Dàn code của D-Jukie, đàn cá của Heo Rừng UwU",
     description: "Câu cá ở một hành tinh khác, dựa theo tựa game Subnautica khiến bạn đái ra máu vì độ đa dạng của nó UwU",
     commandCategory: "Game",
-    usages: "",
+    usages: "[]",
     cooldowns: 0,
     envConfig: {
         APIKEY: ""
@@ -41,15 +40,14 @@ module.exports.onLoad = async () => {
     if (!fs.existsSync(dirCache)) fs.mkdirSync(dirCache, {
         recursive: true
     });
-
-    if (!fs.existsSync(dir + "data.json")) (await axios({
-        url: "https://raw.githubusercontent.com/phamvandien1/abc/main/data.json",
+    if (!fs.existsSync(dir + "item.json")) (await axios({
+        url: "https://raw.githubusercontent.com/phamvandien1/abc/main/item.json",
         method: 'GET',
         responseType: 'stream'
     })).data.pipe(fs.createWriteStream(dir + "data.json"));
 
     if (!fs.existsSync(dir + "item.json")) (await axios({
-        url: "https://raw.githubusercontent.com/phamvandien1/abc/main/item.json",
+        url: "https://raw.githubusercontent.com/phamvandien1/abc/main/data.json",
         method: 'GET',
         responseType: 'stream'
     })).data.pipe(fs.createWriteStream(dir + "item.json"));
@@ -96,22 +94,22 @@ module.exports.run = async function ({
             obj.timeRegister = nDate
             obj.fishBag.push({
                 ID: 0,
-                name: 'Cá Thách Đấu',
+                name: 'Đừng bán con cá này ko là lỗi tao đéo chịu trách nhiệm đâu',
                 category: 'Legendary',
                 size: 999999,
                 sell: 0
             });
             writeFileSync(pathData, JSON.stringify(obj, null, 4));
-            var msg = {body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n⚔️𝗧𝗮̣𝗼 𝘁𝗵𝗮̀𝗻𝗵 𝗰𝗼̂𝗻𝗴 𝗰𝗮̂𝘂 𝗰𝗮́⚔️", attachment: await this.subnautica()}
+            var msg = {body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n⚔️Tạo thành công tài khoản câu cá⚔️", attachment: await this.subnautica()}
             return api.sendMessage(msg, threadID, messageID);
-        } else return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n⚔️𝗕𝗮̣𝗻 𝗵𝗶𝗲̣̂𝗻 𝘁𝗮̣𝗼 𝗰𝗮𝘂𝗰𝗮 𝗿𝗼̂̀𝗶⚔️", attachment: await this.subnautica()}, threadID, messageID);
+        } else return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n⚔️Bạn đã có trong cơ sở dữ liệu⚔️", attachment: await this.subnautica()}, threadID, messageID);
     }
     case 'shop':
     case '-s': {
         if (!existsSync(pathData)) {
-            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n𝗕𝗮̣𝗻 𝗰𝗵𝘂̛𝗮 𝘁𝗵𝘂𝗲̂ 𝗸𝗵𝘂 𝗰𝗮̂𝘂 𝗰𝗮́\n𝗛𝗮̃𝘆 𝗻𝗵𝗮̂́𝗻 /𝘀𝘂𝗯𝗻𝗮𝘂 -𝗿 𝘁𝗵𝘂𝗲̂ 𝗸𝗵𝘂 𝗰𝗮̂𝘂 𝗰𝗮́ 𝗻𝗵𝗲́ ⚓", attachment: await this.subnautica()}, threadID, messageID);
+            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n⚔️Bạn chưa đăng kí tài khoản câu cá!\nHãy nhấn !subnautica register hoặc -r", attachment: await this.subnautica()}, threadID, messageID);
         }
-        return api.sendMessage({body: "💸== 𝑭𝑰𝑺𝑯𝑰𝑵𝑮 𝑺𝑯𝑶𝑷 ==💸\n\n𝟭. 𝗠𝘂𝗮 𝗰𝗮̂̀𝗻 𝗰𝗮̂𝘂 🎣\n𝟮. 𝗕𝗮́𝗻 𝗰𝗮́ 𝗵𝗶𝗲̣̂𝗻 𝗰𝗼́ 🐟\n𝟯. 𝗡𝗮̂𝗻𝗴 𝗰𝗮̂́𝗽/𝗦𝘂̛̉𝗮 𝗰𝗵𝘂̛̉𝗮 𝗰𝗮̂̀𝗻 𝗰𝗮̂𝘂 🛠\n\n💎 𝐑𝐞𝐩𝐥𝐲 𝐭𝐢𝐧 𝐧𝐡𝐚̆́𝐧 𝐧𝐚̀𝐲 𝐯𝐨̛́𝐢 𝐥𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧", attachment: await this.subnautica()}, threadID, (error, info) => {
+        return api.sendMessage({body: "💸== 𝗙𝗜𝗦𝗛𝗜𝗡𝗚 𝗦𝗛𝗢𝗣 ==💸\n\n𝟭. 𝗠𝘂𝗮 𝗰𝗮̂̀𝗻 𝗰𝗮̂𝘂 🎣\n𝟮. 𝗕𝗮́𝗻 𝗰𝗮́ 𝗵𝗶𝗲̣̂𝗻 𝗰𝗼́ 🐟\n𝟯. 𝗡𝗮̂𝗻𝗴 𝗰𝗮̂́𝗽/𝗦𝘂̛̉𝗮 𝗰𝗵𝘂̛̉𝗮 𝗰𝗮̂̀𝗻 𝗰𝗮̂𝘂 🛠\n\n💎 𝐑𝐞𝐩𝐥𝐲 𝐭𝐢𝐧 𝐧𝐡𝐚̆́𝐧 𝐧𝐚̀𝐲 𝐯𝐨̛́𝐢 𝐥𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧", attachment: await this.subnautica()}, threadID, (error, info) => {
             global.client.handleReply.push({
                 name: this.config.name,
                 messageID: info.messageID,
@@ -123,11 +121,11 @@ module.exports.run = async function ({
     case 'bag':
     case '-b': {
         if (!existsSync(pathData)) {
-            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n𝗕𝗮̣𝗻 𝗰𝗵𝘂̛𝗮 𝘁𝗵𝘂𝗲̂ 𝗸𝗵𝘂 𝗰𝗮̂𝘂 𝗰𝗮́\n𝗛𝗮̃𝘆 𝗻𝗵𝗮̂́𝗻 /𝘀𝘂𝗯𝗻𝗮𝘂 -𝗿 𝘁𝗵𝘂𝗲̂ 𝗸𝗵𝘂 𝗰𝗮̂𝘂 𝗰𝗮́ 𝗻𝗵𝗲́ ⚓", attachment: await this.subnautica()}, threadID, messageID);
+            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n⚔️Bạn chưa đăng kí tài khoản câu cá!\nHãy nhấn !subnautica register hoặc -r", attachment: await this.subnautica()}, threadID, messageID);
         }
         var data = this.checkPath(4, senderID)
 
-        return api.sendMessage({body: `🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n𝟭. 𝗖𝗮́ (𝗦𝗟: ${data.fishBag.length})\n𝟮. 𝗖𝗮̂̀𝗻 𝗰𝗮̂𝘂 (𝗦𝗟: ${data.item.length})\n\n💎 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝘃𝗮̣̂𝘁 𝗽𝗵𝗮̂̉𝗺 𝗰𝗮̂̀𝗻 𝘅𝗲𝗺`, attachment: await this.subnautica()}, threadID, (error, info) => {
+        return api.sendMessage({body: `🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n𝟭. 𝗖𝗮́ (SL: ${data.fishBag.length})\n𝟮. 𝗖𝗮̂̀𝗻 𝗰𝗮̂𝘂 (𝗦𝗟: ${data.item.length})\n\n💎 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝘃𝗮̣̂𝘁 𝗽𝗵𝗮̂̉𝗺 𝗰𝗮̂̀𝗻 𝘅𝗲𝗺`, attachment: await this.subnautica()}, threadID, (error, info) => {
             global.client.handleReply.push({
                 name: this.config.name,
                 messageID: info.messageID,
@@ -139,14 +137,14 @@ module.exports.run = async function ({
     case 'custom':
     case '-c': {
         if (!existsSync(pathData)) {
-            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n𝗕𝗮̣𝗻 𝗰𝗵𝘂̛𝗮 𝘁𝗵𝘂𝗲̂ 𝗸𝗵𝘂 𝗰𝗮̂𝘂 𝗰𝗮́\n𝗛𝗮̃𝘆 𝗻𝗵𝗮̂́𝗻 /𝘀𝘂𝗯𝗻𝗮𝘂 -𝗿 𝘁𝗵𝘂𝗲̂ 𝗸𝗵𝘂 𝗰𝗮̂𝘂 𝗰𝗮́ 𝗻𝗵𝗲́ ⚓", attachment: await this.subnautica()}, threadID, messageID);
+            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n⚔️Bạn chưa đăng kí tài khoản câu cá!\nHãy nhấn !subnautica register hoặc -r", attachment: await this.subnautica()}, threadID, messageID);
         }
-        if (args[1] == 'rod') {
+        if (args[1] == 'harpoon') {
             var data = this.checkPath(4, senderID)
             var listItem = '🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n',
                 number = 1;
             for (let i of data.item) {
-                listItem += `${number++}. ${i.name} - 𝗧𝗵𝗼̛̀𝗶 𝗴𝗶𝗮𝗻 𝗰𝗵𝗼̛̀: ${i.countdown}𝘀 - 𝗧𝗶̉ 𝗹𝗲̣̂ 𝗯𝗲̂̀𝗻: ${i.durability}\n`
+                listItem += `${number++}. ${i.name} - Thời gian chờ: ${i.countdown}s - Tỉ lệ bền: ${i.durability}\n`
             }
             listItem += '𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐫𝐞𝐩𝐥𝐲 𝐧𝐞̂́𝐮 𝐦𝐮𝐨̂́𝐧 𝐭𝐡𝐚𝐲 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐜𝐡𝐢́𝐧𝐡 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧'
             return api.sendMessage(listItem, threadID, (error, info) => {
@@ -161,18 +159,18 @@ module.exports.run = async function ({
             }, messageID);
         }
         if (args[1] == 'locate') {
-            return api.sendMessage({body: "🐙==𝐊𝐇𝐔 𝐕𝐔̛̣𝐂 𝐂𝐀̂𝐔==🐙\n\n𝟭. 𝗧𝗵𝗲 𝗖𝗿𝗮𝘁𝗲𝗿 🦑\n𝟮. 𝗦𝗲𝗰𝘁𝗼𝗿 𝗭𝗲𝗿𝗼 🦀", attachment: await this.subnautica()}, threadID, (error, info) => {
+            return api.sendMessage({body: "🐙== 𝐊𝐇𝐔 𝐕𝐔̛̣𝐂 𝐂𝐀̂𝐔 ==🐙\n\n𝟭. 𝗧𝗵𝗲 𝗖𝗿𝗮𝘁𝗲𝗿 🦑\n𝟮. 𝗦𝗲𝗰𝘁𝗼𝗿 𝗭𝗲𝗿𝗼 🦀\n\n💎 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝗸𝗲̀𝗺 𝗦𝗧𝗧 đ𝗲̂̉ 𝗰𝗵𝗼̣𝗻 𝗸𝗵𝘂 𝘃𝘂̛̣𝗰", attachment: await this.subnautica()}, threadID, (error, info) => {
                 global.client.handleReply.push({
                     name: this.config.name,
                     messageID: info.messageID,
                     author: event.senderID,
                     type: "location"
                 })
-            }, messageID);
+            }, messageID); 
         }
     }
     case 'help': {
-            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n- 𝗥: 𝗧𝗮̣𝗼 𝘁𝗮̀𝗶 𝗸𝗵𝗼𝗮̉𝗻 👤\n- 𝗖𝗨𝗦𝗧𝗢𝗠: 𝗟𝘂̛̣𝗮 𝗰𝗵𝗼̣𝗻 𝗸𝗵𝘂 𝘃𝘂̛̣𝗰 𝗰𝗮̂𝘂 𝗰𝗮́ 🐊\n- 𝗕𝗔𝗚: 𝗫𝗲𝗺 𝗯𝗮𝗹𝗼 🎒\n- 𝗦𝗛𝗢𝗣: 𝗖𝘂̛̉𝗮 𝗵𝗮̀𝗻𝗴 💰\n\n======= 𝐃-𝐉𝐮𝐤𝐢𝐞 =======", attachment: await this.subnautica()}, threadID, messageID);
+            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n- 𝗥: 𝗧𝗮̣𝗼 𝘁𝗮̀𝗶 𝗸𝗵𝗼𝗮̉𝗻 👤\n- 𝗖𝗨𝗦𝗧𝗢𝗠: 𝗟𝘂̛̣𝗮 𝗰𝗵𝗼̣𝗻 𝗸𝗵𝘂 𝘃𝘂̛̣𝗰 𝗰𝗮̂𝘂 𝗰𝗮́ 🐊\n- 𝗕𝗔𝗚: 𝗫𝗲𝗺 𝗯𝗮𝗹𝗼 🎒\n- 𝗦𝗛𝗢𝗣: 𝗖𝘂̛̉𝗮 𝗵𝗮̀𝗻𝗴 💰", attachment: await this.subnautica()}, threadID, messageID);
         }
     default: {
         async function checkTime(cooldown, dataTime) {
@@ -181,29 +179,29 @@ module.exports.run = async function ({
                 var time = cooldown - (Date.now() - dataTime),
                     minutes = Math.floor(time / 60000),
                     seconds = ((time % 60000) / 1000).toFixed(0);
-                return api.sendMessage(`⏰ 𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐦𝐮𝐚 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐜𝐚̂́𝐩 𝐛𝐚̣̂𝐜 𝐜𝐚𝐨 𝐡𝐨̛𝐧 𝐧𝐞̂́𝐮 𝐦𝐮𝐨̂́𝐧 𝐜𝐚̂𝐮 𝐥𝐢𝐞̂𝐧 𝐭𝐮̣𝐜 𝐭𝐫𝐨𝐧𝐠 𝐭𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧 𝐧𝐠𝐚̆́𝐧\n⌚ 𝐂𝐡𝐨̛̀ 𝐠𝐢𝐚𝐧 𝐜𝐡𝐨̛̀ 𝐜𝐨̀𝐧 𝐥𝐚̣𝐢: ${minutes}:${seconds}!`, threadID, messageID);
+                return api.sendMessage(`⏰  𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐦𝐮𝐚 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐜𝐚̂́𝐩 𝐛𝐚̣̂𝐜 𝐜𝐚𝐨 𝐡𝐨̛𝐧 𝐧𝐞̂́𝐮 𝐦𝐮𝐨̂́𝐧 𝐜𝐚̂𝐮 𝐥𝐢𝐞̂𝐧 𝐭𝐮̣𝐜 𝐭𝐫𝐨𝐧𝐠 𝐭𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧 𝐧𝐠𝐚̆́𝐧\n⌚ 𝐂𝐡𝐨̛̀ 𝐠𝐢𝐚𝐧 𝐜𝐡𝐨̛̀ 𝐜𝐨̀𝐧 𝐥𝐚̣𝐢: ${minutes}:${seconds}!`, threadID, messageID);
             }
         }
         if (!existsSync(pathData)) {
-            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n𝗕𝗮̣𝗻 𝗰𝗵𝘂̛𝗮 𝘁𝗵𝘂𝗲̂ 𝗸𝗵𝘂 𝗰𝗮̂𝘂 𝗰𝗮́\n𝗛𝗮̃𝘆 𝗻𝗵𝗮̂́𝗻 /𝘀𝘂𝗯𝗻𝗮𝘂 -𝗿 𝘁𝗵𝘂𝗲̂ 𝗸𝗵𝘂 𝗰𝗮̂𝘂 𝗰𝗮́ 𝗻𝗵𝗲́ ⚓", attachment: await this.subnautica()}, threadID, messageID);
+            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n⚔️Bạn chưa đăng kí tài khoản câu cá!\nHãy nhấn !subnautica register hoặc -r", attachment: await this.subnautica()}, threadID, messageID);
         }
         var data = this.checkPath(4, senderID)
-        if (data.item.length == 0) return api.sendMessage(`🏄: 𝐁𝐚̣𝐧 𝐜𝐡𝐮̛𝐚 𝐜𝐨́ 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮, 𝐯𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐯𝐚̀𝐨 𝐬𝐡𝐨𝐩 𝐦𝐮𝐚 𝐯𝐚̀ 𝐪𝐮𝐚𝐲 𝐥𝐚̣𝐢 ️`, threadID, messageID);
-        if (data.mainROD == null) return api.sendMessage('🏄: 𝐁𝐚̣𝐧 𝐜𝐡𝐮̛𝐚 𝐜𝐡𝐨̣𝐧 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐜𝐚́\n𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐧𝐡𝐚̣̂𝐩 `-𝐜 𝐫𝐨𝐝` 𝐯𝐚̀ 𝐜𝐡𝐨̣𝐧 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮', threadID, messageID);
-        if (data.GPS.locate == null || data.GPS.area == null) return api.sendMessage('🏄: 𝐁𝐚̣𝐧 𝐜𝐡𝐮̛𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐮 𝐯𝐮̛̣𝐜 𝐜𝐚̂𝐮 𝐜𝐚́\n𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐧𝐡𝐚̣̂𝐩 `-𝐜 𝐥𝐨𝐜𝐚𝐭𝐞` 𝐯𝐚̀ 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐮 𝐯𝐮̛̣𝐜 𝐜𝐚̂𝐮 ', threadID, messageID);
+        if (data.item.length == 0) return api.sendMessage(`Bạn chưa có cần câu, vui lòng vào shop mua và quay lại`, threadID, messageID);
+        if (data.mainROD == null) return api.sendMessage('Bạn chưa chọn cần câu cá.\nVui lòng nhập `custom harpoon` và chọn cần câu', threadID, messageID);
+        if (data.GPS.locate == null || data.GPS.area == null) return api.sendMessage('Bạn chưa chọn khu vực câu cá.\nVui lòng nhập `custom locate` và chọn khu vực câu', threadID, messageID);
         var rod = data.mainROD
         var location = data.GPS.locate
         var area = data.GPS.area
         var type = this.getFish()
         var findRod = data.item.find(i => i.name == rod)
-        if (findRod.durability <= 0) return api.sendMessage('🏄: 𝐂𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐡𝐨̉𝐧𝐠 𝐦𝐚̂́𝐭 𝐫𝐨̂̀𝐢, 𝐛𝐚̣𝐧 𝐜𝐚̂̀𝐧 𝐬𝐮̛̉𝐚 𝐜𝐡𝐮̛̃𝐚 𝐡𝐨𝐚̣̆𝐜 𝐜𝐡𝐨̣𝐧 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐦𝐨̛́𝐢 ', threadID, messageID);
+        if (findRod.durability <= 0) return api.sendMessage('Cần câu bị hỏng mất rồi, bạn cần sửa chữa hoặc chọn cần câu mới', threadID, messageID);
         await checkTime(findRod.countdown * 1000, findRod.countdownData)
         findRod.countdownData = Date.now();
         findRod.durability = findRod.durability - 10;
         writeFileSync(this.checkPath(3, senderID), JSON.stringify(this.checkPath(4, senderID), null, 2));
-        if (type == false) return api.sendMessage('𝐎̂𝐢 𝐤𝐡𝐨̂𝐧𝐠, 𝐛𝐚̣𝐧 𝐭𝐡𝐚̣̂𝐭 𝐱𝐮 𝐜𝐚̀ 𝐧𝐚 𝐜𝐡𝐚̆̉𝐧𝐠 𝐝𝐢́𝐧𝐡 𝐜𝐨𝐧 𝐜𝐚́ 𝐧𝐚̀𝐨 𝐜𝐚̉ 😿', threadID, messageID);
+        if (type == false) return api.sendMessage('Ôi không, bạn thật xu cà na chẳng dính con cá nào cả 😿', threadID, messageID);
         var fil = (await this.dataFish(location, area)).filter(i => i.category == type)
-        if (fil.length == 0) return api.sendMessage('𝐎̂𝐢 𝐤𝐡𝐨̂𝐧𝐠, 𝐛𝐚̣𝐧 𝐭𝐡𝐚̣̂𝐭 𝐱𝐮 𝐜𝐚̀ 𝐧𝐚 𝐜𝐡𝐚̆̉𝐧𝐠 𝐝𝐢́𝐧𝐡 𝐜𝐨𝐧 𝐜𝐚́ 𝐧𝐚̀𝐨 𝐜𝐚̉ 😿', threadID, messageID);
+        if (fil.length == 0) return api.sendMessage('Ôi không, bạn thật xu cà na chẳng dính con cá nào cả 😿', threadID, messageID);
         var getData = fil[Math.floor(Math.random() * fil.length)];
         var IDF = ((this.checkPath(4, senderID)).fishBag)[parseInt(((this.checkPath(4, senderID)).fishBag).length - 1)].ID + 1;
         (this.checkPath(4, senderID)).fishBag.push({
@@ -215,22 +213,16 @@ module.exports.run = async function ({
             image: getData.image
         });
         writeFileSync(this.checkPath(3, senderID), JSON.stringify(this.checkPath(4, senderID), null, 2));
-        var msg = {body: `🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n𝗖𝗵𝘂́𝗰 𝗺𝘂̛̀𝗻𝗴 𝗯𝗮̣𝗻 𝘃𝘂̛̀𝗮 𝗰𝗮̂𝘂 𝗱𝗶́𝗻𝗵 𝗺𝗼̣̂𝘁 𝗰𝗼𝗻 𝗰𝗮́ 🐬\n𝐓𝐞̂𝐧: ${getData.name}\n𝗟𝗼𝗮̣𝗶: ${getData.category}\n𝗦𝗶𝘇𝗲: ${getData.size}𝗰𝗺\n𝗚𝗶𝗮́: (${getData.sell}$)`, attachment: await this.image(getData.image)}
+        var msg = {body: `🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\nChúc mừng bạn vừa câu dính một con cá 🐬\nTên: ${getData.name}\nGiá: ${getData.sell}$\nLoại: ${getData.category}\nSize: ${getData.size}cm`, attachment: await this.image(getData.image)}
         return api.sendMessage(msg, threadID, messageID);
     }
     }
 }
-module.exports.data = async function () {
-    const data = require('./cauca/data.json')
-    return data
-}
 
 module.exports.dataFish =async function (a, b) {
-    const data = await this.data()
-    console.log(data)
+    const data = require("./cauca/data.json");
     var loc = data.find(i => i.location == a)
     var are = loc.area.find(i => i.name == b)
-    
     return are.creature
 }
 
@@ -298,12 +290,12 @@ module.exports.handleReply = async function ({
     case 'shop': {
         if (body == 1) {
             api.unsendMessage(handleReply.messageID)
-            var listItem = '️️🎣=== 𝑭𝑰𝑺𝑯𝑰𝑵𝑮 𝑹𝑶𝑫 ===️🎣\n\n',
+            var listItem = '🎣=== 𝗖𝗨𝗦𝗧𝗢𝗠 𝗛𝗔𝗥𝗣𝗢𝗢𝗡 ===️🎣\n\n',
                 number = 1;
             for (let i of pathItem) {
-                listItem += `${number++}. ${i.name} (${i.price}$) - 𝗧𝗵𝗼̛̀𝗶 𝗴𝗶𝗮𝗻 𝗰𝗵𝗼̛̀ ${i.countdown} (𝗧𝗶̉ 𝗹𝗲̣̂ 𝗯𝗲̂̀𝗻: ${i.durability})\n\n`
+                listItem += `${number++}. ${i.name} (${i.price}$) - Thời gian chờ: ${i.countdown} (Tỉ lệ bền: ${i.durability})\n\n`
             }
-            return api.sendMessage(listItem + '👉 𝐑𝐞𝐩𝐥𝐲 𝐭𝐢𝐧 𝐧𝐡𝐚̆́𝐧 𝐧𝐚̀𝐲 𝐯𝐚̀ 𝐜𝐡𝐨̣𝐧 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐜𝐡𝐨 𝐛𝐚̣𝐧. 𝐌𝐨̂̃𝐢 𝐥𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐭𝐫𝐮̛̀ 𝟏𝟎 𝐬𝐮̛́𝐜 𝐛𝐞̂̀𝐧 !', threadID, (error, info) => {
+            return api.sendMessage(listItem + '👉 𝐑𝐞𝐩𝐥𝐲 𝐭𝐢𝐧 𝐧𝐡𝐚̆́𝐧 𝐧𝐚̀𝐲 𝐯𝐚̀ 𝐜𝐡𝐨̣𝐧 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐜𝐡𝐨 𝐛𝐚̣𝐧. 𝐌𝐨̂̃𝐢 𝐥𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐭𝐫𝐮̛̀ 𝟏𝟎 𝐬𝐮̛́𝐜 𝐛𝐞̂̀𝐧!', threadID, (error, info) => {
                 global.client.handleReply.push({
                     name: this.config.name,
                     messageID: info.messageID,
@@ -315,7 +307,7 @@ module.exports.handleReply = async function ({
         if (body == 2) {
             api.unsendMessage(handleReply.messageID)
             var data = this.checkPath(4, senderID).fishBag;
-            if (data.length == 0) return api.sendMessage('𝐓𝐮́𝐢 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐜𝐨́ 𝐠𝐢̀ 𝐜𝐚̉ !', threadID, messageID);
+            if (data.length == 0) return api.sendMessage('𝐓𝐮́𝐢 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐜𝐨́ 𝐠𝐢̀ 𝐜𝐚̉!', threadID, messageID);
             var Common = data.filter(i => i.category == 'Common')
             var Uncommon = data.filter(i => i.category == 'Uncommon')
             var Rare = data.filter(i => i.category == 'Rare')
@@ -336,10 +328,10 @@ module.exports.handleReply = async function ({
         if (body == 3) {
             api.unsendMessage(handleReply.messageID)
             var data = this.checkPath(4, senderID).item;
-            var msg = `===== 𝑭𝑰𝑿 𝑰𝑻𝑬𝑴𝑺 =====\n\n`,
+            var msg = `===== 𝗙𝗜𝗫 𝗜𝗧𝗘𝗠𝗦 =====\n\n`,
                 number = 1;
             for (let i of data) {
-                msg += `${number++}. ${i.name} - 𝗧𝗶̉ 𝗹𝗲̣̂ 𝗯𝗲̂̀𝗻 𝗰𝘂̉𝗮 𝗰𝗮̂̀𝗻 𝗰𝗮̂𝘂: ${await checkDur(i.name, i.durability, 0)}\n\n`
+                msg += `${number++}. ${i.name} - Tỉ lệ bền 𝗰𝘂̉𝗮 𝗰𝗮̂̀𝗻 𝗰𝗮̂𝘂: ${await checkDur(i.name, i.durability, 0)}\n`
             }
             return api.sendMessage(msg + '👉 𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐫𝐞𝐩𝐥𝐲 𝐯𝐚̣̂𝐭 𝐩𝐡𝐚̂̉𝐦 𝐦𝐮𝐨̂́𝐧 𝐬𝐮̛̉𝐚, 𝐠𝐢𝐚́ 𝐬𝐮̛̉𝐚 𝐛𝐚̆̀𝐧𝐠 𝟏/𝟑 𝐠𝐢𝐚́ 𝐯𝐚̣̂𝐭 𝐩𝐡𝐚̂̉𝐦', threadID, (error, info) => {
                 global.client.handleReply.push({
@@ -356,8 +348,8 @@ module.exports.handleReply = async function ({
         api.unsendMessage(handleReply.messageID)
         var data = this.checkPath(4, senderID)
         if (body == 1) {
-            if (data.fishBag.length == 0) return api.sendMessage('𝐓𝐫𝐨𝐧𝐠 𝐭𝐮́𝐢 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐜𝐨́ 𝐜𝐨𝐧 𝐜𝐚́ 𝐧𝐚̀𝐨 ', threadID, messageID);
-            var listFish = `🎒=== 𝑰𝑵𝑽𝑬𝑵𝑻𝑶𝑹𝒀 ===🎒\n\n`,
+            if (data.fishBag.length == 0) return api.sendMessage('𝐓𝐫𝐨𝐧𝐠 𝐭𝐮́𝐢 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐜𝐨́ 𝐜𝐨𝐧 𝐜𝐚́ 𝐧𝐚̀𝐨', threadID, messageID);
+            var listFish = `🎒=== 𝗜𝗡𝗩𝗘𝗥𝗧𝗢𝗥𝗬 ===🎒\n\n`,
                 number = 1;
             for (let i of data.fishBag) {
                 listFish += `${number++}. ${i.name} (${i.size}cm) - ${i.category} (${i.sell}$)\n`
@@ -366,11 +358,11 @@ module.exports.handleReply = async function ({
         }
         if (body == 2) {
             api.unsendMessage(handleReply.messageID)
-            if (data.item.length == 0) return api.sendMessage('Trong túi của bạn không có vật phẩm nào!', threadID, messageID);
-            var listItemm = `🎒=== 𝑰𝑵𝑽𝑬𝑵𝑻𝑶𝑹𝒀 ===🎒\n\n`,
+            if (data.item.length == 0) return api.sendMessage('𝗧𝗿𝗼𝗻𝗴 𝘁𝘂́𝗶 𝗰𝘂̉𝗮 𝗯𝗮̣𝗻 𝗸𝗵𝗼̂𝗻𝗴 𝗰𝗼́ 𝘃𝗮̣̂𝘁 𝗽𝗵𝗮̂̉𝗺 𝗻𝗮̀𝗼!', threadID, messageID);
+            var listItemm = `🎒=== 𝗜𝗡𝗩𝗘𝗥𝗧𝗢𝗥𝗬 ===🎒\n\n`,
                 number = 1;
             for (let i of data.item) {
-                listItemm += `${number++}. ${i.name} (${i.price}$) - Độ bền: ${i.durability} (${i.countdown}s)\n`
+                listItemm += `${number++}. ${i.name} (${i.price}$) - Đ𝗼̣̂ 𝗯𝗲̂̀𝗻: ${i.durability} (${i.countdown}s)\n`
             }
             return api.sendMessage(listItemm, threadID, messageID);
         } else return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
@@ -378,15 +370,15 @@ module.exports.handleReply = async function ({
     case 'rodMain': {
         var data = handleReply.data;
         var item = handleReply.item;
-        if (parseInt(body) > item.length || parseInt(body) <= 0) return api.sendMessage('Lựa chọn không hợp lệ!', threadID, messageID);
+        if (parseInt(body) > item.length || parseInt(body) <= 0) return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
         api.unsendMessage(handleReply.messageID)
         data.mainROD = item[parseInt(body) - 1].name
         writeFileSync(this.checkPath(3, senderID), JSON.stringify(data, null, 2));
-        return api.sendMessage(`️🎣===== 𝐌𝐀𝐈𝐍 𝐑𝐎𝐃 =====️🎣\n\n- Đặt '${item[parseInt(body) - 1].name}' thành cần câu chính thành công!`, threadID, messageID);
+        return api.sendMessage(`🎣=== 𝗖𝗨𝗦𝗧𝗢𝗠 𝗛𝗔𝗥𝗣𝗢𝗢𝗡 ===️🎣\n\n- Đặt '${item[parseInt(body) - 1].name}' thành cần câu chính thành công!`, threadID, messageID);
     }
     case 'location': {
         const data = require("./cauca/data.json");
-        if (body != 1 && body != 2) return api.sendMessage("Lựa chọn không hợp lệ!", threadID, messageID);
+        if (body != 1 && body != 2) return api.sendMessage("𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫", threadID, messageID);
         api.unsendMessage(handleReply.messageID)
         var listLoca = '🦈== 𝐋𝐎𝐂𝐀𝐓𝐄 𝐅𝐈𝐒𝐇 ==🦈\n\n',
             number = 1;
@@ -426,7 +418,7 @@ module.exports.handleReply = async function ({
         await Currencies.decreaseMoney(senderID, parseInt((rod.price * (1 / 3)).toFixed(0)));
         rod.durability = await checkDur(rod.name, rod.durability, 'reset')
         writeFileSync(this.checkPath(3, senderID), JSON.stringify(this.checkPath(4, senderID), null, 2));
-        return api.sendMessage(`===== 𝑭𝑰𝑿 𝑰𝑻𝑬𝑴𝑺 =====\n- Sửa thành công ${rod.name} (${parseInt((rod.price*(1/3)).toFixed(0))}$)`, threadID, messageID);
+        return api.sendMessage(`===== 𝗙𝗜𝗫 𝗜𝗧𝗘𝗠𝗦 =====\n- Sửa thành công ${rod.name} (${parseInt((rod.price*(1/3)).toFixed(0))}$)`, threadID, messageID);
     }
     case 'buyfishingrod': {
         if (parseInt(body) > pathItem.length || parseInt(body) <= 0) return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
@@ -443,17 +435,17 @@ module.exports.handleReply = async function ({
         })
         writeFileSync(this.checkPath(3, senderID), JSON.stringify(this.checkPath(4, senderID), null, 2));
         api.unsendMessage(handleReply.messageID)
-        var msg = { body: `𝗠𝘂𝗮 𝘁𝗵𝗮̀𝗻𝗵 𝗰𝗼̂𝗻𝗴 ${data.name}\n𝗚𝗶𝗮́ 𝗺𝘂𝗮: ${data.price}$\n𝗧𝗶̉ 𝗹𝗲̣̂ 𝗯𝗲̂̀𝗻: ${data.durability}\n𝗧𝗵𝗼̛̀𝗶 𝗴𝗶𝗮𝗻 𝗰𝗵𝗼̛̀: ${data.countdown}`, attachment: await this.image(data.image)}
+        var msg = { body: `𝗠𝘂𝗮 𝘁𝗵𝗮̀𝗻𝗵 𝗰𝗼̂𝗻𝗴 ${data.name}\n𝗚𝗶𝗮́ 𝗺𝘂𝗮: ${data.price}$\nTỉ lệ bền: ${data.durability}\n𝗧𝗵𝗼̛̀𝗶 𝗴𝗶𝗮𝗻 𝗰𝗵𝗼̛̀: ${data.countdown}s`, attachment: await this.image(data.image)}
         return api.sendMessage(msg, threadID, messageID);
     }
     case 'chooseFish': {
         if (parseInt(body) > handleReply.listCategory.length || parseInt(body) <= 0) return api.sendMessage('𝐋𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐤𝐡𝐨̂𝐧𝐠 𝐡𝐨̛̣𝐩 𝐥𝐞̣̂ 🚫', threadID, messageID);
         api.unsendMessage(handleReply.messageID);
-        if (handleReply.listCategory[parseInt(body) - 1].length == 0) return api.sendMessage('𝐊𝐡𝐨̂𝐧𝐠 𝐜𝐨́ 𝐜𝐨𝐧 𝐜𝐚́ 𝐧𝐚̀𝐨 𝐡𝐞̂́𝐭 𝐚́, 𝐡𝐦𝐦𝐦 !', threadID, messageID);
+        if (handleReply.listCategory[parseInt(body) - 1].length == 0) return api.sendMessage('𝐊𝐡𝐨̂𝐧𝐠 𝐜𝐨́ 𝐜𝐨𝐧 𝐜𝐚́ 𝐧𝐚̀𝐨 𝐡𝐞̂́𝐭 𝐚́, 𝐡𝐦𝐦𝐦!', threadID, messageID);
         var fish = "🐋===== 𝑭𝑰𝑺𝑯 =====🐋\n\n",
             number = 1;
         for (let i of handleReply.listCategory[parseInt(body) - 1]) {
-            fish += `${number++}. ${i.name} (${i.size}cm) - Loại: ${i.category} - ${i.sell}$\n\n`
+            fish += `${number++}. ${i.name} (${i.size}cm) - Loại: ${i.category} - ${i.sell}$\n`
         }
         return api.sendMessage(fish + "👉 𝐑𝐞𝐩𝐥𝐲 𝐬𝐨̂́ 𝐭𝐡𝐮̛́ 𝐭𝐮̛̣ 𝐯𝐚̀ 𝐛𝐚́𝐧 (𝐜𝐨́ 𝐭𝐡𝐞̂̉ 𝐫𝐞𝐩 𝐧𝐡𝐢𝐞̂̀𝐮 𝐬𝐨̂́) 𝐡𝐨𝐚̣̆𝐜 𝐫𝐞𝐩𝐥𝐲 '𝐚𝐥𝐥' 𝐧𝐞̂́𝐮 𝐦𝐮𝐨̂́𝐧 𝐛𝐚́𝐧 𝐭𝐚̂́𝐭 𝐜𝐚̉ 𝐜𝐚́", threadID, (error, info) => {
             global.client.handleReply.push({
@@ -479,13 +471,13 @@ module.exports.handleReply = async function ({
                 bag.splice(index, 1);
                 writeFileSync(this.checkPath(3, senderID), JSON.stringify((this.checkPath(4, senderID)), null, 2));
             }
-            return api.sendMessage(`𝗕𝗮́𝗻 𝘁𝗵𝗮̀𝗻𝗵 𝗰𝗼̂𝗻𝗴 ${handleReply.list.length} 𝗰𝗼𝗻 𝗰𝗮́ 𝘃𝗮̀ 𝘁𝗵𝘂 𝘃𝗲̂̀ 𝘁𝗼̂̉𝗻𝗴 ${coins}$`, threadID, messageID);
+            return api.sendMessage(`Bán thành công ${handleReply.list.length} con cá và thu về được ${coins}$`, threadID, messageID);
         }
         else {
             var msg = 'Code_By_D-Jukie ' + body
             var chooses = msg.split(" ").map(n => parseInt(n));
             chooses.shift();
-            var text = `===== 𝑺𝑬𝑳𝑳 =====\n\n`,
+            var text = `===== 𝗦𝗘𝗟𝗟 =====\n`,
                 number = 1;
             for (let i of chooses) {
                 const index = (this.checkPath(4, senderID)).fishBag.findIndex(item => item.ID == handleReply.list[i - 1].ID);
@@ -495,7 +487,7 @@ module.exports.handleReply = async function ({
                 bag.splice(index, 1);
                 writeFileSync(this.checkPath(3, senderID), JSON.stringify((this.checkPath(4, senderID)), null, 2));
             }
-            return api.sendMessage(text + `\n\n𝗧𝗵𝘂 𝘃𝗲̂̀ ${coins}$`, threadID, messageID);
+            return api.sendMessage(text + `\n𝗧𝗵𝘂 𝘃𝗲̂̀ đ𝘂̛𝗼̛̣𝗰 ${coins}$`, threadID, messageID);
         }
     }
     default: {
@@ -507,6 +499,6 @@ module.exports.handleReply = async function ({
         var i, w;
         i = (await Currencies.getData(senderID)) || {};
         w = i.money || 0
-        if (w < parseInt(maxMoney)) return api.sendMessage('Bạn không đủ tiền để thực hiện giao dịch này!', threadID, messageID);
+        if (w < parseInt(maxMoney)) return api.sendMessage('𝗕𝗮̣𝗻 𝗸𝗵𝗼̂𝗻𝗴 đ𝘂̉ 𝘁𝗶𝗲̂̀𝗻 đ𝗲̂̉ 𝘁𝗵𝘂̛̣𝗰 𝗵𝗶𝗲̣̂𝗻 𝗴𝗶𝗮𝗼 𝗱𝗶̣𝗰𝗵 𝗻𝗮̀𝘆!', threadID, messageID);
     }
 }

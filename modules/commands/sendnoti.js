@@ -45,7 +45,7 @@ module.exports.run = async ({ api, event, args, Users, handleReply }) => {
     for (idThread of allThread) {
       if (isNaN(parseInt(idThread)) || idThread == threadID) ""
       else {
-        api.sendMessage({body: `=== [ 🔔𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗧𝗜𝗢𝗡🔔 ] ===\n👻 𝗧𝘂̛̀ 𝗔𝗱𝗺𝗶𝗻: ${name}\n⏱️ 𝗧𝗵𝗼̛̀𝗶 𝗴𝗶𝗮𝗻: ${gio}\n📝 𝗡𝗼̣̂𝗶 𝗱𝘂𝗻𝗴: ${args.join(" ")}\n📥 Reply (phản hồi) tin nhắn này để gửi thông báo về Admin`, attachment: fs.createReadStream(path) }, idThread, (e, info) => {
+        api.sendMessage({body: `=== [ 🔔𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗧𝗜𝗢𝗡🔔 ] ===\n👻 𝗧𝘂̛̀ 𝗔𝗱𝗺𝗶𝗻: ${name}\n⏱️ 𝗧𝗵𝗼̛̀𝗶 𝗴𝗶𝗮𝗻: ${gio}\n📝 𝗡𝗼̣̂𝗶 𝗱𝘂𝗻𝗴: ${args.join(" ")}\n`, attachment: fs.createReadStream(path) }, idThread, (e, info) => {
           global.client.handleReply.push({
                 type: "callad",
                 name: this.config.name,
@@ -73,7 +73,7 @@ module.exports.run = async ({ api, event, args, Users, handleReply }) => {
     for (idThread of allThread) {
       if (isNaN(parseInt(idThread)) || idThread == threadID) ""
       else {
-        api.sendMessage(`=== [ 🔔𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗧𝗜𝗢𝗡🔔 ] ===\n👻 𝗧𝘂̛̀ 𝗔𝗱𝗺𝗶𝗻: ${name}\n⏱️ 𝗧𝗵𝗼̛̀𝗶 𝗴𝗶𝗮𝗻: ${gio}\n📝 𝗡𝗼̣̂𝗶 𝗱𝘂𝗻𝗴: ${args.join(" ")}\n📥 Reply (phản hồi) tin nhắn này để gửi thông báo về Admin`, idThread, (error, info) => {
+        api.sendMessage(`=== [ 🔔𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗧𝗜𝗢𝗡🔔 ] ===\n👻 𝗧𝘂̛̀ 𝗔𝗱𝗺𝗶𝗻: ${name}\n⏱️ 𝗧𝗵𝗼̛̀𝗶 𝗴𝗶𝗮𝗻: ${gio}\n📝 𝗡𝗼̣̂𝗶 𝗱𝘂𝗻𝗴: ${args.join(" ")}\n`, idThread, (error, info) => {
           global.client.handleReply.push({
                 type: "callad",
                 name: this.config.name,
