@@ -15,11 +15,11 @@ module.exports.run = async ({ api, event }) => {
   const axios = require('axios');
   const request = require('request');
   const fs = require("fs");
-  axios.get('https://random.tnhanxtthuy.tk/gai').then(res => {
+  axios.get('https://api.thiennhan.studio/images/girl').then(res => {
   let ext = res.data.url.substring(res.data.url.lastIndexOf(".") + 1);
   let callback = function () {
           api.sendMessage({
-            body: `Số ảnh: ${res.data.count}\nFact: ${res.data.author}\nLink: ${res.data.url}`,
+            body: `Số ảnh: ${res.data.count}\nFact: ${res.data.fact}\nLink: ${res.data.url}`,
             attachment: fs.createReadStream(__dirname + `/cache/gấy.${ext}`)
           }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/gấy.${ext}`), event.messageID);
         };
