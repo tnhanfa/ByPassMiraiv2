@@ -15,7 +15,7 @@ const link = args.join(" ")
 if(!args[0]) return api.sendMessage('Vui lòng nhập link hoặc id người dùng muốn thêm vào nhóm!', threadID, messageID);
 var { participantIDs, approvalMode, adminIDs } = await api.getThreadInfo(threadID);
 if(link.indexOf(".com/")!==-1) {
-    const res = await axios.get(`https://api.tnhann.tk/finduid?url=${link}`);
+    const res = await axios.get(`https://api.thiennhan.studio/finduid?url=${link}`);
     var uidUser = res.data.id
     api.addUserToGroup(uidUser, threadID, (err) => {
     if (participantIDs.includes(uidUser)) return api.sendMessage(`Thành viên đã có mặt trong nhóm`, threadID, messageID);

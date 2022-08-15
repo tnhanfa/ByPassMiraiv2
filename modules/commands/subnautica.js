@@ -109,7 +109,7 @@ module.exports.run = async function ({
         if (!existsSync(pathData)) {
             return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n⚔️Bạn chưa đăng kí tài khoản câu cá!\nHãy nhấn !subnautica register hoặc -r", attachment: await this.subnautica()}, threadID, messageID);
         }
-        return api.sendMessage({body: "💸== 𝗙𝗜𝗦𝗛𝗜𝗡𝗚 𝗦𝗛𝗢𝗣 ==💸\n\n𝟭. 𝗠𝘂𝗮 𝗰𝗮̂̀𝗻 𝗰𝗮̂𝘂 🎣\n𝟮. 𝗕𝗮́𝗻 𝗰𝗮́ 𝗵𝗶𝗲̣̂𝗻 𝗰𝗼́ 🐟\n𝟯. 𝗡𝗮̂𝗻𝗴 𝗰𝗮̂́𝗽/𝗦𝘂̛̉𝗮 𝗰𝗵𝘂̛̉𝗮 𝗰𝗮̂̀𝗻 𝗰𝗮̂𝘂 🛠\n\n💎 𝐑𝐞𝐩𝐥𝐲 𝐭𝐢𝐧 𝐧𝐡𝐚̆́𝐧 𝐧𝐚̀𝐲 𝐯𝐨̛́𝐢 𝐥𝐮̛̣𝐚 𝐜𝐡𝐨̣𝐧 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧", attachment: await this.subnautica()}, threadID, (error, info) => {
+        return api.sendMessage({body: "💸== 𝗙𝗜𝗦𝗛𝗜𝗡𝗚 𝗦𝗛𝗢𝗣 ==💸\n\n1. Mua cần câu 🎣\n2. Bán cá hiện có 🐟\n3. Nâng cấp/Sửa chửa cần câu 🛠\n\n💎 Reply tin nhắn này với lựa chọn của bạn", attachment: await this.subnautica()}, threadID, (error, info) => {
             global.client.handleReply.push({
                 name: this.config.name,
                 messageID: info.messageID,
@@ -125,7 +125,7 @@ module.exports.run = async function ({
         }
         var data = this.checkPath(4, senderID)
 
-        return api.sendMessage({body: `🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n𝟭. 𝗖𝗮́ (SL: ${data.fishBag.length})\n𝟮. 𝗖𝗮̂̀𝗻 𝗰𝗮̂𝘂 (𝗦𝗟: ${data.item.length})\n\n💎 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝘃𝗮̣̂𝘁 𝗽𝗵𝗮̂̉𝗺 𝗰𝗮̂̀𝗻 𝘅𝗲𝗺`, attachment: await this.subnautica()}, threadID, (error, info) => {
+        return api.sendMessage({body: `🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n1. Cá (SL: ${data.fishBag.length})\n2. Cần câu (SL: ${data.item.length})\n\n💎 Vui lòng reply vật phẩm cần xem`, attachment: await this.subnautica()}, threadID, (error, info) => {
             global.client.handleReply.push({
                 name: this.config.name,
                 messageID: info.messageID,
@@ -146,7 +146,7 @@ module.exports.run = async function ({
             for (let i of data.item) {
                 listItem += `${number++}. ${i.name} - Thời gian chờ: ${i.countdown}s - Tỉ lệ bền: ${i.durability}\n`
             }
-            listItem += '𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐫𝐞𝐩𝐥𝐲 𝐧𝐞̂́𝐮 𝐦𝐮𝐨̂́𝐧 𝐭𝐡𝐚𝐲 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐜𝐡𝐢́𝐧𝐡 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧'
+            listItem += 'Vui lòng reply nếu muốn thay cần câu chính của bạn'
             return api.sendMessage(listItem, threadID, (error, info) => {
                 global.client.handleReply.push({
                     name: this.config.name,
@@ -159,7 +159,7 @@ module.exports.run = async function ({
             }, messageID);
         }
         if (args[1] == 'locate') {
-            return api.sendMessage({body: "🐙== 𝐊𝐇𝐔 𝐕𝐔̛̣𝐂 𝐂𝐀̂𝐔 ==🐙\n\n𝟭. 𝗧𝗵𝗲 𝗖𝗿𝗮𝘁𝗲𝗿 🦑\n𝟮. 𝗦𝗲𝗰𝘁𝗼𝗿 𝗭𝗲𝗿𝗼 🦀\n\n💎 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝗿𝗲𝗽𝗹𝘆 𝗸𝗲̀𝗺 𝗦𝗧𝗧 đ𝗲̂̉ 𝗰𝗵𝗼̣𝗻 𝗸𝗵𝘂 𝘃𝘂̛̣𝗰", attachment: await this.subnautica()}, threadID, (error, info) => {
+            return api.sendMessage({body: "🐙== 𝐊𝐇𝐔 𝐕𝐔̛̣𝐂 𝐂𝐀̂𝐔 ==🐙\n\n1. The Crater 🦑\n2. Sector Zero 🦀\n\n💎 Vui lòng reply kèm STT để chọn khu vực", attachment: await this.subnautica()}, threadID, (error, info) => {
                 global.client.handleReply.push({
                     name: this.config.name,
                     messageID: info.messageID,
@@ -170,7 +170,7 @@ module.exports.run = async function ({
         }
     }
     case 'help': {
-            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n- 𝗥: 𝗧𝗮̣𝗼 𝘁𝗮̀𝗶 𝗸𝗵𝗼𝗮̉𝗻 👤\n- 𝗖𝗨𝗦𝗧𝗢𝗠: 𝗟𝘂̛̣𝗮 𝗰𝗵𝗼̣𝗻 𝗸𝗵𝘂 𝘃𝘂̛̣𝗰 𝗰𝗮̂𝘂 𝗰𝗮́ 🐊\n- 𝗕𝗔𝗚: 𝗫𝗲𝗺 𝗯𝗮𝗹𝗼 🎒\n- 𝗦𝗛𝗢𝗣: 𝗖𝘂̛̉𝗮 𝗵𝗮̀𝗻𝗴 💰", attachment: await this.subnautica()}, threadID, messageID);
+            return api.sendMessage({body: "🦈== 𝐒𝐔𝐁𝐍𝐀𝐔𝐓𝐈𝐂𝐀 ==🦈\n\n- R: Tạo tài khoản 👤\n- CUSTOM: Lựa chọn khu vực câu cá 🐊\n- BAG: Xem balo 🎒\n- SHOP: Cửa hàng 💰", attachment: await this.subnautica()}, threadID, messageID);
         }
     default: {
         async function checkTime(cooldown, dataTime) {
@@ -179,7 +179,7 @@ module.exports.run = async function ({
                 var time = cooldown - (Date.now() - dataTime),
                     minutes = Math.floor(time / 60000),
                     seconds = ((time % 60000) / 1000).toFixed(0);
-                return api.sendMessage(`⏰  𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐦𝐮𝐚 𝐜𝐚̂̀𝐧 𝐜𝐚̂𝐮 𝐜𝐚̂́𝐩 𝐛𝐚̣̂𝐜 𝐜𝐚𝐨 𝐡𝐨̛𝐧 𝐧𝐞̂́𝐮 𝐦𝐮𝐨̂́𝐧 𝐜𝐚̂𝐮 𝐥𝐢𝐞̂𝐧 𝐭𝐮̣𝐜 𝐭𝐫𝐨𝐧𝐠 𝐭𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧 𝐧𝐠𝐚̆́𝐧\n⌚ 𝐂𝐡𝐨̛̀ 𝐠𝐢𝐚𝐧 𝐜𝐡𝐨̛̀ 𝐜𝐨̀𝐧 𝐥𝐚̣𝐢: ${minutes}:${seconds}!`, threadID, messageID);
+                return api.sendMessage(`⏰  Vui lòng mua cần câu cấp bậc cao hơn nếu muốn câu liên tục trong thời gian ngắn\n⌚ Thời gian chờ còn lại: ${minutes}:${seconds}!`, threadID, messageID);
             }
         }
         if (!existsSync(pathData)) {
