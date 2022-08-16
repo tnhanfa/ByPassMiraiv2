@@ -50,10 +50,10 @@ module.exports.run = async function({ api, event }) {
     const { antiout } = database;
     if (antiout[threadID] == true) {
         antiout[threadID] = false;
-        api.sendMessage("Đã tắt chế độ chống out chùa.", threadID, messageID);
+        api.sendMessage("⚠️ Đã tắt chế độ chống out chùa.", threadID, messageID);
     } else {
         antiout[threadID] = true;
-        api.sendMessage("Đã bật chế độ chống out chùa.\nNghiêm cấm hành vi quấy rối.", threadID, messageID);
+        api.sendMessage("✅ Đã bật chế độ chống out chùa.\n❗️ Nghiêm cấm hành vi quấy rối.", threadID, messageID);
     }
     writeFileSync(path, JSON.stringify(database, null, 4));
 }
