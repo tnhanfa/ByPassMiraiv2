@@ -38,7 +38,7 @@ module.exports.config = {
             var m = global.data.threadBanned.delete(a, 1);
             i += m + " " + p + "\n", o += " " + a + "\n", c += " " + b + "\n"
         }
-        n.sendMessage(`»Thông báo từ Admin ${l}«\n\n-Nhóm ${c} của bạn đã được Gỡ Ban\n\n-Có thể sử dụng được bot ngay bây giờ`, o, (() => n.sendMessage(`${global.data.botID}`, (() => n.sendMessage(`★★Thực thi Unban(true/false)★★\n\n${i}`, t.threadID, (() => n.unsendMessage(s.messageID)))))));
+        n.sendMessage(`»Thông báo từ Admin ${l}«\n\n- Nhóm ${c} của bạn đã được Gỡ Ban\n\n- Có thể sử dụng được bot ngay bây giờ`, o, (() => n.sendMessage(`${global.data.botID}`, (() => n.sendMessage(`★★Thực thi Unban(true/false)★★\n\n${i}`, t.threadID, (() => n.unsendMessage(s.messageID)))))));
         break;
     case "unbanuser":
         g = t.body.split(" "), i = "", o = "", c = "", u = g.map((n => parseInt(n)));
