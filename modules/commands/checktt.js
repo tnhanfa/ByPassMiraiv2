@@ -1,201 +1,329 @@
+const moment = require('moment-timezone');
+const fs = require('fs');
 module.exports.config = {
-    name: "checktt", // Tên lệnh, được sử dụng trong việc gọi lệnh
-    version: "1.0.1", // phiên bản của module này
-    hasPermssion: 0, // Quyền hạn sử dụng, với 0 là toàn bộ thành viên, 1 là quản trị viên trở lên, 2 là admin/owner
-    credits: "DungUwU && Nghĩa", // Công nhận module sở hữu là ai
-    description: "Check tương tác ngày/tuần/toàn bộ", // Thông tin chi tiết về lệnh
-    commandCategory: "Nhóm", // Thuộc vào nhóm nào: system, other, game-sp, game-mp, random-img, edit-img, media, economy, ...
-    usages: "[all/week/day]", // Cách sử dụng lệnh
-    cooldowns: 5, // Thời gian một người có thể lặp lại lệnh
-    dependencies: {
-        "fs": " ",
-        "moment-timezone": " "
-    }
+	name: "checktt", // Tên lệnh, được sử dụng trong việc gọi lệnh
+	version: "beta", // phiên bản của module này
+	hasPermssion: 0, // Quyền hạn sử dụng, với 0 là toàn bộ thành viên, 1 là quản trị viên trở lên, 2 là admin/owner
+	credits: "TruongMini + Adonis", // Công nhận module sở hữu là ai
+	description: "JUST CHECKTT", // Thông tin chi tiết về lệnh
+	commandCategory: "Nhóm", // Thuộc vào nhóm nào: system, other, game-sp, game-mp, random-img, edit-img, media, economy, ...
+	usages: "[all]", // Cách sử dụng lệnh
+	cooldowns: 5, // Thời gian một người có thể lặp lại lệnh
 };
 
-const path = __dirname + '/tnhanchecktt/';
-const moment = require('moment-timezone');
-
-module.exports.onLoad = () => {
-    const fs = require('fs');
-    if (!fs.existsSync(path) || !fs.statSync(path).isDirectory()) {
-        fs.mkdirSync(path, { recursive: true });
-    }
-  setInterval(() => {
-    const today = moment.tz("Asia/Ho_Chi_Minh").day();
-    const checkttData = fs.readdirSync(path);
-    checkttData.forEach(file => {
-      let fileData = JSON.parse(fs.readFileSync(path + file));
-      if (fileData.time != today) {
-        setTimeout(() => {
-          fileData = JSON.parse(fs.readFileSync(path + file));
-          if (fileData.time != today) {
-            fileData.time = today;
-            fs.writeFileSync(path + file, JSON.stringify(fileData, null, 4));
-          }
-        }, 60 * 1000);
-      }
-    })
-  }, 60 * 1000);
+const monthToMSObj = {
+	1: 31 * 24 * 60 * 60 * 1000,
+	2: 28 * 24 * 60 * 60 * 1000,
+	3: 31 * 24 * 60 * 60 * 1000,
+	4: 30 * 24 * 60 * 60 * 1000,
+	5: 31 * 24 * 60 * 60 * 1000,
+	6: 30 * 24 * 60 * 60 * 1000,
+	7: 31 * 24 * 60 * 60 * 1000,
+	8: 31 * 24 * 60 * 60 * 1000,
+	9: 30 * 24 * 60 * 60 * 1000,
+	10: 31 * 24 * 60 * 60 * 1000,
+	11: 30 * 24 * 60 * 60 * 1000,
+	12: 31 * 24 * 60 * 60 * 1000
 }
 
-module.exports.handleEvent = async function ({ api, event, Threads }) {
-    if (global.client.sending_top == true) return;
-    const fs = global.nodemodule['fs'];
-    const { threadID, senderID } = event;
-    const today = moment.tz("Asia/Ho_Chi_Minh").day();
-  
-    if (!fs.existsSync(path + threadID + '.json')) {
-        const newObj = {
-            total: [],
-            week: [],
-            day: [],
-            time: today
-        };
-        fs.writeFileSync(path + threadID + '.json', JSON.stringify(newObj, null, 4));
-        const threadInfo = await Threads.getInfo(threadID) || {};
-        if (threadInfo.hasOwnProperty('isGroup') && threadInfo.isGroup) {
-            const UserIDs = threadInfo.participantIDs;
-            for (user of UserIDs) {
-                if (!newObj.total.find(item => item.id == user)) {
-                    newObj.total.push({
-                        id: user,
-                        count: 0
-                    });
-                }
-                if (!newObj.week.find(item => item.id == user)) {
-                    newObj.week.push({
-                        id: user,
-                        count: 0
-                    });
-                }
-                if (!newObj.day.find(item => item.id == user)) {
-                    newObj.day.push({
-                        id: user,
-                        count: 0
-                    });
-                }
-            }
-        }
-        fs.writeFileSync(path + threadID + '.json', JSON.stringify(newObj, null, 4));
-    }
-    const threadData = JSON.parse(fs.readFileSync(path + threadID + '.json'));
-    if (threadData.time != today) {
-      global.client.sending_top = true;
-      setTimeout(() => global.client.sending_top = false, 5 * 60 * 1000);
-    }
-    const userData_week_index = threadData.week.findIndex(e => e.id == senderID);
-    const userData_day_index = threadData.day.findIndex(e => e.id == senderID);
-    const userData_total_index = threadData.total.findIndex(e => e.id == senderID);
-    if (userData_total_index == -1) {
-        threadData.total.push({
-            id: senderID,
-            count: 1,
-        });
-    } else threadData.total[userData_total_index].count++;
-    if (userData_week_index == -1) {
-        threadData.week.push({
-            id: senderID,
-            count: 1
-        });
-    } else threadData.week[userData_week_index].count++;
-    if (userData_day_index == -1) {
-        threadData.day.push({
-            id: senderID,
-            count: 1
-        });
-    } else threadData.day[userData_day_index].count++;
-    // if (threadData.time != today) {
-    //     threadData.day.forEach(e => {
-    //         e.count = 0;
-    //     });
-    //     if (today == 1) {
-    //         threadData.week.forEach(e => {
-    //             e.count = 0;
-    //         });
-    //     }
-    //     threadData.time = today;
-    // }
 
-    fs.writeFileSync(path + threadID + '.json', JSON.stringify(threadData, null, 4));
+//FUNCTION HOẠT ĐỘNG NHƯ CÁI TÊN CỦA NÓ
+const checkTime = (time) => new Promise((resolve) => {
+	time.forEach((e, i) => time[i] = parseInt(String(e).trim()));
+	const getDayFromMonth = (month) => (month == 0) ? 0 : (month == 2) ? (time[2] % 4 == 0) ? 29 : 28 : ([1, 3, 5, 7, 8, 10, 12].includes(month)) ? 31 : 30;
+	yr = time[2] - 1970;
+	yearToMS = (yr) * 365 * 24 * 60 * 60 * 1000;
+	yearToMS += ((yr - 2) / 4).toFixed(0) * 24 * 60 * 60 * 1000;
+	monthToMS = 0;
+	for (let i = 1; i < time[1]; i++) monthToMS += monthToMSObj[i];
+	if (time[2] % 4 == 0) monthToMS += 24 * 60 * 60 * 1000;
+	dayToMS = time[0] * 24 * 60 * 60 * 1000;
+	hourToMS = time[3] * 60 * 60 * 1000;
+	minuteToMS = time[4] * 60 * 1000;
+	secondToMS = time[5] * 1000;
+	oneDayToMS = 24 * 60 * 60 * 1000;
+	timeMs = yearToMS + monthToMS + dayToMS + hourToMS + minuteToMS + secondToMS - oneDayToMS;
+	resolve(timeMs);
+});
+
+const tt = (yesterDay, toDay, time) => new Promise((resolve) => {
+	if(yesterDay == 0) resolve("chưa có số liệu thống kê");
+	if(toDay == 0) resolve("chưa có số liệu thống kê");
+	let hqua = yesterDay % 24;
+	let hnay = toDay % time;
+	let kqua = hqua % hnay * 100;
+	resolve(kqua.toFixed(2) + "%");
+});
+
+module.exports.handleEvent = async ({ api, event, args, handleEvent }) => {
+    const { threadID, messageID, senderID } = event;
+	const path = __dirname + '/cache/checkttDay.json';
+	if(!fs.existsSync(path)) fs.writeFileSync(path, JSON.stringify({}));
+	let data = JSON.parse(fs.readFileSync(path));
+	var timeVN = moment().tz('Asia/Ho_Chi_Minh').format('DD_MM_YYYY_HH_mm_ss');
+	var time = timeVN.split("_");
+	var time1 = await checkTime(time);
+	var time2 = await new Date(time1)
+	var time3 = time2.getDay();
+	if(!data[threadID]) data[threadID] = {};
+	if(!data[threadID][time3]) data[threadID][time3] = {};
+	if(!data[threadID][time3].user) data[threadID][time3].user = {};
+	if(!data[threadID][time3].user[senderID]) data[threadID][time3].user[senderID] = {yesterDay: 0, today: 0, weekday: 0};
+	if(data[threadID][time3 - 1]) {
+		for(let i in data[threadID][time3 - 1].user) {
+			if(!data[threadID][time3].user[i]) data[threadID][time3].user[i] = {yesterDay: 0, today: 0, weekday: 0};
+			data[threadID][time3].user[i].yesterDay = data[threadID][time3 - 1].user[i].today;
+			data[threadID][time3].user[i].weekday = data[threadID][time3 - 1].user[i].weekday;
+		}
+		data[threadID][time3 - 1] = {};
+	} else if(data[threadID][time3 + 6]) {
+		for(let i in data[threadID][time3 + 6].user) {
+			if(!data[threadID][time3].user[i]) data[threadID][time3].user[i] = {yesterDay: 0, today: 0, weekday: 0};
+			data[threadID][time3].user[i].yesterDay = data[threadID][time3 + 6].user[i].today;
+			data[threadID][time3].user[i].weekday = data[threadID][time3 + 6].user[i].weekday;
+		}
+		data[threadID][time3 + 6] = {};
+	}
+	if(time3 - 1 == 0) {
+		for(let i in data[threadID][time3].user) {
+			data[threadID][time3].user[i].weekday = 0;
+		}
+	}
+	let toDay = data[threadID][time3].user[senderID].today;
+	let weekDay = data[threadID][time3].user[senderID].weekday;
+	toDay += 1;
+	weekDay += 1;
+	data[threadID][time3].user[senderID].today = toDay;
+	data[threadID][time3].user[senderID].weekday = weekDay;
+	fs.writeFileSync(path, JSON.stringify(data, null, 4));
 }
 
-module.exports.run = async function ({ api, event, args, Users, Threads }) {
-    await new Promise(resolve => setTimeout(resolve, 500));
-    const fs = global.nodemodule['fs'];
-    const { threadID, messageID, senderID, mentions } = event;
-    if (!fs.existsSync(path + threadID + '.json')) {
-        return api.sendMessage("Chưa có dữ liệu", threadID);
-    }
-    const threadData = JSON.parse(fs.readFileSync(path + threadID + '.json'));
-    const query = args[0] ? args[0].toLowerCase() : '';
+module.exports.run = async ({ api, event, args, Currencies, Users }) => {
+	const { threadID, messageID, senderID } = event;
+	const path = __dirname + '/cache/checkttDay.json';
+	if(!fs.existsSync(path)) fs.writeFileSync(path, JSON.stringify({}));
+	let data = JSON.parse(fs.readFileSync(path));
+	var timeVN = moment().tz('Asia/Ho_Chi_Minh').format('DD_MM_YYYY_HH_mm_ss');
+	var time = timeVN.split("_");
+	var time1 = await checkTime(time);
+	var time2 = await new Date(time1)
+	var time3 = time2.getDay();
+	let mention = Object.keys(event.mentions)
+	if(args[0] == "all") {
+		var storage = [], exp = [];
+		for(let i in data[threadID][time3].user) storage.push({"name": await Users.getNameUser(i), "exp": data[threadID][time3].user[i].weekday});
+		storage.sort(function (a, b) { return b.exp - a.exp });
+		let msg = "=== 𝗖𝗛𝗘𝗖𝗞 𝗔𝗟𝗟 ===\n";
+		msg += `\n👤 Người dẫn đầu là:\n1. ${storage[0].name} với ${storage[0].exp} tin nhắn`;
+		for(let i = 1; i < storage.length; i++) {
+			msg += `\n${i+1}. ${storage[i].name}: ${storage[i].exp} tin nhắn`;
+		}
+		let sum = 0;
+		for(let i in data[threadID][time3].user) {
+			sum += data[threadID][time3].user[i].weekday;
+		} 
+		msg += `\n↠ Tổng số tin nhắn của box trong tuần qua: ${sum} tin nhắn`;
+		return api.sendMessage(msg, threadID);
+	} else if(mention[0]) {
+		let idUser = mention[0];
+		let nameUser = await Users.getNameUser(idUser);
+		const yesterDay = data[threadID][time3].user[idUser].yesterDay;
+		const today = data[threadID][time3].user[idUser].today;
+		const weekDay = data[threadID][time3].user[idUser].weekday;
+		var storage = [], exp = [];
+		const dataThread = await api.getThreadInfo(event.threadID);
+		for (const value of dataThread.userInfo) storage.push({"id" : value.id, "name": value.name});
+		for (const user of storage) {
+			const countMess = await Currencies.getData(user.id);
+			exp.push({"name" : user.name, "exp": (typeof countMess.exp == "undefined") ? 0 : countMess.exp, "uid": user.id});
+		}
+		exp.sort(function (a, b) { return b.exp - a.exp });
+		const rank = exp.findIndex(e => parseInt(e.uid) == parseInt(mention[0])) + 1;
+		const infoUser = exp[rank - 1];
+		let msg, test = await tt(yesterDay, today, time[3]);
+		if(isNaN(test)) {
+			msg = "thống kê chưa rõ ràng";
+		} else {
+			msg = await tt(yesterDay, today, time[3]);
+		}
+		return api.sendMessage(`=== ${nameUser} ===\n📝 Tổng số tin nhắn: ${infoUser.exp}\n👥 Mức độ tương tác: ${msg}\n💬 Tổng số tin nhắn hôm qua:: ${yesterDay}\n💬 Tổng số tin nhắn hôm nay: ${today}\n💬 Tổng số tin nhắn trong tuần: ${weekDay}`, threadID, messageID);
+	} else {const moment = require('moment-timezone');
+const fs = require('fs');
+module.exports.config = {
+	name: "check", // Tên lệnh, được sử dụng trong việc gọi lệnh
+	version: "beta", // phiên bản của module này
+	hasPermssion: 0, // Quyền hạn sử dụng, với 0 là toàn bộ thành viên, 1 là quản trị viên trở lên, 2 là admin/owner
+	credits: "TruongMini + Adonis", // Công nhận module sở hữu là ai
+	description: "JUST CHECKTT", // Thông tin chi tiết về lệnh
+	commandCategory: "Nhóm", // Thuộc vào nhóm nào: system, other, game-sp, game-mp, random-img, edit-img, media, economy, ...
+	usages: "[all]", // Cách sử dụng lệnh
+	cooldowns: 5, // Thời gian một người có thể lặp lại lệnh
+};
 
-    var header = '',
-        body = '',
-        footer = '',
-        msg = '',
-        count = 1,
-        storage = [],
-        data = 0;
-    if (query == 'all' || query == '-a') {
-        header = '==== 𝗖𝗛𝗘𝗖𝗞 𝗔𝗟𝗟 ====';
-        data = threadData.total;
-    } else if (query == 'week' || query == '-w') {
-        header = '==== 𝗖𝗛𝗘𝗖𝗞 𝗪𝗘𝗘𝗞 ====';
-        data = threadData.week;
-    } else if (query == 'day' || query == '-d') {
-        header = '==== 𝗖𝗛𝗘𝗖𝗞 𝗗𝗔𝗬 ====';
-        data = threadData.day;
-    } else {
-        data = threadData.total;
-    }
-    for (const item of data) {
-        const userName = await Users.getNameUser(item.id) || 'Facebook User';
-        const itemToPush = item;
-        itemToPush.name = userName;
-        storage.push(itemToPush);
-    };
-    let check = ['all', '-a', 'week', '-w', 'day', '-d'].some(e => e == query);
-    if (!check && Object.keys(mentions).length > 0) {
-        storage = storage.filter(e => mentions.hasOwnProperty(e.id));
-    }
-    //sort by count from high to low if equal sort by name
-    storage.sort((a, b) => {
-        if (a.count > b.count) {
-            return -1;
-        }
-        else if (a.count < b.count) {
-            return 1;
-        } else {
-            return a.name.localeCompare(b.name);
-        }
-    });
-    if ((!check && Object.keys(mentions).length == 0) || (!check && Object.keys(mentions).length == 1) || (!check && event.type == 'message_reply')) {
-        const UID = event.messageReply ? event.messageReply.senderID : Object.keys(mentions)[0] ? Object.keys(mentions)[0] : senderID;
-        const userRank = storage.findIndex(e => e.id == UID);
-        const userTotal = threadData.total.find(e => e.id == UID) ? threadData.total.find(e => e.id == UID).count : 0;
-        const userTotalWeek = threadData.week.find(e => e.id == UID) ? threadData.week.find(e => e.id == UID).count : 0;
-        const userTotalDay = threadData.day.find(e => e.id == UID) ? threadData.day.find(e => e.id == UID).count : 0;
-        const nameUID = storage[userRank].name || 'Facebook User';
-        const target = UID == senderID ? 'Bạn' : nameUID;
-        if (userRank == -1) {
-            return api.sendMessage(`${target} chưa có dữ liệu`, threadID);
-        }
-        body += `
-        👥 Tên: ${nameUID}
-        💬 Tin Nhắn Trong Tuần: ${userTotalWeek}
-        💬 Tin Nhắn Trong Ngày: ${userTotalDay}
-        📝 Tổng: ${userTotal} (Top ${userRank + 1})
-        `.replace(/^ +/gm, '');
-    } else {
-        body = storage.map(item => {
-            return `${count++}. ${item.name} (${item.count})`;
-        }).join('\n');
-        footer = `↠ Tổng Tin Nhắn: ${storage.reduce((a, b) => a + b.count, 0)}`;
-    }
+const monthToMSObj = {
+	1: 31 * 24 * 60 * 60 * 1000,
+	2: 28 * 24 * 60 * 60 * 1000,
+	3: 31 * 24 * 60 * 60 * 1000,
+	4: 30 * 24 * 60 * 60 * 1000,
+	5: 31 * 24 * 60 * 60 * 1000,
+	6: 30 * 24 * 60 * 60 * 1000,
+	7: 31 * 24 * 60 * 60 * 1000,
+	8: 31 * 24 * 60 * 60 * 1000,
+	9: 30 * 24 * 60 * 60 * 1000,
+	10: 31 * 24 * 60 * 60 * 1000,
+	11: 30 * 24 * 60 * 60 * 1000,
+	12: 31 * 24 * 60 * 60 * 1000
+}
 
-    msg = `${header}\n${body}\n${footer}`;
-    api.sendMessage(msg, threadID);
-    threadData = storage = null;
-    return;
-              }
+
+//FUNCTION HOẠT ĐỘNG NHƯ CÁI TÊN CỦA NÓ
+const checkTime = (time) => new Promise((resolve) => {
+	time.forEach((e, i) => time[i] = parseInt(String(e).trim()));
+	const getDayFromMonth = (month) => (month == 0) ? 0 : (month == 2) ? (time[2] % 4 == 0) ? 29 : 28 : ([1, 3, 5, 7, 8, 10, 12].includes(month)) ? 31 : 30;
+	yr = time[2] - 1970;
+	yearToMS = (yr) * 365 * 24 * 60 * 60 * 1000;
+	yearToMS += ((yr - 2) / 4).toFixed(0) * 24 * 60 * 60 * 1000;
+	monthToMS = 0;
+	for (let i = 1; i < time[1]; i++) monthToMS += monthToMSObj[i];
+	if (time[2] % 4 == 0) monthToMS += 24 * 60 * 60 * 1000;
+	dayToMS = time[0] * 24 * 60 * 60 * 1000;
+	hourToMS = time[3] * 60 * 60 * 1000;
+	minuteToMS = time[4] * 60 * 1000;
+	secondToMS = time[5] * 1000;
+	oneDayToMS = 24 * 60 * 60 * 1000;
+	timeMs = yearToMS + monthToMS + dayToMS + hourToMS + minuteToMS + secondToMS - oneDayToMS;
+	resolve(timeMs);
+});
+
+const tt = (yesterDay, toDay, time) => new Promise((resolve) => {
+	if(yesterDay == 0) resolve("chưa có số liệu thống kê");
+	if(toDay == 0) resolve("chưa có số liệu thống kê");
+	let hqua = yesterDay % 24;
+	let hnay = toDay % time;
+	let kqua = hqua % hnay * 100;
+	resolve(kqua.toFixed(2) + "%");
+});
+
+module.exports.handleEvent = async ({ api, event, args, handleEvent }) => {
+    const { threadID, messageID, senderID } = event;
+	const path = __dirname + '/cache/checkttDay.json';
+	if(!fs.existsSync(path)) fs.writeFileSync(path, JSON.stringify({}));
+	let data = JSON.parse(fs.readFileSync(path));
+	var timeVN = moment().tz('Asia/Ho_Chi_Minh').format('DD_MM_YYYY_HH_mm_ss');
+	var time = timeVN.split("_");
+	var time1 = await checkTime(time);
+	var time2 = await new Date(time1)
+	var time3 = time2.getDay();
+	if(!data[threadID]) data[threadID] = {};
+	if(!data[threadID][time3]) data[threadID][time3] = {};
+	if(!data[threadID][time3].user) data[threadID][time3].user = {};
+	if(!data[threadID][time3].user[senderID]) data[threadID][time3].user[senderID] = {yesterDay: 0, today: 0, weekday: 0};
+	if(data[threadID][time3 - 1]) {
+		for(let i in data[threadID][time3 - 1].user) {
+			if(!data[threadID][time3].user[i]) data[threadID][time3].user[i] = {yesterDay: 0, today: 0, weekday: 0};
+			data[threadID][time3].user[i].yesterDay = data[threadID][time3 - 1].user[i].today;
+			data[threadID][time3].user[i].weekday = data[threadID][time3 - 1].user[i].weekday;
+		}
+		data[threadID][time3 - 1] = {};
+	} else if(data[threadID][time3 + 6]) {
+		for(let i in data[threadID][time3 + 6].user) {
+			if(!data[threadID][time3].user[i]) data[threadID][time3].user[i] = {yesterDay: 0, today: 0, weekday: 0};
+			data[threadID][time3].user[i].yesterDay = data[threadID][time3 + 6].user[i].today;
+			data[threadID][time3].user[i].weekday = data[threadID][time3 + 6].user[i].weekday;
+		}
+		data[threadID][time3 + 6] = {};
+	}
+	if(time3 - 1 == 0) {
+		for(let i in data[threadID][time3].user) {
+			data[threadID][time3].user[i].weekday = 0;
+		}
+	}
+	let toDay = data[threadID][time3].user[senderID].today;
+	let weekDay = data[threadID][time3].user[senderID].weekday;
+	toDay += 1;
+	weekDay += 1;
+	data[threadID][time3].user[senderID].today = toDay;
+	data[threadID][time3].user[senderID].weekday = weekDay;
+	fs.writeFileSync(path, JSON.stringify(data, null, 4));
+}
+
+module.exports.run = async ({ api, event, args, Currencies, Users }) => {
+	const { threadID, messageID, senderID } = event;
+	const path = __dirname + '/cache/checkttDay.json';
+	if(!fs.existsSync(path)) fs.writeFileSync(path, JSON.stringify({}));
+	let data = JSON.parse(fs.readFileSync(path));
+	var timeVN = moment().tz('Asia/Ho_Chi_Minh').format('DD_MM_YYYY_HH_mm_ss');
+	var time = timeVN.split("_");
+	var time1 = await checkTime(time);
+	var time2 = await new Date(time1)
+	var time3 = time2.getDay();
+	let mention = Object.keys(event.mentions)
+	if(args[0] == "all") {
+		var storage = [], exp = [];
+		for(let i in data[threadID][time3].user) storage.push({"name": await Users.getNameUser(i), "exp": data[threadID][time3].user[i].weekday});
+		storage.sort(function (a, b) { return b.exp - a.exp });
+		let msg = "=== 𝗖𝗛𝗘𝗖𝗞 𝗔𝗟𝗟 ===\n";
+		msg += `\n👤 Người dẫn đầu là:\n1. ${storage[0].name} với ${storage[0].exp} tin nhắn`;
+		for(let i = 1; i < storage.length; i++) {
+			msg += `\n${i+1}. ${storage[i].name}: ${storage[i].exp} tin nhắn`;
+		}
+		let sum = 0;
+		for(let i in data[threadID][time3].user) {
+			sum += data[threadID][time3].user[i].weekday;
+		} 
+		msg += `\n↠ Tổng số tin nhắn của box trong tuần qua: ${sum} tin nhắn`;
+		return api.sendMessage(msg, threadID);
+	} else if(mention[0]) {
+		let idUser = mention[0];
+		let nameUser = await Users.getNameUser(idUser);
+		const yesterDay = data[threadID][time3].user[idUser].yesterDay;
+		const today = data[threadID][time3].user[idUser].today;
+		const weekDay = data[threadID][time3].user[idUser].weekday;
+		var storage = [], exp = [];
+		const dataThread = await api.getThreadInfo(event.threadID);
+		for (const value of dataThread.userInfo) storage.push({"id" : value.id, "name": value.name});
+		for (const user of storage) {
+			const countMess = await Currencies.getData(user.id);
+			exp.push({"name" : user.name, "exp": (typeof countMess.exp == "undefined") ? 0 : countMess.exp, "uid": user.id});
+		}
+		exp.sort(function (a, b) { return b.exp - a.exp });
+		const rank = exp.findIndex(e => parseInt(e.uid) == parseInt(mention[0])) + 1;
+		const infoUser = exp[rank - 1];
+		let msg, test = await tt(yesterDay, today, time[3]);
+		if(isNaN(test)) {
+			msg = "thống kê chưa rõ ràng";
+		} else {
+			msg = await tt(yesterDay, today, time[3]);
+		}
+		return api.sendMessage(`=== ${nameUser} ===\n📝 Tổng số tin nhắn: ${infoUser.exp}\n👥 Mức độ tương tác: ${msg}\n💬 Tổng số tin nhắn hôm qua:: ${yesterDay}\n💬 Tổng số tin nhắn hôm nay: ${today}\n💬 Tổng số tin nhắn trong tuần: ${weekDay}`, threadID, messageID);
+	} else {
+		const countMess = await Currencies.getData(senderID);
+		const yesterDay = data[threadID][time3].user[senderID].yesterDay;
+		const today = data[threadID][time3].user[senderID].today;
+		const weekDay = data[threadID][time3].user[senderID].weekday;
+		let nameUser = await Users.getNameUser(senderID);
+		let sum = 0;
+		let msg, test = await tt(yesterDay, today, time[3]);
+		if(isNaN(test)) {
+			msg = "thống kê chưa rõ ràng";
+		} else {
+			msg = await tt(yesterDay, today, time[3]);
+		}
+		return api.sendMessage(`=== ${nameUser} ===\n📝 Tổng số tin nhắn: ${(typeof countMess.exp == "undefined") ? 0 : countMess.exp}\n👥 Mức độ tương tác: ${msg}\n💬 Tổng số tin nhắn hôm qua:: ${yesterDay}\n💬 Tổng số tin nhắn hôm nay: ${today}\n💬 Tổng số tin nhắn trong tuần: ${weekDay}`, threadID, messageID);
+	}
+}
+		const countMess = await Currencies.getData(senderID);
+		const yesterDay = data[threadID][time3].user[senderID].yesterDay;
+		const today = data[threadID][time3].user[senderID].today;
+		const weekDay = data[threadID][time3].user[senderID].weekday;
+		let nameUser = await Users.getNameUser(senderID);
+		let sum = 0;
+		let msg, test = await tt(yesterDay, today, time[3]);
+		if(isNaN(test)) {
+			msg = "thống kê chưa rõ ràng";
+		} else {
+			msg = await tt(yesterDay, today, time[3]);
+		}
+		return api.sendMessage(`=== ${nameUser} ===\n📝 Tổng số tin nhắn: ${(typeof countMess.exp == "undefined") ? 0 : countMess.exp}\n👥 Mức độ tương tác: ${msg}\n💬 Tổng số tin nhắn hôm qua:: ${yesterDay}\n💬 Tổng số tin nhắn hôm nay: ${today}\n💬 Tổng số tin nhắn trong tuần: ${weekDay}`, threadID, messageID);
+	}
+}
