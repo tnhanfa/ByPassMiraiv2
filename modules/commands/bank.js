@@ -35,7 +35,7 @@ module.exports.run = async function ({ api, event, args, Currencies, Users }) {
             const name = data.message.name
             const stk = data.message.data.STK
             const soDu = data.message.data.money
-            return api.sendMessage(`=== [ MB BANK ] ===\n👤 Chủ tài khoản: ${name}\n💳 STK: ${stk}\n💰 Số dư: ${soDu}$`, threadID, messageID)
+            return api.sendMessage(`=== 𝗠𝗕𝗕𝗔𝗡𝗞 ===\n👤 Chủ tài khoản: ${name}\n💳 STK: ${stk}\n💰 Số dư: ${soDu}$`, threadID, messageID)
         }
       case 'info':
       case '-i':
@@ -44,7 +44,7 @@ module.exports.run = async function ({ api, event, args, Currencies, Users }) {
         var a = event.senderID;
         if(checkBank.status == false) return api.sendMessage('Bạn chưa có tài khoản ngân hàng!', threadID, messageID);
         const res = (await axios.get(`https://api.thiennhan.studio/bank/find?type=ID&ID=${a}`)).data  
-          return api.sendMessage(`=== [ BANK KING ] ===\n👤 Chủ tài khoản: ${res.message.name}\n💳 STK: ${res.message.data.STK}\n💰 Số dư: ${res.message.data.money}$`, threadID, messageID)
+          return api.sendMessage(`=== 𝗕𝗔𝗡𝗞 𝗞𝗜𝗡𝗚 ===\n👤 Chủ tài khoản: ${res.message.name}\n💳 STK: ${res.message.data.STK}\n💰 Số dư: ${res.message.data.money}$`, threadID, messageID)
       }
         case 'get':
         case 'rút': {
@@ -151,7 +151,7 @@ module.exports.run = async function ({ api, event, args, Currencies, Users }) {
         default: {
          const picture = (await axios.get(`https://i.imgur.com/XztHsmL.jpg`, { responseType: "stream"})).data
                            
-        return api.sendMessage({body: "=== 「 BANK KING 」 ===\n--------\n» register » để đăng kí \n» info » để xem thông tin tài khoản bản thân\n» find » để tìm tài khoản ngân hàng \n» get » để rút tiền \n» top » để xem top người dùng \n» pay » để chuyển tiền \n» send » nạp tiền vào tài khoản \n» pw » lấy lại pass hoặc đổi password tài khoản ngân hàng của bạn\n---------",attachment: (picture)
+        return api.sendMessage({body: "=== 𝗕𝗔𝗡𝗞 𝗞𝗜𝗡𝗚 ===\n--------\n» register » để đăng kí \n» info » để xem thông tin tài khoản bản thân\n» find » để tìm tài khoản ngân hàng \n» get » để rút tiền \n» top » để xem top người dùng \n» pay » để chuyển tiền \n» send » nạp tiền vào tài khoản \n» pw » lấy lại pass hoặc đổi password tài khoản ngân hàng của bạn\n---------",attachment: (picture)
      
     }, threadID, messageID);
         }

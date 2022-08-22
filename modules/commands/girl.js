@@ -8,7 +8,7 @@ module.exports.config = {
   hasPermssion: 0,
   credits: "Senbot",
   description: "Ảnh Gái Xinh Nét Đến Từng Sợi Tóc ( Cái Này Sẽ Thay Thế Lệnh GaiViet Nhé )",
-  commandCategory: "Nhóm",
+  commandCategory: "Ảnh - Video",
   cooldowns: 0
 };
 module.exports.run = async ({ api, event }) => {
