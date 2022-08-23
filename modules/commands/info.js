@@ -1,1 +1,122 @@
-module.exports.config={name:"info",version:"1.0.1",hasPermssion:0,credits:"Hung cho",description:"Xem thông tin của nhóm/người dùng",commandCategory:"Nhóm",usages:"[box/user] @tag hoặc [ID]",cooldowns:3,dependencies:{request:"",fs:""}},module.exports.run=async({api:e,event:n,args:a,Users:t,Threads:r,Currencies:i})=>{const s=global.nodemodule["fs-extra"],h=global.nodemodule.request,c=global.data.threadData.get(parseInt(n.threadID))||{},o=c.hasOwnProperty("PREFIX")?c.PREFIX:global.config.PREFIX;switch(a[0]){case"thread":case"-t":case"-b":case"box":{if(a[1]){let t=await e.getThreadInfo(a[1]);var d=(I=(await r.getData(a[1])).threadInfo).threadName||"Tên không tồn tại";let i=t.imageSrc;var g=[],m=[];for(let e in t.userInfo){"MALE"==(D=t.userInfo[e].gender)?g.push(D):m.push(D)}var $=g.length,l=m.length;let c=t.approvalMode;var p=0==c?"tắt":1==c?"bật":"Kh";if(i){var u=()=>e.sendMessage({body:`👀 Tên nhóm: ${d}\n🧩 TID: ${n.threadID}\n🦋 Phê duyệt: ${p}\n🐤 Emoji: ${t.emoji}\n🍳 Thông tin: \n👻 ${n.participantIDs.length} thành viên và ${t.adminIDs.length} quản trị viên.\n🤷‍♀️ Gồm ${$} nam và ${l} nữ.\n📩 Tổng số tin nhắn: ${t.messageCount}.`,attachment:s.createReadStream(__dirname+"/cache/1.png")},n.threadID,(()=>s.unlinkSync(__dirname+"/cache/1.png")),n.messageID);return h(encodeURI(`${t.imageSrc}`)).pipe(s.createWriteStream(__dirname+"/cache/1.png")).on("close",(()=>u()))}e.sendMessage(`👀 Tên nhóm: ${d}\n🐧 TID: ${n.threadID}\n🦋 Phê duyệt: ${p}\n💸 Emoji: ${t.emoji}\n🍳 Thông tin: \n🤨 Có ${n.participantIDs.length} thành viên và ${I.adminIDs.length} quản trị viên.\n🤷‍♀️ Gồm ${$} nam và ${l} nữ.\n📩 Tổng số tin nhắn: ${t.messageCount}.`,n.threadID,n.messageID);break}let t=await e.getThreadInfo(n.threadID);var I;d=(I=(await r.getData(n.threadID)).threadInfo).threadName||"Tên không tồn tại";let i=t.imageSrc;g=[],m=[];for(let e in t.userInfo){var D;"MALE"==(D=t.userInfo[e].gender)?g.push(D):m.push(D)}$=g.length,l=m.length;let c=t.approvalMode;p=0==c?"tắt":1==c?"bật":"Kh";if(i){u=()=>e.sendMessage({body:`👀 Tên nhóm: ${d}\n🧩 TID: ${n.threadID}\n🦋 Phê duyệt: ${p}\n🐤 Emoji: ${t.emoji}\n🍳 Thông tin: \n👻 ${t.participantIDs.length} thành viên và ${t.adminIDs.length} quản trị viên.\n🤷‍♀️ Gồm ${$} nam và ${l} nữ.\n📩 Tổng số tin nhắn: ${t.messageCount}.`,attachment:s.createReadStream(__dirname+"/cache/1.png")},n.threadID,(()=>s.unlinkSync(__dirname+"/cache/1.png")),n.messageID);return h(encodeURI(`${t.imageSrc}`)).pipe(s.createWriteStream(__dirname+"/cache/1.png")).on("close",(()=>u()))}e.sendMessage(`👀 Tên nhóm: ${d}\n🐧 TID: ${n.threadID}\n🦋 Phê duyệt: ${p}\n💸 Emoji: ${t.emoji}\n🍳 Thông tin: \n🤨 Có ${t.participantIDs.length} thành viên và ${t.adminIDs.length} quản trị viên.\n🤷‍♀️ Gồm ${$} nam và ${l} nữ.\n📩 Tổng số tin nhắn: ${t.messageCount}.`,n.threadID,n.messageID);break}case"-u":case"u":case"user":if(a[1]){if(-1!==a.join().indexOf("@")){var f=Object.keys(n.mentions);let a="https://facebook.com/"+`${f}`,r=global.data.userName.get(f)||await(await t.getData(f)).name;v=2==(_=(b=["1","2"])[Math.floor(Math.random()*b.length)])?"Nam":1==_?"Nữ":"Trần Đức Bo";let c=(await i.getData(n.mentions)).money;u=()=>e.sendMessage({body:`💟 𝐓𝐞̂𝐧: ${r}\n📝 𝐔𝐑𝐋 𝐜𝐚́ 𝐧𝐡𝐚̂𝐧: ${a}\n🎀 𝐔𝐈𝐃: ${f}\n🦋 𝐆𝐢𝐨̛́𝐢 𝐭𝐢́𝐧𝐡: ${v}\n💸 𝐒𝐨̂́ 𝐭𝐢𝐞̂̀𝐧: ${c} đô.`,attachment:s.createReadStream(__dirname+"/cache/1.png")},n.threadID,(()=>s.unlinkSync(__dirname+"/cache/1.png")),n.messageID);return h(encodeURI(`https://graph.facebook.com/${f}/picture?height=720&width=720&access_token=1073911769817594|aa417da57f9e260d1ac1ec4530b417de`)).pipe(s.createWriteStream(__dirname+"/cache/1.png")).on("close",(()=>u()))}{let r="https://facebook.com/"+`${a[1]}`,c=await t.getNameUser(a[1]);v=2==(_=(b=["1","2"])[Math.floor(Math.random()*b.length)])?"Nam":1==_?"Nữ":"Trần Đức Bo";let o=(await i.getData(a[1])).money;u=()=>e.sendMessage({body:`💟 𝐓𝐞̂𝐧: ${c}\n📝 𝐔𝐑𝐋 𝐜𝐚́ 𝐧𝐡𝐚̂𝐧: ${r}\n🎀 𝐔𝐈𝐃: ${a[1]}\n🦋 𝐆𝐢𝐨̛́𝐢 𝐭𝐢́𝐧𝐡: ${v}\n💸 𝐒𝐨̂́ 𝐭𝐢𝐞̂̀𝐧: ${o} đô.`,attachment:s.createReadStream(__dirname+"/cache/1.png")},n.threadID,(()=>s.unlinkSync(__dirname+"/cache/1.png")),n.messageID);return h(encodeURI(`https://graph.facebook.com/${a[1]}/picture?height=720&width=720&access_token=1073911769817594|aa417da57f9e260d1ac1ec4530b417de`)).pipe(s.createWriteStream(__dirname+"/cache/1.png")).on("close",(()=>u()))}}{"message_reply"==n.type?id=n.messageReply.senderID:id=n.senderID;let a="https://facebook.com/"+`${id}`,r=await t.getNameUser(id);var b,_,v=2==(_=(b=["1","2"])[Math.floor(Math.random()*b.length)])?"Nam":1==_?"Nữ":"Trần Đức Bo";let c=(await i.getData(id)).money;var u=()=>e.sendMessage({body:`💟 𝐓𝐞̂𝐧: ${r}\n📝 𝐔𝐑𝐋 𝐜𝐚́ 𝐧𝐡𝐚̂𝐧: ${a}\n🎀 𝐔𝐈𝐃: ${id}\n🦋 𝐆𝐢𝐨̛́𝐢 𝐭𝐢́𝐧𝐡: ${v}\n💸 𝐒𝐨̂́ 𝐭𝐢𝐞̂̀𝐧: ${c} đô.`,attachment:s.createReadStream(__dirname+"/cache/1.png")},n.threadID,(()=>s.unlinkSync(__dirname+"/cache/1.png")),n.messageID);return h(encodeURI(`https://graph.facebook.com/${id}/picture?height=720&width=720&access_token=1073911769817594|aa417da57f9e260d1ac1ec4530b417de`)).pipe(s.createWriteStream(__dirname+"/cache/1.png")).on("close",(()=>u()))}default:return e.sendMessage(`Bạn có thể dùng:\n\n${o}${this.config.name} user => nó sẽ lấy thông tin của chính bạn.\n\n${o}${this.config.name} user @[Tag] => nó sẽ lấy thông tin người bạn tag.\n\n${o}${this.config.name} box => nó sẽ lấy thông tin box của bạn (số thành viên, số tin nhắn,...)\n\n${o}${this.config.name} user box [uid || tid]`,n.threadID,n.messageID)}};
+module.exports.config = {
+    name: "info",
+    version: "1.0.0",
+    hasPermssion: 0,
+    credits: "HungCho Mod By NguyenHoangAnhProCoder",
+    description: "",
+    commandCategory: "Nhóm",
+    usages: "",
+    cooldowns: 4,
+    dependencies: {
+        "request": "",
+        "fs": ""    }
+    
+};
+
+module.exports.run = async({api,event,args, Threads}) => {
+    const fs = global.nodemodule["fs-extra"];
+    const request = global.nodemodule["request"];
+          //getPrefix
+        const threadSetting = (await Threads.getData(String(event.threadID))).data || {};
+        const prefix = (threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX : global.config.PREFIX;
+     if (args.length == 0) return api.sendMessage(`Bạn có thể dùng:\n\n${prefix}${this.config.name} user => nó sẽ lấy thông tin của chính bạn.\n\n${prefix}${this.config.name} user @[Tag] => nó sẽ lấy thông tin người bạn tag.\n\n${prefix}${this.config.name} box => nó sẽ lấy thông tin box của bạn (số thành viên, djt nhau,...)\n\n${prefix}${this.config.name} user box [uid || tid.:\n\n${prefix}${this.config.name} admin => Thông tin cá nhân của Admin Bot]`, event.threadID, event.messageID);
+    if (args[0] == "box") {
+           if(args[1]){ let threadInfo = await api.getThreadInfo(args[1]);
+           let imgg = threadInfo.imageSrc;
+           var gendernam = [];
+            var gendernu = [];
+                for (let z in threadInfo.userInfo) {
+                var gioitinhone = threadInfo.userInfo[z].gender;
+                if(gioitinhone == "MALE"){gendernam.push(gioitinhone)
+                }else{gendernu.push(gioitinhone)
+                }};
+             var nam = gendernam.length;
+             var nu = gendernu.length;
+             let sex = threadInfo.approvalMode;
+       var pd = sex == false ? "tắt" : sex == true ? "bật" : "Kh";
+       if(!imgg) api.sendMessage(`🌺 𝗜𝗻𝗳𝗼 𝗕𝗼𝘅 🌺\n💮 Tên nhóm: ${threadInfo.threadName}\n🐧 TID: ${args[1]}\n💘 Phê duyệt: ${pd}\n🐤 Emoji: ${threadInfo.emoji}\n☺️ Thông tin: \n» ${threadInfo.participantIDs.length} thành viên và ${threadInfo.adminIDs.length} quản trị viên.\n» Gồm ${nam} nam và ${nu} nữ.\n» Tổng số tin nhắn: ${threadInfo.messageCount}.`,event.threadID,event.messageID);
+        else var callback = () => api.sendMessage({body:`🌺 𝗜𝗻𝗳𝗼 𝗕𝗼𝘅 🌺\n💮 Tên nhóm: ${threadInfo.threadName}\n🐧 TID: ${args[1]}\n💘 Phê duyệt: ${pd}\n🐤 Emoji: ${threadInfo.emoji}\n☺️ Thông tin: \n» ${threadInfo.participantIDs.length} thành viên và ${threadInfo.adminIDs.length} quản trị viên.\n» Gồm ${nam} nam và ${nu} nữ.\n» Tổng số tin nhắn: ${threadInfo.messageCount}.`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"), event.messageID); 
+      return request(encodeURI(`${threadInfo.imageSrc}`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
+      
+      }
+          
+            let threadInfo = await api.getThreadInfo(event.threadID);
+            let img = threadInfo.imageSrc;
+            var gendernam = [];
+            var gendernu = [];
+                for (let z in threadInfo.userInfo) {
+                var gioitinhone = threadInfo.userInfo[z].gender;
+                if(gioitinhone == "MALE"){gendernam.push(gioitinhone)
+                }else{gendernu.push(gioitinhone)
+                }};
+             var nam = gendernam.length;
+             var nu = gendernu.length;
+             let sex = threadInfo.approvalMode;
+       var pd = sex == false ? "tắt" : sex == true ? "bật" : "Kh";
+          if(!img) api.sendMessage(`🌺 𝗜𝗻𝗳𝗼 𝗕𝗼𝘅 🌺\n💮 Tên nhóm: ${threadInfo.threadName}\n🐧 TID: ${event.threadID}\n💘 Phê duyệt: ${pd}\n🐤 Emoji: ${threadInfo.emoji}\n☺️ Thông tin: \n» ${threadInfo.participantIDs.length} thành viên và ${threadInfo.adminIDs.length} quản trị viên.\n» Gồm ${nam} nam và ${nu} nữ.\n» Tổng số tin nhắn: ${threadInfo.messageCount}.`,event.threadID,event.messageID)
+          else  var callback = () => api.sendMessage({body:`🌺 𝗜𝗻𝗳𝗼 𝗕𝗼𝘅 🌺\n💮 Tên nhóm: ${threadInfo.threadName}\n🐧 TID: ${event.threadID}\n💘 Phê duyệt: ${pd}\n🐤 Emoji: ${threadInfo.emoji}\n☺️ Thông tin: \n» ${threadInfo.participantIDs.length} thành viên và ${threadInfo.adminIDs.length} quản trị viên.\n» Gồm ${nam} nam và ${nu} nữ.\n» Tổng số tin nhắn: ${threadInfo.messageCount}.`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"), event.messageID);   
+      return request(encodeURI(`${threadInfo.imageSrc}`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
+    }
+               if (args.length == 0) return api.sendMessage(`Bạn có thể dùng:\n\n${prefix}${this.config.name} user => nó sẽ lấy thông tin của chính bạn.\n\n${prefix}${this.config.name} user @[Tag] => nó sẽ lấy thông tin người bạn tag.\n\n${prefix}${this.config.name} box => nó sẽ lấy thông tin box của bạn (số thành viên, djt nhau,...)\n\n${prefix}${this.config.name} user box [uid || tid]`, event.threadID, event.messageID);
+    if (args[0] == "admin") {
+      var callback = () => api.sendMessage(
+  {body:`✘ 𝗧𝗵𝗼̂𝗻𝗴 𝗧𝗶𝗻 𝗔𝗱𝗺𝗶𝗻 𝗕𝗼𝘁 ✘
+💮 Tên: Nguyễn Thiện Nhân
+❎ Ngày tháng năm sinh: 30/01/2007
+👤 Giới tính: Nam
+💫 Chiều cao cân nặng: 1m8 x 75kg
+💘 Mối quan hệ: ...
+🌎 Quê quán: Phan Thiết, Bình Thuận
+👫 Gu: Giản dị
+🌸 Tính cách: :))
+🌀 Sở thích: Nghe nhạc, đọc sách`,
+    attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => 
+    fs.unlinkSync(__dirname + "/cache/1.png"));  
+      return request(
+        encodeURI(`https://graph.facebook.com/${1535220001}/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`)).pipe(
+fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
+    
+      };
+
+if (args[0] == "user") { 
+    if(!args[1]){
+    if(event.type == "message_reply") id = event.messageReply.senderID
+    else id = event.senderID;
+    let data = await api.getUserInfo(id);
+    let url = data[id].profileUrl ? data[id].profileUrl : "không rõ";
+    let b = data[id].isFriend == false ? "không !" : data[id].isFriend == true ? "có !" : "Đéo";
+    let sn = data[id].vanity ? data[id].vanity: "";
+    let name = await data[id].name ? await data[id].name : "";
+    var sex = await data[id].gender ? await data[id].gender : "";
+    var gender = sex == 2 ? "Nam" : sex == 1 ? "Nữ" : "Trần Đức Bo";
+    var callback = () => api.sendMessage({body:`🌺 𝙄𝙣𝙛𝙤 𝙪𝙨𝙚𝙧 🌺\n💳Tên: ${name}\n🏝URL cá nhân: ${url}` + `\n💦Tên người dùng: ${sn}\n🐧UID: ${id}\n💘Giới tính: ${gender}\n❄️Kết bạn bot:  ${b}`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"),event.messageID); 
+       return request(encodeURI(`https://graph.facebook.com/${id}/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
+   }
+    else {
+    
+    if (args.join().indexOf('@') !== -1){
+    var mentions = Object.keys(event.mentions)
+    let data = await api.getUserInfo(mentions);
+    let url = data[mentions].profileUrl;
+    let b = data[mentions].isFriend == false ? "không !" : data[mentions].isFriend == true ? "có !" : "Đéo";
+    let sn = data[mentions].vanity;
+    let name = await data[mentions].name;
+    var sex = await data[mentions].gender;
+    var gender = sex == 2 ? "Nam" : sex == 1 ? "Nữ" : "Trần Đức Bo";
+    var callback = () => api.sendMessage({body:`🌺 𝙄𝙣𝙛𝙤 𝙪𝙨𝙚𝙧 🌺\n💳Tên: ${name}` + `\n🏝 URL cá nhân: ${url}` + `\n💦 Tên người dùng: ${sn}\n🐧 UID: ${mentions}\n💘 Giới tính: ${gender}\n❄️ Kết bạn bot: ${b}`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"),event.messageID);   
+       return request(encodeURI(`https://graph.facebook.com/${mentions}/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
+    }
+    else {
+    let data = await api.getUserInfo(args[1]);
+    let url = data[args[1]].profileUrl;
+    let b = data[args[1]].isFriend == false ? "không !" : data[args[1]].isFriend == true ? "có !" : "Đéo";
+    let sn = data[args[1]].vanity;
+    let name = await data[args[1]].name;
+    var sex = await data[args[1]].gender;
+    var gender = sex == 2 ? "Nam" : sex == 1 ? "Nữ" : "Trần Đức Bo";
+    var callback = () => api.sendMessage({body:`🌺 𝙄𝙣𝙛𝙤 𝙪𝙨𝙚𝙧 🌺\n💳Tên: ${name}` + `\n🏝 URL cá nhân: ${url}` + `\n💦 Tên người dùng: ${sn}\n🐧 UID: ${args[1]}\n💘 Giới tính: ${gender}\n❄️ Kết bạn bot: ${b}`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"),event.messageID);   
+       return request(encodeURI(`https://graph.facebook.com/${args[1]}/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
+   }
+  }
+ }  
+  }
