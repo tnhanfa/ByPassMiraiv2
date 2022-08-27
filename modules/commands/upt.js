@@ -26,6 +26,8 @@ var time = process.uptime(),
   var z_1 = (hours < 10) ? '0' + hours : hours;
     var x_1 = (minutes < 10) ? '0' + minutes : minutes;
     var y_1 = (seconds < 10) ? '0' + seconds : seconds;
+    const moment = require("moment-timezone");
+    var gio = moment.tz("Asia/Ho_Chi_Minh").format("HH:mm:ss || D/MM/YYYY");
     const axios = require('axios')
     const threadSetting = (await Threads.getData(String(event.threadID))).data || 
     {};
@@ -124,7 +126,7 @@ registerFont(__dirname + `/tad/CaviarDreams.ttf`, {
     ctx.textAlign = "start";
     ctx.font = "45px time";
     ctx.fillText("tnhantl", 930, 540)
-    ctx.fillText("tnhanfa", 930, 610)
+    ctx.fillText("tnhantl", 930, 610)
     ctx.fillText("tnhantl", 930, 690)
     ctx.restore();
     ctx.save();
@@ -132,7 +134,7 @@ registerFont(__dirname + `/tad/CaviarDreams.ttf`, {
     const imageBuffer = canvas.toBuffer();
    fs.writeFileSync(pathImg, imageBuffer);
   return api.sendMessage({
-    body: `==== 「 𝗨𝗣𝗧𝗜𝗠𝗘 𝗥𝗢𝗕𝗢𝗧 」 ====\n→ Bot đã hoạt động được: ${hours} giờ ${minutes} phút ${seconds} giây.\n━━━━━━━━━━━━━━━━━━\n『 Tổng Người Dùng 』: ${global.data.allUserID.length}\n『 Tổng Nhóm 』: ${global.data.allThreadID.length}\n『 Cpu Đang Sử Dụng 』: ${pidusage.cpu.toFixed(1)}%\n『 Ram Đang Sử Dụng 』: ${byte2mb(pidusage.memory)}\n『 Prefix Bot 』: ${global.config.PREFIX}\n『 Prefix Nhóm 』: ${prefix}\n『 Ping 』: ${Date.now() - timeStart}ms\n『 ID Nhân Vật 』: ${id}`,
+    body: `=== 𝗨𝗣𝗧𝗜𝗠𝗘 𝗥𝗢𝗕𝗢𝗧 ===\n→ Bot đã hoạt động được: ${hours} giờ ${minutes} phút ${seconds} giây.\n━━━━━━━━━━━━━━━━━━\n→ Tổng Người Dùng: ${global.data.allUserID.length}\n→ Tổng Nhóm: ${global.data.allThreadID.length}\n→ Cpu Đang Sử Dụng: ${pidusage.cpu.toFixed(1)}%\n→ Ram Đang Sử Dụng: ${byte2mb(pidusage.memory)}\n→ Prefix Bot: ${global.config.PREFIX}\n→ Prefix Nhóm: ${prefix}\n→ Ping: ${Date.now() - timeStart}ms\n→ ID Nhân Vật: ${id}\n━━━━━━━━━━━━━━━━━━\n[ ${gio} ]`,
     attachment: fs.createReadStream(pathImg)
   },
     event.threadID,

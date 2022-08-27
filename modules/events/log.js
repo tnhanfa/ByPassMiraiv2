@@ -30,8 +30,8 @@ module.exports.run = async function ({ api, event, Users, Threads }) {
 
   //console.log(nameThread)
 
-  var formReport = "[🐧] Thông báo Thêm/Kick [🐧]" +
-    //"\n\n[🐧]Box: " + nameThread +
+  var formReport = "== 𝗧𝗵𝗼̂𝗻𝗴 𝗯𝗮́𝗼 𝗧𝗵𝗲̂𝗺/𝗞𝗶𝗰𝗸 ==" +
+    "\n\n[🐧]Box: " + nameThread +
     "\n\n[🐧] Thread ID: " + event.threadID +
     "\n[🐧] Hành động: {task}" +
     "\n[🐧] Tên người dùng: " + nameUser +

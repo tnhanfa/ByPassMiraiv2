@@ -170,8 +170,7 @@ module.exports.run = async function({ api, event, Threads, args, Users }) {
         var idad = global.config.ADMINBOT;
         if (s.length == 0) {
           for (let ad of idad) {
-            api.sendMessage({ body: `[🐧]  Báo cáo từ: ${name}\n[🐧] 
- Box: ${namethread}\n[🐧] ID box: ${idbox}\n----------------\n[⚠️] Lỗi: ${args.join(
+            api.sendMessage({ body: `[🐧]  Báo cáo từ: ${name}\n[🐧] Box: ${namethread}\n[🐧] ID box: ${idbox}\n----------------\n[⚠️] Lỗi: ${args.join(
               " "
             )}\n----------------\nTime: ${gio}`, mentions: [{ id: event.senderID, tag: name }] },
               ad, (error, info) =>
@@ -189,7 +188,7 @@ module.exports.run = async function({ api, event, Threads, args, Users }) {
         else {
           for (let ad of idad) {
             api.sendMessage({
-              body: `[🐧] Báo cáo từ: ${name}\n⚡Box: ${namethread}\n[🐧] ID box: ${idbox}\n----------------\n[⚠️] Lỗi: ${(args.join(
+              body: `[🐧] Báo cáo từ: ${name}\n⚡ Box: ${namethread}\n[🐧] ID box: ${idbox}\n----------------\n[⚠️] Lỗi: ${(args.join(
                 " "
               )) || "chỉ có tệp không có nội dung báo cáo!"}\n----------------\n[🐧] Time: ${gio}\n----------------\n[🐧] Kèm theo tệp!`, attachment: l, mentions: [{ id: event.senderID, tag: name }]
             },

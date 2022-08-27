@@ -15,7 +15,7 @@ module. exports. handleEvent = async function({ api, event, args, Users,Threads 
   var idad = global.config.ADMINBOT;    
   console.log('\x1b[36m'+ 'TIME 🕓: '+ more + timeNow)
   var seconds = moment.tz("Asia/Ho_Chi_Minh").format("ss");
-  var timeRestart_1 = `02:03:${seconds}`
+  var timeRestart_1 = `00:00:${seconds}`
   //console.log(timeNowRestart)
   if ((timeNow == timeRestart_1) && seconds < 6 ) {
     for( let ad of idad) {

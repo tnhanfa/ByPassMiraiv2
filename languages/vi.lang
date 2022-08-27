@@ -56,18 +56,18 @@ users.needObject=Phải là một Object
 
 # includes/handle/handleCommand.js
 
-handleCommand.userBanned=[🐧] Bạn thật ngu ngốk vì để bị ban!\n📌 Dùng lệnh [ !callad + nội dung ] để xin ân xá nè.\n⛔ Lí do: %1\n⏱ Thời gian: %2
-handleCommand.threadBanned=[🐧] Nhóm của bạn thật ngu ngốk vì để bị ban!\n📌 Dùng lệnh [ !callad + nội dung ] để xin ân xá nè.\n⛔ Lí do: %1\n⏱ Thời gian: %2
-handleCommand.commandNotExist=(\_/)\n(•.•)\n(>🧠 Đưa não cho cậu lắp vào nè.\n[🐧] Lệnh bạn sử dụng không tồn tại, có phải là lệnh "%1" hay không?
-handleCommand.commandThreadBanned=[🐧] Nhóm của bạn đã bị cấm dùng lệnh "%1"\n
-handleCommand.commandUserBanned=[🐧] Bạn đã bị cấm dùng lệnh "%1"\n
-handleCommand.threadNotAllowNSFW=[🐧] Nhóm của bạn không được phép sử dụng những lệnh cấm NSFW vì nó chứa nội dung 18+ 
-handleCommand.cantGetInfoThread=[🐧] Không thể lấy thông tin của nhóm, lỗi: %1
-handleCommand.permssionNotEnough=[🐧] Xin lỗi vì bạn là thành viên nên lệnh "%1" sẽ không hoạt động. Chỉ có Quản Trị Viên hoặc Admin dùng được ❤️
-handleCommand.cantSetMessageReaction=[🐧] Đã có lỗi xảy ra không mong muốn tại setMessageReaction, lỗi: %1
-handleCommand.notFoundLanguage=[🐧] Không tìm thấy ngôn ngữ hỗ trợ cho module %1s
+handleCommand.userBanned=🐧 Bạn thật ngu ngốk vì để bị ban!\n📌 Dùng lệnh [ !callad + nội dung ] để xin ân xá nè.\n⛔ Lí do: %1\n⏱ Thời gian: %2
+handleCommand.threadBanned=🐧 Nhóm của bạn thật ngu ngốk vì để bị ban!\n📌 Dùng lệnh [ !callad + nội dung ] để xin ân xá nè.\n⛔ Lí do: %1\n⏱ Thời gian: %2
+handleCommand.commandNotExist=(\_/)\n(•.•)\n(>🧠 Đưa não cho cậu lắp vào nè.\nLệnh bạn sử dụng không tồn tại, có phải là lệnh "%1" hay không?
+handleCommand.commandThreadBanned=🐧 Nhóm của bạn đã bị cấm dùng lệnh "%1"\n
+handleCommand.commandUserBanned=🐧 Bạn đã bị cấm dùng lệnh "%1"\n
+handleCommand.threadNotAllowNSFW=🐧 Nhóm của bạn không được phép sử dụng những lệnh cấm NSFW vì nó chứa nội dung 18+ 
+handleCommand.cantGetInfoThread=🐧 Không thể lấy thông tin của nhóm, lỗi: %1
+handleCommand.permssionNotEnough=🐧 Xin lỗi vì bạn là thành viên nên lệnh "%1" sẽ không hoạt động. Chỉ có Quản Trị Viên hoặc Admin dùng được ❤️
+handleCommand.cantSetMessageReaction=🐧 Đã có lỗi xảy ra không mong muốn tại setMessageReaction, lỗi: %1
+handleCommand.notFoundLanguage=🐧 Không tìm thấy ngôn ngữ hỗ trợ cho module %1s
 handleCommand.executeCommand=» %1 « Lệnh sử dụng: %2 bởi người dùng: %3 tại nhóm: %4 | Args đi kèm: %5 | Thời gian xử lí: %6ms
-handleCommand.commandError=[🐧] Đã xảy ra lỗi không mong muốn trong khi thực thi lệnh %1, lỗi: %2
+handleCommand.commandError=🐧 Đã xảy ra lỗi không mong muốn trong khi thực thi lệnh %1, lỗi: %2
 
 # includes/handle/handleCommandEvent.js
 
