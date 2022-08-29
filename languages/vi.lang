@@ -56,8 +56,8 @@ users.needObject=Phải là một Object
 
 # includes/handle/handleCommand.js
 
-handleCommand.userBanned=🐧 Bạn thật ngu ngốk vì để bị ban!\n📌 Dùng lệnh [ !callad + nội dung ] để xin ân xá nè.\n⛔ Lí do: %1\n⏱ Thời gian: %2
-handleCommand.threadBanned=🐧 Nhóm của bạn thật ngu ngốk vì để bị ban!\n📌 Dùng lệnh [ !callad + nội dung ] để xin ân xá nè.\n⛔ Lí do: %1\n⏱ Thời gian: %2
+handleCommand.userBanned=🐧 Bạn thật ngu ngốk vì để bị ban!\n📌 Inbox Admin qua telegram/facebook/instagram: @tnhantl để xin ân xá nè.\n(Ưu tiên inbox telegram nhé các bà zà)\n⛔ Lí do: %1\n⏱ Thời gian: %2
+handleCommand.threadBanned=🐧 Nhóm của bạn thật ngu ngốk vì để bị ban!\n📌 Inbox Admin telegram/facebook/instagram: @tnhantl để được ân xá nè.\n(Ưu tiên inbox telegram nhé các bà zà)\n⛔ Lí do: %1\n⏱ Thời gian: %2
 handleCommand.commandNotExist=(\_/)\n(•.•)\n(>🧠 Đưa não cho cậu lắp vào nè.\nLệnh bạn sử dụng không tồn tại, có phải là lệnh "%1" hay không?
 handleCommand.commandThreadBanned=🐧 Nhóm của bạn đã bị cấm dùng lệnh "%1"\n
 handleCommand.commandUserBanned=🐧 Bạn đã bị cấm dùng lệnh "%1"\n

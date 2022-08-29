@@ -88,7 +88,7 @@ var full = [];
                     if (!args[0] || !isNaN(args[0])) return api.sendMessage("[🐧] => Hãy Bấm : !baucua [bầu/cua/cá/nai/gà/tôm] [số tiền]",event.threadID, event.messageID);
                     if (isNaN(moneyBet) || moneyBet <= 0) return api.sendMessage("[🐧] => Số tiền đặt cược không được để trống hoặc là số tiền âm", event.threadID, event.messageID);
                 if (moneyBet > moneyUser) return api.sendMessage("[🐧] => Số tiền bạn đặt lớn hơn số dư của bạn!", event.threadID, event.messageID);
-            if (moneyBet < 5000) return api.sendMessage("[🐧] => Số tiền đặt không được dưới 1000 đô!", event.threadID, event.messageID);
+            if (moneyBet < 1000) return api.sendMessage("[🐧] => Số tiền đặt không được dưới 1000 đô!", event.threadID, event.messageID);
         var number = [], win = false;
     for (let i = 0; i < 3; i++) number[i] = slotItems[Math.floor(Math.random() * slotItems.length)];
         var itemm;
