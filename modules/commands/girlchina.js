@@ -14,12 +14,14 @@ module.exports.config = {
   module.exports.run = async ({ api, event }) => {
     const axios = require('axios');
     const request = require('request');
+    const moment = require('moment-timezone');
+var gio = moment.tz("Asia/Ho_Chi_Minh").format("HH:mm:ss || D/MM/YYYY");
     const fs = require("fs");
     axios.get('https://api.thiennhan.studio/images/china').then(res => {
     let ext = res.data.url.substring(res.data.url.lastIndexOf(".") + 1);
     let callback = function () {
             api.sendMessage({
-              body: `Số ảnh: ${res.data.count}\nFact: ${res.data.fact}\nLink: ${res.data.url}`,
+              body: `Số ảnh: ${res.data.count}\nFact: ${res.data.fact}\nLink: ${res.data.url}\n━━━━━━━━━━━━━━━━━━\n[ ${gio} ]`,
               attachment: fs.createReadStream(__dirname + `/cache/gấy.${ext}`)
             }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/gấy.${ext}`), event.messageID);
           };
