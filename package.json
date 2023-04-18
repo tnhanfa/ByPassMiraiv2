@@ -24,7 +24,7 @@
         "bluebird": "^3.7.2",
         "body-parser": "^1.20.0",
         "caesar-salad": "^2.1.0",
-        "canvas": "^2.9.0",
+        "canvas": "",
         "cfonts": "^2.10.1",
         "chalk": "^2.3.2",
         "chalkercli": "^1.6.4",
@@ -42,9 +42,7 @@
         "fs": "0.0.1-security",
         "fs-extra": "^10.1.0",
         "gifencoder": "^2.0.1",
-      
         "jimp": "^0.16.1",
-        "lawerpr0ject-api": "^1.7.4",
         "lyrics-finder": "^21.7.0",
         "minimist": "^1.2.6",
         "moment": "^2.29.1",
@@ -66,7 +64,6 @@
         "sec": "^2.0.0",
         "semver": "^7.3.7",
         "sequelize": "^6.20.1",
-      
         "simple-youtube-api": "^5.2.1",
         "soundcloud-downloader": "^1.0.0",
         "sqlite": "^4.0.25",
