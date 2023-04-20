@@ -1,4 +1,4 @@
-module.exports.config = {
+﻿module.exports.config = {
     name: "info",
     version: "1.0.0",
     hasPermssion: 0,
@@ -64,7 +64,7 @@ module.exports.run = async({api,event,args, Threads}) => {
 💮 Tên: Nguyễn Thiện Nhân
 ❎ Ngày tháng năm sinh: 30/01/2007
 👤 Giới tính: Nam
-💫 Chiều cao cân nặng: 1m8 x 75kg
+💫 Chiều cao cân nặng: 1m8 x 68kg
 💘 Mối quan hệ: ...
 🌎 Quê quán: Phan Thiết, Bình Thuận
 👫 Gu: Giản dị

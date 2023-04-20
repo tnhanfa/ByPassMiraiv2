@@ -1,0 +1,20 @@
+{
+    "name": "Ng Giaa Hânn",
+    "ID": "100076763439898",
+    "mainROD": null,
+    "GPS": {
+        "locate": null,
+        "area": null
+    },
+    "fishBag": [
+        {
+            "ID": 0,
+            "name": "Đừng bán con cá này ko là lỗi tao đéo chịu trách nhiệm đâu",
+            "category": "Legendary",
+            "size": 999999,
+            "sell": 0
+        }
+    ],
+    "item": [],
+    "timeRegister": "19:37:41, 29/5/2022"
+}

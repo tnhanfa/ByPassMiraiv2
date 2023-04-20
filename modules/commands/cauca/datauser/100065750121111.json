@@ -1,0 +1,29 @@
+{
+  "name": "Boizhaimái Yêuemkhôngsaitrái",
+  "ID": "100065750121111",
+  "mainROD": null,
+  "GPS": {
+    "locate": null,
+    "area": null
+  },
+  "fishBag": [
+    {
+      "ID": 0,
+      "name": "Đừng bán con cá này ko là lỗi tao đéo chịu trách nhiệm đâu",
+      "category": "Legendary",
+      "size": 999999,
+      "sell": 0
+    }
+  ],
+  "item": [
+    {
+      "name": "D.U Core Harpoon",
+      "price": 17500,
+      "durability": 450,
+      "countdown": 60,
+      "countdownData": null,
+      "image": "https://i.imgur.com/vWRvdAP.png"
+    }
+  ],
+  "timeRegister": "10:34:26, 13/6/2022"
+}

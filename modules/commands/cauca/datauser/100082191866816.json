@@ -1,0 +1,133 @@
+{
+  "name": "Dương Quốc Khang",
+  "ID": "100082191866816",
+  "mainROD": "𝖀𝖓𝖐𝖓𝖔𝖜𝖓 𝕿𝖗𝖎𝖉𝖊𝖓𝖙",
+  "GPS": {
+    "locate": "The Crater",
+    "area": "Crash Zone"
+  },
+  "fishBag": [
+    {
+      "ID": 0,
+      "name": "Đừng bán con cá này ko là lỗi tao đéo chịu trách nhiệm đâu",
+      "category": "Legendary",
+      "size": 999999,
+      "sell": 0
+    },
+    {
+      "ID": 1,
+      "name": "Red Eyeye",
+      "category": "Common",
+      "size": 36,
+      "sell": 230,
+      "image": "https://i.imgur.com/5CynMOd.png"
+    },
+    {
+      "ID": 2,
+      "name": "Red Eyeye",
+      "category": "Common",
+      "size": 36,
+      "sell": 230,
+      "image": "https://i.imgur.com/5CynMOd.png"
+    },
+    {
+      "ID": 3,
+      "name": "Arctic Ray",
+      "category": "Uncommon",
+      "size": 120,
+      "sell": 990,
+      "image": "https://i.imgur.com/fJwcFHQ.png"
+    },
+    {
+      "ID": 4,
+      "name": "Arctic Peeper",
+      "category": "Common",
+      "size": 34,
+      "sell": 200,
+      "image": "https://i.imgur.com/Qsx7khe.png"
+    },
+    {
+      "ID": 5,
+      "name": "Arctic Peeper",
+      "category": "Common",
+      "size": 34,
+      "sell": 200,
+      "image": "https://i.imgur.com/Qsx7khe.png"
+    },
+    {
+      "ID": 6,
+      "name": "Arctic Ray",
+      "category": "Uncommon",
+      "size": 120,
+      "sell": 990,
+      "image": "https://i.imgur.com/fJwcFHQ.png"
+    },
+    {
+      "ID": 7,
+      "name": "Bladderfish",
+      "category": "Common",
+      "size": 32,
+      "sell": 200,
+      "image": "https://i.imgur.com/W5IegiJ.png"
+    },
+    {
+      "ID": 8,
+      "name": "Bladderfish",
+      "category": "Common",
+      "size": 32,
+      "sell": 200,
+      "image": "https://i.imgur.com/W5IegiJ.png"
+    },
+    {
+      "ID": 9,
+      "name": "Sand Shark",
+      "category": "Rare",
+      "size": 500,
+      "sell": 2250,
+      "image": "https://i.imgur.com/Ejo0kju.png"
+    },
+    {
+      "ID": 10,
+      "name": "Stalker",
+      "category": "Uncommon",
+      "size": 1800,
+      "sell": 900,
+      "image": "https://i.imgur.com/Gc8qMDh.png"
+    },
+    {
+      "ID": 11,
+      "name": "Stalker",
+      "category": "Uncommon",
+      "size": 1800,
+      "sell": 900,
+      "image": "https://i.imgur.com/Gc8qMDh.png"
+    },
+    {
+      "ID": 12,
+      "name": "Sand Shark",
+      "category": "Rare",
+      "size": 500,
+      "sell": 2250,
+      "image": "https://i.imgur.com/Ejo0kju.png"
+    }
+  ],
+  "item": [
+    {
+      "name": "D.U Core Harpoon",
+      "price": 17500,
+      "durability": 440,
+      "countdown": 60,
+      "countdownData": 1656787798616,
+      "image": "https://i.imgur.com/vWRvdAP.png"
+    },
+    {
+      "name": "𝖀𝖓𝖐𝖓𝖔𝖜𝖓 𝕿𝖗𝖎𝖉𝖊𝖓𝖙",
+      "price": 1675000,
+      "durability": 59820,
+      "countdown": 5,
+      "countdownData": 1656788486390,
+      "image": "https://i.imgur.com/EDozSgg.jpg"
+    }
+  ],
+  "timeRegister": "01:45:38, 3/7/2022"
+}

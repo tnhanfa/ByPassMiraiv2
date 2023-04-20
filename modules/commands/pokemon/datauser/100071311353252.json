@@ -1,0 +1,26 @@
+{
+  "name": "ʚMa Nữ Biết Ỉaɞ",
+  "ID": "100071311353252",
+  "pet": [
+    {
+      "name": "Beedrill",
+      "type": "Bug",
+      "HP": 65,
+      "Attack": 90,
+      "Defense": 40,
+      "Speed": 75,
+      "coins": 27000,
+      "skill": [
+        "Swarm",
+        "Sniper"
+      ],
+      "images": "https://raw.githubusercontent.com/Purukitto/pokemon-data.json/master/images/pokedex/hires/015.png"
+    }
+  ],
+  "foods": [],
+  "solo": {
+    "win": 0,
+    "lose": 0,
+    "draw": 0
+  }
+}

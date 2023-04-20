@@ -1,0 +1,42 @@
+{
+  "name": "Nguyễn Thị Cẩm Tú",
+  "ID": "100073621244804",
+  "pet": [
+    {
+      "name": "Onix",
+      "type": "Rock",
+      "HP": "52.5",
+      "Attack": "67.5",
+      "Defense": "240.0",
+      "Speed": "105.0",
+      "skill": [
+        "Rock Head",
+        "Sturdy",
+        "Weak Armor"
+      ],
+      "coins": 20000,
+      "images": "https://raw.githubusercontent.com/Purukitto/pokemon-data.json/master/images/pokedex/hires/095.png"
+    },
+    {
+      "name": "Bisharp",
+      "type": "Dark",
+      "HP": "26.0",
+      "Attack": "50.0",
+      "Defense": "40.0",
+      "Speed": "28.0",
+      "skill": [
+        "Defiant",
+        "Inner Focus",
+        "Pressure"
+      ],
+      "coins": 0,
+      "images": "https://raw.githubusercontent.com/Purukitto/pokemon-data.json/master/images/pokedex/hires/625.png"
+    }
+  ],
+  "foods": [],
+  "solo": {
+    "win": 0,
+    "lose": 0,
+    "draw": 0
+  }
+}

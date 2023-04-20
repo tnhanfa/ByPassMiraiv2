@@ -1,0 +1,182 @@
+{
+  "name": "Dương Quốc Khang",
+  "ID": "100078799526369",
+  "mainROD": "𝖀𝖓𝖐𝖓𝖔𝖜𝖓 𝕿𝖗𝖎𝖉𝖊𝖓𝖙",
+  "GPS": {
+    "locate": "The Crater",
+    "area": "Blood Kelp Zone"
+  },
+  "fishBag": [
+    {
+      "ID": 2,
+      "name": "Crabsquid",
+      "category": "Rare",
+      "size": 500,
+      "sell": 2100,
+      "image": "https://i.imgur.com/KBzDuHM.png"
+    },
+    {
+      "ID": 6,
+      "name": "Warper",
+      "category": "Epic",
+      "size": 170,
+      "sell": 3480,
+      "image": "https://i.imgur.com/XRsxfIV.png"
+    },
+    {
+      "ID": 7,
+      "name": "Warper",
+      "category": "Epic",
+      "size": 170,
+      "sell": 3480,
+      "image": "https://i.imgur.com/XRsxfIV.png"
+    },
+    {
+      "ID": 19,
+      "name": "Gasopod",
+      "category": "Rare",
+      "size": 4700,
+      "sell": 1800,
+      "image": "https://i.imgur.com/d5RYnzo.png"
+    },
+    {
+      "ID": 28,
+      "name": "Reginald",
+      "category": "Common",
+      "size": 30,
+      "sell": 200,
+      "image": "https://i.imgur.com/NCAzEvi.jpg"
+    },
+    {
+      "ID": 29,
+      "name": "Reefback Leviathan",
+      "category": "Common",
+      "size": 37,
+      "sell": 250,
+      "image": "https://i.imgur.com/Knd4axq.png"
+    },
+    {
+      "ID": 30,
+      "name": "Peeper",
+      "category": "Common",
+      "size": 31,
+      "sell": 200,
+      "image": "https://i.imgur.com/9tBkTdD.jpg"
+    },
+    {
+      "ID": 37,
+      "name": "Warper",
+      "category": "Epic",
+      "size": 170,
+      "sell": 3480,
+      "image": "https://i.imgur.com/XRsxfIV.png"
+    },
+    {
+      "ID": 40,
+      "name": "Spinefish",
+      "category": "Common",
+      "size": 29,
+      "sell": 200,
+      "image": "https://i.imgur.com/inXivDO.jpg"
+    },
+    {
+      "ID": 41,
+      "name": "Warper",
+      "category": "Epic",
+      "size": 170,
+      "sell": 3480,
+      "image": "https://i.imgur.com/XRsxfIV.png"
+    },
+    {
+      "ID": 42,
+      "name": "Spinefish",
+      "category": "Common",
+      "size": 29,
+      "sell": 200,
+      "image": "https://i.imgur.com/inXivDO.jpg"
+    },
+    {
+      "ID": 44,
+      "name": "Ampeel",
+      "category": "Rare",
+      "size": 1100,
+      "sell": 4050,
+      "image": "https://i.imgur.com/hHyRaNE.jpg"
+    },
+    {
+      "ID": 45,
+      "name": "Warper",
+      "category": "Epic",
+      "size": 170,
+      "sell": 3480,
+      "image": "https://i.imgur.com/XRsxfIV.png"
+    },
+    {
+      "ID": 46,
+      "name": "Spinefish",
+      "category": "Common",
+      "size": 29,
+      "sell": 200,
+      "image": "https://i.imgur.com/inXivDO.jpg"
+    },
+    {
+      "ID": 47,
+      "name": "Spinefish",
+      "category": "Common",
+      "size": 29,
+      "sell": 200,
+      "image": "https://i.imgur.com/inXivDO.jpg"
+    },
+    {
+      "ID": 48,
+      "name": "Warper",
+      "category": "Epic",
+      "size": 170,
+      "sell": 3480,
+      "image": "https://i.imgur.com/XRsxfIV.png"
+    },
+    {
+      "ID": 49,
+      "name": "Blighter",
+      "category": "Uncommon",
+      "size": 22,
+      "sell": 300,
+      "image": "https://i.imgur.com/ke5jbH3.jpg"
+    },
+    {
+      "ID": 50,
+      "name": "Spinefish",
+      "category": "Common",
+      "size": 29,
+      "sell": 200,
+      "image": "https://i.imgur.com/inXivDO.jpg"
+    },
+    {
+      "ID": 51,
+      "name": "Spinefish",
+      "category": "Common",
+      "size": 29,
+      "sell": 200,
+      "image": "https://i.imgur.com/inXivDO.jpg"
+    },
+    {
+      "ID": 52,
+      "name": "Blood Crawler",
+      "category": "Uncommon",
+      "size": 40,
+      "sell": 500,
+      "image": "https://i.imgur.com/QKrzlCr.png"
+    }
+  ],
+  "item": [
+    {
+      "name": "𝖀𝖓𝖐𝖓𝖔𝖜𝖓 𝕿𝖗𝖎𝖉𝖊𝖓𝖙",
+      "price": 1675000,
+      "durability": 59210,
+      "countdown": 5,
+      "countdownData": 1656792870185,
+      "image": "https://i.imgur.com/EDozSgg.jpg"
+    }
+  ],
+  "timeRegister": "02:08:00, 3/7/2022"
+}

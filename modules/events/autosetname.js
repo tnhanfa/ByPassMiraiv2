@@ -24,5 +24,5 @@ var memJoin = event.logMessageData.addedParticipants.map(info => info.userFbId)
 		api.changeNickname(`${setName} ${namee}`, threadID, idUser);
 		} 
 	}	
-	return api.sendMessage(`[🐧] Đã set biệt danh tạm thời cho thành viên mới`, threadID, event.messageID)
+	return api.sendMessage(`Đã set biệt danh tạm thời cho thành viên mới`, threadID, event.messageID)
 }

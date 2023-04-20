@@ -1,0 +1,29 @@
+{
+  "name": "Lê Thịnh",
+  "ID": "100070915874832",
+  "mainROD": "𝖀𝖓𝖐𝖓𝖔𝖜𝖓 𝕿𝖗𝖎𝖉𝖊𝖓𝖙",
+  "GPS": {
+    "locate": "The Crater",
+    "area": "Crater Edge – The Void"
+  },
+  "fishBag": [
+    {
+      "ID": 0,
+      "name": "Đừng bán con cá này ko là lỗi tao đéo chịu trách nhiệm đâu",
+      "category": "Legendary",
+      "size": 999999,
+      "sell": 0
+    }
+  ],
+  "item": [
+    {
+      "name": "𝖀𝖓𝖐𝖓𝖔𝖜𝖓 𝕿𝖗𝖎𝖉𝖊𝖓𝖙",
+      "price": 1675000,
+      "durability": 59870,
+      "countdown": 5,
+      "countdownData": 1654332464087,
+      "image": "https://i.imgur.com/EDozSgg.jpg"
+    }
+  ],
+  "timeRegister": "04:06:50, 3/6/2022"
+}

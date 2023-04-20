@@ -1,0 +1,29 @@
+{
+  "name": "ʚMa Nữ Biết Ỉaɞ",
+  "ID": "100071311353252",
+  "mainROD": "Light Iron Harpoon",
+  "GPS": {
+    "locate": "Sector Zero",
+    "area": "World Edge – The Void"
+  },
+  "fishBag": [
+    {
+      "ID": 0,
+      "name": "Đừng bán con cá này ko là lỗi tao đéo chịu trách nhiệm đâu",
+      "category": "Legendary",
+      "size": 999999,
+      "sell": 0
+    }
+  ],
+  "item": [
+    {
+      "name": "Light Iron Harpoon",
+      "price": 400,
+      "durability": 0,
+      "countdown": 300,
+      "countdownData": 1653627829204,
+      "image": "https://i.imgur.com/gQuka5L.jpg"
+    }
+  ],
+  "timeRegister": "14:59:53, 25/5/2022"
+}

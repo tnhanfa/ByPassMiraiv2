@@ -1,0 +1,29 @@
+{
+  "name": "Khánh Pluss",
+  "ID": "100076870653581",
+  "mainROD": "Titanium Harpoon",
+  "GPS": {
+    "locate": null,
+    "area": null
+  },
+  "fishBag": [
+    {
+      "ID": 0,
+      "name": "Đừng bán con cá này ko là lỗi tao đéo chịu trách nhiệm đâu",
+      "category": "Legendary",
+      "size": 999999,
+      "sell": 0
+    }
+  ],
+  "item": [
+    {
+      "name": "Titanium Harpoon",
+      "price": 4000,
+      "durability": 100,
+      "countdown": 150,
+      "countdownData": null,
+      "image": "https://i.imgur.com/vgIeC3t.jpg"
+    }
+  ],
+  "timeRegister": "21:42:47, 31/5/2022"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "ʚTrần Gia Huyɞ",
+  "ID": "100080757451598",
+  "mainROD": null,
+  "GPS": {
+    "locate": null,
+    "area": null
+  },
+  "fishBag": [
+    {
+      "ID": 0,
+      "name": "Đừng bán con cá này ko là lỗi tao đéo chịu trách nhiệm đâu",
+      "category": "Legendary",
+      "size": 999999,
+      "sell": 0
+    }
+  ],
+  "item": [
+    {
+      "name": "𝖀𝖓𝖐𝖓𝖔𝖜𝖓 𝕿𝖗𝖎𝖉𝖊𝖓𝖙",
+      "price": 1675000,
+      "durability": 60000,
+      "countdown": 5,
+      "countdownData": null,
+      "image": "https://i.imgur.com/EDozSgg.jpg"
+    }
+  ],
+  "timeRegister": "21:51:26, 23/5/2022"
+}

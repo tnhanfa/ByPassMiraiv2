@@ -1,0 +1,20 @@
+{
+    "name": "Gia Linh Linh",
+    "ID": "100079636822471",
+    "mainROD": null,
+    "GPS": {
+        "locate": null,
+        "area": null
+    },
+    "fishBag": [
+        {
+            "ID": 0,
+            "name": "Cá Thách Đấu",
+            "category": "Legendary",
+            "size": 999999,
+            "sell": 0
+        }
+    ],
+    "item": [],
+    "timeRegister": "08:54:56, 2/7/2022"
+}

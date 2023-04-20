@@ -1,0 +1,27 @@
+{
+  "name": "Nguyễn Thao",
+  "ID": "100067773103603",
+  "pet": [
+    {
+      "name": "Remoraid",
+      "type": "Water",
+      "HP": "14.0",
+      "Attack": "26.0",
+      "Defense": "14.0",
+      "Speed": "26.0",
+      "skill": [
+        "Hustle",
+        "Sniper",
+        "Moody"
+      ],
+      "coins": 0,
+      "images": "https://raw.githubusercontent.com/Purukitto/pokemon-data.json/master/images/pokedex/hires/223.png"
+    }
+  ],
+  "foods": [],
+  "solo": {
+    "win": 0,
+    "lose": 0,
+    "draw": 0
+  }
+}

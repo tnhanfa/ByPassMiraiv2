@@ -1,0 +1,1 @@
+<html><head><meta charset="utf-8" /></head><body><script type="text/javascript" nonce="m0V4YFJ8">document.location.replace("https:\/\/youtu.be\/8O3zNppKvXY");</script></body></html>
