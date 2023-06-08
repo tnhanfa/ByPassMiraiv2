@@ -5,7 +5,7 @@ module.exports.config = {
 	credits: "",
 	description: "Hướng dẫn cho người mới",
 	usages: "[all/-a] [số trang]",
-	commandCategory: "Dành cho người dùng",
+	commandCategory: "Nhóm",
 	cooldowns: 5
 };
 
