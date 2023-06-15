@@ -31,7 +31,7 @@ module.exports.run = async function({ api, event }) {
 	if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
 		api.changeNickname(`[ ${global.config.PREFIX} ] • ${(!global.config.BOTNAME) ? "djt me Hoàn simp Dũng lỏ" : global.config.BOTNAME}`, threadID, api.getCurrentUserID());
 		const fs = require("fs");
-		return api.sendMessage("", event.threadID, () => api.sendMessage({body:`➤ 𝗞𝗲̂́𝘁 𝗻𝗼̂́𝗶 𝘁𝗵𝗮̀𝗻𝗵 𝗰𝗼̂𝗻𝗴\n→ 𝗦𝘂̛̉ 𝗱𝘂̣𝗻𝗴 !𝗵𝗲𝗹𝗽 𝗵𝗼𝗮̣̆𝗰 !𝗺𝗲𝗻𝘂 đ𝗲̂̉ 𝗯𝗶𝗲̂́𝘁 𝘁𝗵𝗲̂𝗺 𝗰𝗮́𝗰 𝗹𝗲̣̂𝗻𝗵 🌸\n◆━━━━━━━━━━━◆\n`, attachment: fs.createReadStream(__dirname + "/cache/joinMp4/hello.gif")} ,threadID));
+		return api.sendMessage("", event.threadID, () => api.sendMessage({body:`➤ 𝗞𝗲̂́𝘁 𝗻𝗼̂́𝗶 𝘁𝗵𝗮̀𝗻𝗵 𝗰𝗼̂𝗻𝗴\n→ 𝗦𝘂̛̉ 𝗱𝘂̣𝗻𝗴 ${global.config.PREFIX}𝗵𝗲𝗹𝗽 𝗵𝗼𝗮̣̆𝗰 ${global.config.PREFIX}𝗺𝗲𝗻𝘂 đ𝗲̂̉ 𝗯𝗶𝗲̂́𝘁 𝘁𝗵𝗲̂𝗺 𝗰𝗮́𝗰 𝗹𝗲̣̂𝗻𝗵 🌸\n◆━━━━━━━━━━━◆\n`, attachment: fs.createReadStream(__dirname + "/cache/joinMp4/hello.gif")} ,threadID));
 	}
 	else {
 		try {
